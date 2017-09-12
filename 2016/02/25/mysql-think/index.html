@@ -3,14 +3,22 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Archives | Hexo</title>
+  <title>一个脚本引发的思考 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="upeng.github.io/blog/archives/index.html">
+  <meta name="description" content="问题来源：前段时间写了一个crontab脚本，每5分钟连接一次数据库，遍历库中待处理的任务，一旦发现待处理(status=0)的任务,则将该任务状态置为处理中(status=1)，然后开始执行这个任务（dealing process），执行完成status=2  最初我是一次性将所有任务设为处理中，然后一个一个串行处理，这样效率极低，一个任务可能要1个小时，其他的只能排队等。">
+<meta name="keywords" content="mysql">
+<meta property="og:type" content="article">
+<meta property="og:title" content="一个脚本引发的思考">
+<meta property="og:url" content="upeng.github.io/blog/2016/02/25/mysql-think/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="问题来源：前段时间写了一个crontab脚本，每5分钟连接一次数据库，遍历库中待处理的任务，一旦发现待处理(status=0)的任务,则将该任务状态置为处理中(status=1)，然后开始执行这个任务（dealing process），执行完成status=2  最初我是一次性将所有任务设为处理中，然后一个一个串行处理，这样效率极低，一个任务可能要1个小时，其他的只能排队等。">
+<meta property="og:image" content="http://upfriend-blog.stor.sinaapp.com/bucket%2F2016011202.jpg">
+<meta property="og:image" content="http://upfriend-blog.stor.sinaapp.com/bucket%2F20160112002223.jpg">
+<meta property="og:updated_time" content="2017-06-28T16:12:44.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="一个脚本引发的思考">
+<meta name="twitter:description" content="问题来源：前段时间写了一个crontab脚本，每5分钟连接一次数据库，遍历库中待处理的任务，一旦发现待处理(status=0)的任务,则将该任务状态置为处理中(status=1)，然后开始执行这个任务（dealing process），执行完成status=2  最初我是一次性将所有任务设为处理中，然后一个一个串行处理，这样效率极低，一个任务可能要1个小时，其他的只能排队等。">
+<meta name="twitter:image" content="http://upfriend-blog.stor.sinaapp.com/bucket%2F2016011202.jpg">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -59,215 +67,78 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/blog/archives/2016" class="archive-year">2016</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/blog/2016/08/28/mac-lnmp/" class="archive-article-date">
-  <time datetime="2016-08-28T14:28:49.000Z" itemprop="datePublished">Aug 28</time>
+        <section id="main"><article id="post-mysql-think" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2016/02/25/mysql-think/" class="article-date">
+  <time datetime="2016-02-24T16:19:00.000Z" itemprop="datePublished">2016-02-25</time>
 </a>
-      
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/blog/categories/MySQL/">MySQL</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/blog/2016/08/28/mac-lnmp/">Mac下安装LNMP(Nginx+PHP5.6)环境</a>
+    <h1 class="article-title" itemprop="name">
+      一个脚本引发的思考
     </h1>
   
 
-    </header>
-  </div>
-</article>
-  
+      </header>
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/blog/2016/08/28/mac-primary/" class="archive-article-date">
-  <time datetime="2016-08-28T02:09:29.000Z" itemprop="datePublished">Aug 28</time>
-</a>
+    <div class="article-entry" itemprop="articleBody">
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/blog/2016/08/28/mac-primary/">首次折腾Mac</a>
-    </h1>
-  
+        <h2 id="问题来源："><a href="#问题来源：" class="headerlink" title="问题来源："></a>问题来源：</h2><p>前段时间写了一个crontab脚本，每5分钟连接一次数据库，遍历库中待处理的任务，一旦发现待处理(status=0)的任务,则将该任务状态置为处理中(status=1)，然后开始执行这个任务（dealing process），执行完成status=2</p>
+<blockquote>
+<p>最初我是一次性将所有任务设为处理中，然后一个一个串行处理，这样效率极低，一个任务可能要1个小时，其他的只能排队等。</p>
+</blockquote>
+<a id="more"></a>
+<p><strong>Q1:</strong>如果一次性插入多个任务到任务表（比如5个,初始都是status=0），当cron执行第三条的时候，5分钟到了，然后开启第二个cron进程，继续扫描任务表，发现有2个待处理，于是去处理。。。可是，这个时候，如果第一个进程刚刚执行完第3个任务，开始执行第4个任务（也就是第二个进程的第1个任务），但是总会有一个进程会拿到这个任务，另一个进程会出现执行失败的情况</p>
+<p><strong>原因如下：</strong></p>
+<p>先遍历数据库，将待处理任务取出<br><em>第一个进程，将5个任务存入数组</em><br>$firstTask = array(1,2,3,4,5)<br><em>5min后，第二个进程，将2个任务存入数组</em><br>$secondTask = array(4,5)<br>如果第4个任务被第一个进程执行，但是此时4、5任务均位于第二个进程待处理范围，会继续run，这时候update任务表时，返回false;因为第4个任务已经被第一个进程处理了（已经update了）！<br>当然，这是没有问题的，最终5个任务都会被处理掉，不管他们是那个进程处理的，但是过程中，会出现返回false，伴随更新数据库失败的发生，为了避免这一个问题的发生，在update任务表之前，要先查询任务的状态，如果处理中(status=1)，OK，跳出此次循环，continue。。。这样的话，可以充分利用<strong>多进程并行处理多任务</strong>。</p>
+<p><strong>Q2:</strong>如果一个任务处理时间较长，当处理完成，再次更新任务状态时失败，因为数据库已经失联了！对，断开连接，为什么？因为如果长时间链接数据库，而又没有操作，相当占用服务资源，我们都知道，数据库的链接数量是有限的，如果一直占着资源不放，其他作业就无法进行。就像一句俗语你懂的！</p>
+<p>所有数据库一般都设置了连接超时时间，比如30s自动断开连接，再次使用只能重新连接<br><strong>查看mysql当前连接数</strong><br><code>show processlist;</code><br><img src="http://upfriend-blog.stor.sinaapp.com/bucket%2F2016011202.jpg" alt="请输入图片描述"><br><strong>查看mysql超时时间设置</strong><br><code>show variables like &#39;%timeout%&#39;;</code><br><img src="http://upfriend-blog.stor.sinaapp.com/bucket%2F20160112002223.jpg" alt="请输入图片描述"></p>
+<p>所以为了保证任务顺利完成，可以在每个sql操作前进行mysql的connection连接（基于单例模式，如果已经连接，则不需再连接）</p>
 
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/blog/2016/08/15/laravel-basic/" class="archive-article-date">
-  <time datetime="2016-08-15T14:24:32.000Z" itemprop="datePublished">Aug 15</time>
-</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/blog/2016/08/15/laravel-basic/">laravel基础任务学习清单</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/blog/2016/07/17/vuejs/" class="archive-article-date">
-  <time datetime="2016-07-17T07:58:17.000Z" itemprop="datePublished">Jul 17</time>
-</a>
+    </div>
+    <footer class="article-footer">
+      <a data-url="upeng.github.io/blog/2016/02/25/mysql-think/" data-id="cj7hwqldv0010fsp4d0i57vb8" class="article-share-link">Share</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/blog/2016/07/17/vuejs/">vuejs与后台数据的交互实践</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/blog/2016/07/13/vagrant/" class="archive-article-date">
-  <time datetime="2016-07-13T15:32:54.000Z" itemprop="datePublished">Jul 13</time>
-</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/blog/2016/07/13/vagrant/">vagrant-快速搭建linux开发环境</a>
-    </h1>
-  
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/mysql/">mysql</a></li></ul>
 
-    </header>
+    </footer>
   </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/blog/2016/04/10/mysql-grant/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          mysql添加用户管理员及授权
+        
+      </div>
+    </a>
+  
+  
+    <a href="/blog/2016/01/31/linux-awk/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Linux常用命令-awk</div>
+    </a>
+  
+</nav>
+
+  
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/blog/2016/07/11/memcacheq/" class="archive-article-date">
-  <time datetime="2016-07-11T15:29:55.000Z" itemprop="datePublished">Jul 11</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/blog/2016/07/11/memcacheq/">MCQ学习笔记</a>
-    </h1>
-  
 
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/blog/2016/06/30/zephir/" class="archive-article-date">
-  <time datetime="2016-06-30T15:42:24.000Z" itemprop="datePublished">Jun 30</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/blog/2016/06/30/zephir/">使用zephir快速编写php扩展</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-database">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/blog/2016/06/25/normal/" class="archive-article-date">
-  <time datetime="2016-06-25T08:32:12.000Z" itemprop="datePublished">Jun 25</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/blog/2016/06/25/normal/">数据库范式的思考</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/blog/2016/06/17/thinking-1/" class="archive-article-date">
-  <time datetime="2016-06-16T18:07:38.000Z" itemprop="datePublished">Jun 17</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/blog/2016/06/17/thinking-1/">In Recent Days</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/blog/2016/05/29/thinking/" class="archive-article-date">
-  <time datetime="2016-05-29T11:18:09.000Z" itemprop="datePublished">May 29</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/blog/2016/05/29/thinking/">standing on the shoulders of the giants</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-
-  <nav id="page-nav">
-    <span class="page-number current">1</span><a class="page-number" href="/blog/archives/page/2/">2</a><a class="page-number" href="/blog/archives/page/3/">3</a><a class="extend next" rel="next" href="/blog/archives/page/2/">__('next') &raquo;</a>
-  </nav>
 </section>
         
           <aside id="sidebar">

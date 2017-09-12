@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>laravel学习笔记-用户认证 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="在平时开发过程中，用户登录注册是非常常见的场景，比如大部分后台管理、论坛等等；用户一般web访问流程从业务来说是这样的：">
+<meta name="keywords" content="laravel">
+<meta property="og:type" content="article">
+<meta property="og:title" content="laravel学习笔记-用户认证">
+<meta property="og:url" content="upeng.github.io/blog/2016/05/29/laravel-auth/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="在平时开发过程中，用户登录注册是非常常见的场景，比如大部分后台管理、论坛等等；用户一般web访问流程从业务来说是这样的：">
+<meta property="og:updated_time" content="2017-06-28T16:12:44.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="laravel学习笔记-用户认证">
+<meta name="twitter:description" content="在平时开发过程中，用户登录注册是非常常见的场景，比如大部分后台管理、论坛等等；用户一般web访问流程从业务来说是这样的：">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/blog/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/blog/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/blog/">Home</a>
+        
+          <a class="main-nav-link" href="/blog/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="upeng.github.io/blog"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-laravel-auth" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2016/05/29/laravel-auth/" class="article-date">
+  <time datetime="2016-05-29T00:17:07.000Z" itemprop="datePublished">2016-05-29</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/blog/categories/PHP编程/">PHP编程</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      laravel学习笔记-用户认证
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在平时开发过程中，用户登录注册是非常常见的场景，比如大部分后台管理、论坛等等；用户一般web访问流程从业务来说是这样的：<br><a id="more"></a></p>
+<ol>
+<li>注册</li>
+<li>登录</li>
+<li>进入首页</li>
+<li>查看&amp;操作</li>
+<li>退出登录</li>
+</ol>
+<p>很多时候为了实现1、2、5这部分功能，重复造了很多轮子。目前接触到的laravel，就避免了你重复造轮子的问题，下面结合自己在laravelacademy上学习的laravel认证这部分做一下记录和总结，我学习的思路大致上是先学会用，然后搞清楚原理；所以这篇blog先记录如何使用的，快速实现function，尽管写的很low，但是给自己看，最关键的是是一个温习的过程，fighting！</p>
+<p>laravel认证【插件】做了什么？</p>
+<ul>
+<li>注册</li>
+<li>登录</li>
+<li>找回密码（这都帮忙做好了^_^）</li>
+</ul>
+<h3 id="数据库表准备"><a href="#数据库表准备" class="headerlink" title="数据库表准备"></a>数据库表准备</h3><p>注册其实是入库的过程，也就是说，你需要有一个表专门用以存储注册用户的信息，laravel的<code>migration</code>已经自动创建了<code>users</code>和<code>password_resets</code>建表语句，只需<code>php artisan migrate</code>即可创建2张表到数据库；况且Model层已经创建了<code>User.php</code><br><!-- more --></p>
+<h3 id="路由设置"><a href="#路由设置" class="headerlink" title="路由设置"></a>路由设置</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">// 认证路由...</div><div class="line">Route::get(&apos;auth/login&apos;, &apos;Auth\AuthController@getLogin&apos;);</div><div class="line">Route::post(&apos;auth/login&apos;, &apos;Auth\AuthController@postLogin&apos;);</div><div class="line">Route::get(&apos;auth/logout&apos;, &apos;Auth\AuthController@getLogout&apos;);</div><div class="line"></div><div class="line">// 注册路由...</div><div class="line">Route::get(&apos;auth/register&apos;, &apos;Auth\AuthController@getRegister&apos;);</div><div class="line">Route::post(&apos;auth/register&apos;, &apos;Auth\AuthController@postRegister&apos;);</div><div class="line"></div><div class="line">// 发送密码重置链接路由</div><div class="line">Route::get(&apos;password/email&apos;, &apos;Auth\PasswordController@getEmail&apos;);</div><div class="line">Route::post(&apos;password/email&apos;, &apos;Auth\PasswordController@postEmail&apos;);</div><div class="line"></div><div class="line">// 密码重置路由</div><div class="line">Route::get(&apos;password/reset/&#123;token&#125;&apos;, &apos;Auth\PasswordController@getReset&apos;);</div><div class="line">Route::post(&apos;password/reset&apos;, &apos;Auth\PasswordController@postReset&apos;);</div><div class="line"></div><div class="line">//成功认证后网站首页</div><div class="line">Route::get(&apos;/&apos;, &apos;UserController@index&apos;);</div></pre></td></tr></table></figure>
+<p>你会发现<code>AuthController</code>没有<code>getLogin、postLogin</code>这些方法，这里需要说明一下<a href="http://php.net/manual/zh/language.oop5.traits.php" target="_blank" rel="external">trait</a>官方手册讲述的已经很清楚，顺便学习一下overtrue的这篇文章<a href="http://overtrue.me/articles/2016/04/about-php-trait.html" target="_blank" rel="external">我所理解的 PHP Trait</a>，所以如果想知道auth怎么操作数据库，又是如何加载视图，做何种跳转，深入trait层去看代码就好。</p>
+<h3 id="控制器"><a href="#控制器" class="headerlink" title="控制器"></a>控制器</h3><p>laravel已经创建好了auth控制器，位于<code>Controllers/Auth/</code>下，而且中间件也都默认创建，基本的准备工作已经做足，只需你创建view，做一些简单的设置就可以使用了</p>
+<h4 id="部分属性设置"><a href="#部分属性设置" class="headerlink" title="部分属性设置"></a>部分属性设置</h4><p>注册登录和密码重置的路由入口都在<code>Controllers/Auth/</code>下的<code>AuthController.php</code>和<code>PasswordController.php</code>,他们都是用了<code>trait</code><br>如果你在控制器中没有定义一些path，<code>trait</code>底层都会使用自己定义的默认值，如果你喜欢这个默认值，你就按照他来写你的<code>route.php</code>吧，这里我们可以自己定义，覆盖<code>trait</code>中的这部分属性；如果不知道属性名称，进入<code>trait</code>查看</p>
+<blockquote>
+<p>eg:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">//in AuthController.php</div><div class="line">protected $redirectPath = &apos;/&apos;;  //登录或注册成功进入首页，默认是/home</div><div class="line">protected $redirectAfterLogout = &apos;/auth/login&apos;; //退出登录后跳转到登录页</div><div class="line"></div><div class="line">//in PasswordController.php</div><div class="line">protected $redirectPath = &apos;/&apos;;  //密码重置成功后跳转</div><div class="line">protected $subject = &apos;点击此处重置密码：&apos;;  //邮件内容</div></pre></td></tr></table></figure></p>
+</blockquote>
+<h4 id="发挥认证作用"><a href="#发挥认证作用" class="headerlink" title="发挥认证作用"></a>发挥认证作用</h4><p>比如在登录成功后跳转的路由’/‘，我们在<code>UserController</code>中怎么确定用户是否登录，如果没有登录怎么让用户成功登录后callback到其输入的地址；<strong>auth中间件开始发挥其作用了</strong>，所谓中间件，从字面上理解就是在用户访问该页面前，先去执行中间件内容。其实在Auth中也使用了中间件guest;在UserController中加入下面这个构造函数，即可让用户先登录再访问。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">&lt;?php</div><div class="line"></div><div class="line">namespace App\Http\Controllers;</div><div class="line"></div><div class="line">use Illuminate\Http\Request;</div><div class="line"></div><div class="line">use App\Http\Requests;</div><div class="line">use App\Http\Controllers\Controller;</div><div class="line"></div><div class="line">class UserController extends Controller</div><div class="line">&#123;</div><div class="line">    public function __construct()</div><div class="line">    &#123;</div><div class="line">        $this-&gt;middleware(&apos;auth&apos;);</div><div class="line">    &#125;</div><div class="line">    /**</div><div class="line">     * Display a listing of the resource.</div><div class="line">     *</div><div class="line">     * @return \Illuminate\Http\Response</div><div class="line">     */</div><div class="line">    public function index(Request $request)</div><div class="line">    &#123;</div><div class="line">        $user = $request-&gt;user();</div><div class="line">        echo $user[&apos;name&apos;] . &apos;登录成功！&apos;;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="发散"><a href="#发散" class="headerlink" title="发散"></a>发散</h3><h4 id="关于模板"><a href="#关于模板" class="headerlink" title="关于模板"></a>关于模板</h4><p>使用Form表单类，加上bootstrap打造属于自己的登录注册界面，模板文件名源于trait中定义的view，当然我们可以重写getLogin等方法，因为它们有的简单到只有一个<code>return veiw(*.blade.php)</code><br>主要创建以下模板：<a href="https://github.com/upeng/learn-laravel" target="_blank" rel="external">详细页面</a></p>
+<ul>
+<li>register.blade.php</li>
+<li>login.blade.php</li>
+<li>password.blade.php</li>
+<li>reset.blade.php</li>
+</ul>
+<h4 id="关于设置session"><a href="#关于设置session" class="headerlink" title="关于设置session"></a>关于设置session</h4><p>我们常见的登录登出按钮，重置密码，获取当前登录用户的基本信息等等。开始搞起吧！<br>后面仔细研究源码，从根本上掌握auth认真的全流程。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="upeng.github.io/blog/2016/05/29/laravel-auth/" data-id="cj7hwqlch0005fsp45bbchyps" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/laravel/">laravel</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/blog/2016/05/29/thinking/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          standing on the shoulders of the giants
+        
+      </div>
+    </a>
+  
+  
+    <a href="/blog/2016/05/28/php-detail/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">几个值得深思的 PHP 面试问题</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/Linux/">Linux</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/MySQL/">MySQL</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/PHP编程/">PHP编程</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/其他/">其他</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/前端/">前端</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/数据库范式/">数据库范式</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/CI/">CI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/JQuery/">JQuery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Mac/">Mac</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/MySQL/">MySQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/awk/">awk</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/bash/">bash</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/laravel/">laravel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/linux/">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/memcacheq/">memcacheq</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/mysql/">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/php/">php</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/thinking/">thinking</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/tmux/">tmux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/vagrant/">vagrant</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/vuejs/">vuejs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/zephir/">zephir</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/设计模式/">设计模式</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/blog/tags/CI/" style="font-size: 10px;">CI</a> <a href="/blog/tags/JQuery/" style="font-size: 10px;">JQuery</a> <a href="/blog/tags/Mac/" style="font-size: 15px;">Mac</a> <a href="/blog/tags/MySQL/" style="font-size: 10px;">MySQL</a> <a href="/blog/tags/awk/" style="font-size: 10px;">awk</a> <a href="/blog/tags/bash/" style="font-size: 10px;">bash</a> <a href="/blog/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/blog/tags/laravel/" style="font-size: 20px;">laravel</a> <a href="/blog/tags/linux/" style="font-size: 10px;">linux</a> <a href="/blog/tags/memcacheq/" style="font-size: 10px;">memcacheq</a> <a href="/blog/tags/mysql/" style="font-size: 20px;">mysql</a> <a href="/blog/tags/php/" style="font-size: 10px;">php</a> <a href="/blog/tags/thinking/" style="font-size: 15px;">thinking</a> <a href="/blog/tags/tmux/" style="font-size: 10px;">tmux</a> <a href="/blog/tags/vagrant/" style="font-size: 10px;">vagrant</a> <a href="/blog/tags/vuejs/" style="font-size: 10px;">vuejs</a> <a href="/blog/tags/zephir/" style="font-size: 10px;">zephir</a> <a href="/blog/tags/设计模式/" style="font-size: 15px;">设计模式</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/08/">August 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/07/">July 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/06/">June 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/04/">April 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/02/">February 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/01/">January 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2015/10/">October 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2015/08/">August 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2015/07/">July 2015</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/blog/2016/08/28/mac-lnmp/">Mac下安装LNMP(Nginx+PHP5.6)环境</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2016/08/28/mac-primary/">首次折腾Mac</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2016/08/15/laravel-basic/">laravel基础任务学习清单</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2016/07/17/vuejs/">vuejs与后台数据的交互实践</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2016/07/13/vagrant/">vagrant-快速搭建linux开发环境</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/blog/" class="mobile-nav-link">Home</a>
+  
+    <a href="/blog/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css">
+  <script src="/blog/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/blog/js/script.js"></script>
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>vagrant-快速搭建linux开发环境 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="平时开发测试使用公司提供的弹性开发机（Centos），自己想折腾一些东西又不方面在上面部署,鉴于  学习linux考虑（比如经常装扩展插件啥的），装WAMP有些low而且不适合扩展。 在windows上装linux虚拟机（VMare等）又太占内存（o(╯□╰)o我的笔记本只有4G内存。。。）  有没有那种快捷的搭建linux开发环境的东东呢？答案是肯定的。偶然间发现了vagrant，它就像一个容器">
+<meta name="keywords" content="vagrant">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vagrant-快速搭建linux开发环境">
+<meta property="og:url" content="upeng.github.io/blog/2016/07/13/vagrant/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="平时开发测试使用公司提供的弹性开发机（Centos），自己想折腾一些东西又不方面在上面部署,鉴于  学习linux考虑（比如经常装扩展插件啥的），装WAMP有些low而且不适合扩展。 在windows上装linux虚拟机（VMare等）又太占内存（o(╯□╰)o我的笔记本只有4G内存。。。）  有没有那种快捷的搭建linux开发环境的东东呢？答案是肯定的。偶然间发现了vagrant，它就像一个容器">
+<meta property="og:updated_time" content="2017-06-28T16:12:44.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="vagrant-快速搭建linux开发环境">
+<meta name="twitter:description" content="平时开发测试使用公司提供的弹性开发机（Centos），自己想折腾一些东西又不方面在上面部署,鉴于  学习linux考虑（比如经常装扩展插件啥的），装WAMP有些low而且不适合扩展。 在windows上装linux虚拟机（VMare等）又太占内存（o(╯□╰)o我的笔记本只有4G内存。。。）  有没有那种快捷的搭建linux开发环境的东东呢？答案是肯定的。偶然间发现了vagrant，它就像一个容器">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/blog/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/blog/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/blog/">Home</a>
+        
+          <a class="main-nav-link" href="/blog/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="upeng.github.io/blog"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-vagrant" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2016/07/13/vagrant/" class="article-date">
+  <time datetime="2016-07-13T15:32:54.000Z" itemprop="datePublished">2016-07-13</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/blog/categories/其他/">其他</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      vagrant-快速搭建linux开发环境
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>平时开发测试使用公司提供的弹性开发机（Centos），自己想折腾一些东西又不方面在上面部署,鉴于</p>
+<ul>
+<li>学习linux考虑（比如经常装扩展插件啥的），装WAMP有些low而且不适合扩展。</li>
+<li>在windows上装linux虚拟机（VMare等）又太占内存（o(╯□╰)o我的笔记本只有4G内存。。。）</li>
+</ul>
+<p>有没有那种快捷的搭建linux开发环境的东东呢？答案是肯定的。偶然间发现了vagrant，它就像一个容器一样（Docker？），部署LAMP十分快捷；<br><a id="more"></a></p>
+<h2 id="我所理解的vagrant-box"><a href="#我所理解的vagrant-box" class="headerlink" title="我所理解的vagrant box"></a>我所理解的vagrant box</h2><p>我理解的，vagrant box就是一个简易linux操作系统内核，到vagrant官网可以看到很多【<a href="http://www.vagrantbox.es/】，" target="_blank" rel="external">http://www.vagrantbox.es/】，</a> 选择一个box下载下来，然后通过vagrant add box就可以直接初始化一个linux系统了；如果你想创建多个linux系统，那就多add 几个，所以vagrant也可以练习分布式！但是，这个网站的速度也慢的可以，推荐一个国内镜像，还是挺快的，每秒20M左右 【<a href="http://mirrors.hypo.cn/ubuntu-vagrant/】" target="_blank" rel="external">http://mirrors.hypo.cn/ubuntu-vagrant/】</a></p>
+<h2 id="预备软件"><a href="#预备软件" class="headerlink" title="预备软件"></a>预备软件</h2><p>virtualBox : 运行linux的环境 【<a href="https://www.vagrantup.com/】" target="_blank" rel="external">https://www.vagrantup.com/】</a><br>vagrant：提供一些vagrant命令 【<a href="https://www.virtualbox.org/】" target="_blank" rel="external">https://www.virtualbox.org/】</a><br>百度云盘备份：【<a href="http://pan.baidu.com/s/1o8aoofo】" target="_blank" rel="external">http://pan.baidu.com/s/1o8aoofo】</a></p>
+<h2 id="vagrant-box下载"><a href="#vagrant-box下载" class="headerlink" title="vagrant box下载"></a>vagrant box下载</h2><p>记得第一次是“在线”下载vagrant box，执行vagrant init；vagrant up之后，当检测到无box时会自动下载；速度慢的惊人（虽然我开了vpn），而且在线安装的box直接就在我们vagrant up命令中执行了，没有见到box后缀的文件，当你重装系统后或者你安装的vagrant损坏后，难道又要重新在线安装box？ +_+ 所以建议下载box文件，然后使用vagrant add box命令</p>
+<h2 id="vagrant-常用命令-快速搭建LAMP流程"><a href="#vagrant-常用命令-快速搭建LAMP流程" class="headerlink" title="vagrant 常用命令(快速搭建LAMP流程)"></a>vagrant 常用命令(快速搭建LAMP流程)</h2><h3 id="添加box"><a href="#添加box" class="headerlink" title="添加box"></a>添加box</h3><p>vargant box add  trusty  trusty-server-cloudimg-amd64-vagrant-disk1.box<br>// vagrant box add  box默认名称是base,此处我们定义为trusty  .box文件就是我们下载的box</p>
+<h3 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h3><p>vagrant init<br>因为我们重新命名了我们的box为trusty，所以你再任何地方只要执行vagrant init，生成的Vagrant文件中config.vm.box=’trusty’；<br>如果执行vagrant up会失败，因为vagrant init默认以base为名初始化；正确的初始化姿势是<br>vagrant init trusty</p>
+<h3 id="启动虚拟机"><a href="#启动虚拟机" class="headerlink" title="启动虚拟机"></a>启动虚拟机</h3><p>vargant up<br>vagrant up之前需要将Vagrant文件的第25行注释去掉，这样才能在windows中访问我们在linux中创建的程序；在trusty版本的Ubuntu中，有个目录 <code>/vagrant</code>与本地windows中Vagrant同级，因此可以本地编辑，linux中运行，就像磁盘映射。</p>
+<h3 id="登录虚拟机"><a href="#登录虚拟机" class="headerlink" title="登录虚拟机"></a>登录虚拟机</h3><p>vagrant ssh<br>使用vagrant ssh进入Ubuntu系统；进入后需要更新升级Ubuntu的一些包和工具，同事需要安装我们的LAMP。<br>升级包命令： <code>sudo apt-get update</code><br>安装php apache: <code>sudo apt-get install apache2 php5 libapache2-mod-php5</code><br>安装mysql: <code>sudo apt-get install mysql-server mysql-client php5-mysql</code></p>
+<h3 id="配置apache2"><a href="#配置apache2" class="headerlink" title="配置apache2"></a>配置apache2</h3><p>安装完成后访问：<code>http://localhost:8080</code> , 默认指向 <code>/var/www/html</code> ,修改配置文件如下：<br>配置文件路径  <code>/etc/apache2/sites-available/000-default.conf</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">DocumentRoot /vagrant</div><div class="line">&lt;Directory /vagrant&gt;</div><div class="line">                Options -Indexes +followSymLinks +MultiViews</div><div class="line">                AllowOverride all</div><div class="line">                Require all granted</div><div class="line">&lt;/Directory&gt;</div></pre></td></tr></table></figure>
+<p>修改完成后重启apache <code>service apache2 restart</code></p>
+<p>参考：<br><a href="http://rrylee.github.io/2015/11/26/quick-start-linux-php/" target="_blank" rel="external">http://rrylee.github.io/2015/11/26/quick-start-linux-php/</a><br><a href="http://rmingwang.com/vagrant-commands-and-config.html" target="_blank" rel="external">http://rmingwang.com/vagrant-commands-and-config.html</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="upeng.github.io/blog/2016/07/13/vagrant/" data-id="cj7hwqlf90023fsp4852irg1z" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/vagrant/">vagrant</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/blog/2016/07/17/vuejs/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          vuejs与后台数据的交互实践
+        
+      </div>
+    </a>
+  
+  
+    <a href="/blog/2016/07/11/memcacheq/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">MCQ学习笔记</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/Linux/">Linux</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/MySQL/">MySQL</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/PHP编程/">PHP编程</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/其他/">其他</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/前端/">前端</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/数据库范式/">数据库范式</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/CI/">CI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/JQuery/">JQuery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Mac/">Mac</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/MySQL/">MySQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/awk/">awk</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/bash/">bash</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/laravel/">laravel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/linux/">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/memcacheq/">memcacheq</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/mysql/">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/php/">php</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/thinking/">thinking</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/tmux/">tmux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/vagrant/">vagrant</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/vuejs/">vuejs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/zephir/">zephir</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/设计模式/">设计模式</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/blog/tags/CI/" style="font-size: 10px;">CI</a> <a href="/blog/tags/JQuery/" style="font-size: 10px;">JQuery</a> <a href="/blog/tags/Mac/" style="font-size: 15px;">Mac</a> <a href="/blog/tags/MySQL/" style="font-size: 10px;">MySQL</a> <a href="/blog/tags/awk/" style="font-size: 10px;">awk</a> <a href="/blog/tags/bash/" style="font-size: 10px;">bash</a> <a href="/blog/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/blog/tags/laravel/" style="font-size: 20px;">laravel</a> <a href="/blog/tags/linux/" style="font-size: 10px;">linux</a> <a href="/blog/tags/memcacheq/" style="font-size: 10px;">memcacheq</a> <a href="/blog/tags/mysql/" style="font-size: 20px;">mysql</a> <a href="/blog/tags/php/" style="font-size: 10px;">php</a> <a href="/blog/tags/thinking/" style="font-size: 15px;">thinking</a> <a href="/blog/tags/tmux/" style="font-size: 10px;">tmux</a> <a href="/blog/tags/vagrant/" style="font-size: 10px;">vagrant</a> <a href="/blog/tags/vuejs/" style="font-size: 10px;">vuejs</a> <a href="/blog/tags/zephir/" style="font-size: 10px;">zephir</a> <a href="/blog/tags/设计模式/" style="font-size: 15px;">设计模式</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/08/">August 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/07/">July 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/06/">June 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/04/">April 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/02/">February 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/01/">January 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2015/10/">October 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2015/08/">August 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2015/07/">July 2015</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/blog/2016/08/28/mac-lnmp/">Mac下安装LNMP(Nginx+PHP5.6)环境</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2016/08/28/mac-primary/">首次折腾Mac</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2016/08/15/laravel-basic/">laravel基础任务学习清单</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2016/07/17/vuejs/">vuejs与后台数据的交互实践</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2016/07/13/vagrant/">vagrant-快速搭建linux开发环境</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/blog/" class="mobile-nav-link">Home</a>
+  
+    <a href="/blog/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css">
+  <script src="/blog/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/blog/js/script.js"></script>
+
+  </div>
+</body>
+</html>

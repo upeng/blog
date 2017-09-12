@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>laravel初体验 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="访问流程 路由文件routes.php  1234567891011121314151617/*默认是以匿名函数的方式进行路由,/是当前域名下加载视图文件welcome.blade.php */Route::get(&amp;apos;/&amp;apos;, function () &amp;#123;    return view(&amp;apos;welcome&amp;apos;);&amp;#125;);Route::get(&amp;ap">
+<meta name="keywords" content="laravel">
+<meta property="og:type" content="article">
+<meta property="og:title" content="laravel初体验">
+<meta property="og:url" content="upeng.github.io/blog/2016/04/25/laravel-primary/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="访问流程 路由文件routes.php  1234567891011121314151617/*默认是以匿名函数的方式进行路由,/是当前域名下加载视图文件welcome.blade.php */Route::get(&amp;apos;/&amp;apos;, function () &amp;#123;    return view(&amp;apos;welcome&amp;apos;);&amp;#125;);Route::get(&amp;ap">
+<meta property="og:updated_time" content="2017-06-28T16:12:44.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="laravel初体验">
+<meta name="twitter:description" content="访问流程 路由文件routes.php  1234567891011121314151617/*默认是以匿名函数的方式进行路由,/是当前域名下加载视图文件welcome.blade.php */Route::get(&amp;apos;/&amp;apos;, function () &amp;#123;    return view(&amp;apos;welcome&amp;apos;);&amp;#125;);Route::get(&amp;ap">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/blog/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/blog/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/blog/">Home</a>
+        
+          <a class="main-nav-link" href="/blog/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="upeng.github.io/blog"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-laravel-primary" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2016/04/25/laravel-primary/" class="article-date">
+  <time datetime="2016-04-25T12:10:00.000Z" itemprop="datePublished">2016-04-25</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/blog/categories/PHP编程/">PHP编程</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      laravel初体验
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="访问流程"><a href="#访问流程" class="headerlink" title="访问流程"></a>访问流程</h3><blockquote>
+<p>路由文件routes.php</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">/*默认是以匿名函数的方式进行路由,/是当前域名下加载视图文件welcome.blade.php */</div><div class="line"></div><div class="line">Route::get(&apos;/&apos;, function () &#123;</div><div class="line">    return view(&apos;welcome&apos;);</div><div class="line">&#125;);</div><div class="line">Route::get(&apos;/about&apos;, function () &#123;</div><div class="line">    return view(&apos;about&apos;);</div><div class="line">&#125;);</div><div class="line">Route::get(&apos;/blog&apos;, function () &#123;</div><div class="line">    return view(&apos;blog.content&apos;);  //其中的“.”可以用“/”代替</div><div class="line">&#125;);</div><div class="line"></div><div class="line">//如果使用非匿名函数的方式</div><div class="line"></div><div class="line">Route::get(&apos;/&apos;, &apos;UserController@index&apos;);</div><div class="line">Route::get(&apos;/about&apos;, &apos;UserController@about&apos;);</div><div class="line">Route::get(&apos;/blog&apos;, &apos;UserController@blog&apos;);</div></pre></td></tr></table></figure>
+<h3 id="创建控制器"><a href="#创建控制器" class="headerlink" title="创建控制器"></a>创建控制器</h3><blockquote>
+<ol>
+<li>可以手动创建Controller，也可以使用命令行创建控制器<code>php artisan</code>工具</li>
+<li>参数 –plain使用则不会生成一些默认的方法如index，create等</li>
+</ol>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">php artisan make:controller UserController</div><div class="line">php artisan make:controller TestController --plain</div></pre></td></tr></table></figure>
+<h3 id="视图的加载"><a href="#视图的加载" class="headerlink" title="视图的加载"></a>视图的加载</h3><blockquote>
+<p>加载视图的方法</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">return view(&apos;welcome&apos;);</div><div class="line">return view(&apos;blog/title&apos;);</div><div class="line">return view(&apos;blog.content&apos;);</div></pre></td></tr></table></figure>
+<blockquote>
+<p>怎么向blade视图传递变量</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">$name = &apos;&lt;p style=&quot;color:red&quot;&gt;upfriend&lt;/p&gt;&apos;;</div><div class="line">$time = date(&apos;Y-m-d&apos;, time());</div><div class="line">$arr = array(&apos;first&apos; =&gt; &apos;jerry&apos;, &apos;last&apos; =&gt; &apos;bool&apos;);</div><div class="line"></div><div class="line">//传递变量-通用方式传递给$data数组</div><div class="line">$data[&apos;name&apos;] = $name;</div><div class="line">$data[&apos;time&apos;] = $time; </div><div class="line">return view(&apos;blog.content&apos;, $data);</div><div class="line"></div><div class="line">//Laravel链式操作方式 </div><div class="line">return view(&apos;blog.content&apos;)-&gt;(&apos;name&apos; =&gt; $name);  //传递一个变量</div><div class="line">return view(&apos;blog.content&apos;)-&gt;with(array(&apos;name&apos; =&gt; $name, &apos;time&apos; =&gt; $time));  //传递数组变量</div><div class="line"></div><div class="line">//compact方法</div><div class="line">return view(&apos;blog.content&apos;, compact(&apos;name&apos;, &apos;time&apos;, &apos;arr&apos;));  //去掉$的变量名</div></pre></td></tr></table></figure>
+<blockquote>
+<p>如何正确输出变量的值</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">//原生PHP输出数据方式，默认会对变量中的字符会进行转义（xss?）</div><div class="line">&lt;h1&gt;&lt;?=name?&gt;&lt;/h1&gt;   </div><div class="line"></div><div class="line">//Laravel的blade模板引擎渲染方式，两个大括号&#123;&#123;&#125;&#125;表示转义后输出</div><div class="line">&lt;h1&gt;&#123;&#123;name&#125;&#125;&lt;/h1&gt;  //浏览器输出&lt;p style=&quot;color:red&quot;&gt;upfriend&lt;/p&gt;</div><div class="line"></div><div class="line">&lt;h1&gt;&#123;!!name!!&#125;&lt;/h1&gt;  //会见变量作为html,输出红色字体的upfriend</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="upeng.github.io/blog/2016/04/25/laravel-primary/" data-id="cj7hwqlcq000afsp4hpribpb9" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/laravel/">laravel</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/blog/2016/04/27/mysqlperformance03/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          mysql数据库之索引优化
+        
+      </div>
+    </a>
+  
+  
+    <a href="/blog/2016/04/24/mysqlperformance01/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">mysql之sql优化-慢查询日志开启和查看（1）</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/Linux/">Linux</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/MySQL/">MySQL</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/PHP编程/">PHP编程</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/其他/">其他</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/前端/">前端</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/数据库范式/">数据库范式</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/CI/">CI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/JQuery/">JQuery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Mac/">Mac</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/MySQL/">MySQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/awk/">awk</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/bash/">bash</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/laravel/">laravel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/linux/">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/memcacheq/">memcacheq</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/mysql/">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/php/">php</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/thinking/">thinking</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/tmux/">tmux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/vagrant/">vagrant</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/vuejs/">vuejs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/zephir/">zephir</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/设计模式/">设计模式</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/blog/tags/CI/" style="font-size: 10px;">CI</a> <a href="/blog/tags/JQuery/" style="font-size: 10px;">JQuery</a> <a href="/blog/tags/Mac/" style="font-size: 15px;">Mac</a> <a href="/blog/tags/MySQL/" style="font-size: 10px;">MySQL</a> <a href="/blog/tags/awk/" style="font-size: 10px;">awk</a> <a href="/blog/tags/bash/" style="font-size: 10px;">bash</a> <a href="/blog/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/blog/tags/laravel/" style="font-size: 20px;">laravel</a> <a href="/blog/tags/linux/" style="font-size: 10px;">linux</a> <a href="/blog/tags/memcacheq/" style="font-size: 10px;">memcacheq</a> <a href="/blog/tags/mysql/" style="font-size: 20px;">mysql</a> <a href="/blog/tags/php/" style="font-size: 10px;">php</a> <a href="/blog/tags/thinking/" style="font-size: 15px;">thinking</a> <a href="/blog/tags/tmux/" style="font-size: 10px;">tmux</a> <a href="/blog/tags/vagrant/" style="font-size: 10px;">vagrant</a> <a href="/blog/tags/vuejs/" style="font-size: 10px;">vuejs</a> <a href="/blog/tags/zephir/" style="font-size: 10px;">zephir</a> <a href="/blog/tags/设计模式/" style="font-size: 15px;">设计模式</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/08/">August 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/07/">July 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/06/">June 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/04/">April 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/02/">February 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/01/">January 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2015/10/">October 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2015/08/">August 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2015/07/">July 2015</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/blog/2016/08/28/mac-lnmp/">Mac下安装LNMP(Nginx+PHP5.6)环境</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2016/08/28/mac-primary/">首次折腾Mac</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2016/08/15/laravel-basic/">laravel基础任务学习清单</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2016/07/17/vuejs/">vuejs与后台数据的交互实践</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2016/07/13/vagrant/">vagrant-快速搭建linux开发环境</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/blog/" class="mobile-nav-link">Home</a>
+  
+    <a href="/blog/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css">
+  <script src="/blog/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/blog/js/script.js"></script>
+
+  </div>
+</body>
+</html>

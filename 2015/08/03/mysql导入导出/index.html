@@ -3,14 +3,19 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Archives | Hexo</title>
+  <title>linux下导入、导出mysql数据库命令 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="upeng.github.io/blog/archives/index.html">
+  <meta name="description" content="一、导出数据库用mysqldump命令（注意mysql的安装路径，即此命令的路径）： 导出数据和表结构：mysqldump -u用户名 -p密码 数据库名 &amp;gt; 数据库名.sqleg /usr/local/mysql/bin/   mysqldump -uroot -p abc &amp;gt; abc.sql敲回车后会提示输入密码  只导出表结构mysqldump -u用户名 -p密码 -d 数据库">
+<meta name="keywords" content="mysql">
+<meta property="og:type" content="article">
+<meta property="og:title" content="linux下导入、导出mysql数据库命令">
+<meta property="og:url" content="upeng.github.io/blog/2015/08/03/mysql导入导出/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="一、导出数据库用mysqldump命令（注意mysql的安装路径，即此命令的路径）： 导出数据和表结构：mysqldump -u用户名 -p密码 数据库名 &amp;gt; 数据库名.sqleg /usr/local/mysql/bin/   mysqldump -uroot -p abc &amp;gt; abc.sql敲回车后会提示输入密码  只导出表结构mysqldump -u用户名 -p密码 -d 数据库">
+<meta property="og:updated_time" content="2017-06-28T16:12:44.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="linux下导入、导出mysql数据库命令">
+<meta name="twitter:description" content="一、导出数据库用mysqldump命令（注意mysql的安装路径，即此命令的路径）： 导出数据和表结构：mysqldump -u用户名 -p密码 数据库名 &amp;gt; 数据库名.sqleg /usr/local/mysql/bin/   mysqldump -uroot -p abc &amp;gt; abc.sql敲回车后会提示输入密码  只导出表结构mysqldump -u用户名 -p密码 -d 数据库">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -59,215 +64,87 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/blog/archives/2016" class="archive-year">2016</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/blog/2016/08/28/mac-lnmp/" class="archive-article-date">
-  <time datetime="2016-08-28T14:28:49.000Z" itemprop="datePublished">Aug 28</time>
+        <section id="main"><article id="post-mysql导入导出" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2015/08/03/mysql导入导出/" class="article-date">
+  <time datetime="2015-08-03T03:09:00.000Z" itemprop="datePublished">2015-08-03</time>
 </a>
-      
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/blog/categories/MySQL/">MySQL</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/blog/2016/08/28/mac-lnmp/">Mac下安装LNMP(Nginx+PHP5.6)环境</a>
+    <h1 class="article-title" itemprop="name">
+      linux下导入、导出mysql数据库命令
     </h1>
   
 
-    </header>
-  </div>
-</article>
-  
+      </header>
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/blog/2016/08/28/mac-primary/" class="archive-article-date">
-  <time datetime="2016-08-28T02:09:29.000Z" itemprop="datePublished">Aug 28</time>
-</a>
+    <div class="article-entry" itemprop="articleBody">
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/blog/2016/08/28/mac-primary/">首次折腾Mac</a>
-    </h1>
-  
+        <h2 id="一、导出数据库用mysqldump命令（注意mysql的安装路径，即此命令的路径）："><a href="#一、导出数据库用mysqldump命令（注意mysql的安装路径，即此命令的路径）：" class="headerlink" title="一、导出数据库用mysqldump命令（注意mysql的安装路径，即此命令的路径）："></a>一、导出数据库用mysqldump命令（注意mysql的安装路径，即此命令的路径）：</h2><ul>
+<li><h3 id="导出数据和表结构："><a href="#导出数据和表结构：" class="headerlink" title="导出数据和表结构："></a>导出数据和表结构：</h3><p>mysqldump -u用户名 -p密码 数据库名 &gt; 数据库名.sql<br>eg /usr/local/mysql/bin/   mysqldump -uroot -p abc &gt; abc.sql<br>敲回车后会提示输入密码</p>
+</li>
+<li><h3 id="只导出表结构"><a href="#只导出表结构" class="headerlink" title="只导出表结构"></a>只导出表结构</h3><p>mysqldump -u用户名 -p密码 -d 数据库名 &gt; 数据库名.sql<br>eg /usr/local/mysql/bin/   mysqldump -uroot -p -d abc &gt; abc.sql</p>
+</li>
+</ul>
+<p>注：/usr/local/mysql/bin/  —&gt;  mysql的data目录</p>
+<h2 id="二、导入数据库"><a href="#二、导入数据库" class="headerlink" title="二、导入数据库"></a>二、导入数据库</h2><ol>
+<li><h3 id="首先建空数据库"><a href="#首先建空数据库" class="headerlink" title="首先建空数据库"></a>首先建空数据库</h3><p>mysql&gt;create database abc;</p>
+</li>
+<li><h3 id="导入数据库"><a href="#导入数据库" class="headerlink" title="导入数据库"></a>导入数据库</h3><p>方法一：<br>（1）选择数据库<br>mysql&gt;use abc;<br>（2）设置数据库编码<br>mysql&gt;set names utf8;<br>（3）导入数据（注意sql文件的路径）<br>mysql&gt;source /home/abc/abc.sql;<br>方法二：<br>mysql -u用户名 -p密码 数据库名 &lt; 数据库名.sql<br>eg mysql -uabc_f -p abc &lt; abc.sql</p>
+</li>
+</ol>
+<p>建议使用第二种方法导入。</p>
+<h3 id="三、关于导入导出数据库需注意的地方（总是忘记！）"><a href="#三、关于导入导出数据库需注意的地方（总是忘记！）" class="headerlink" title="三、关于导入导出数据库需注意的地方（总是忘记！）"></a>三、关于导入导出数据库需注意的地方（总是忘记！）</h3><ul>
+<li><p><code>而导入数据库和导出正好相反（废话），要先进入mysql，然后使用source命令</code></p>
+</li>
+<li><p><code>导出数据库是在linux命令行模式中，当前位于哪个目录就导出到哪里（途中可能需要输入user password）</code> </p>
+</li>
+</ul>
 
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/blog/2016/08/15/laravel-basic/" class="archive-article-date">
-  <time datetime="2016-08-15T14:24:32.000Z" itemprop="datePublished">Aug 15</time>
-</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/blog/2016/08/15/laravel-basic/">laravel基础任务学习清单</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/blog/2016/07/17/vuejs/" class="archive-article-date">
-  <time datetime="2016-07-17T07:58:17.000Z" itemprop="datePublished">Jul 17</time>
-</a>
+    </div>
+    <footer class="article-footer">
+      <a data-url="upeng.github.io/blog/2015/08/03/mysql导入导出/" data-id="cj7hwqled001efsp4l0d4wage" class="article-share-link">Share</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/blog/2016/07/17/vuejs/">vuejs与后台数据的交互实践</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/blog/2016/07/13/vagrant/" class="archive-article-date">
-  <time datetime="2016-07-13T15:32:54.000Z" itemprop="datePublished">Jul 13</time>
-</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/blog/2016/07/13/vagrant/">vagrant-快速搭建linux开发环境</a>
-    </h1>
-  
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/mysql/">mysql</a></li></ul>
 
-    </header>
+    </footer>
   </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/blog/2015/08/13/php-ci1/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          CI模型-视图-控制器 命名规范
+        
+      </div>
+    </a>
+  
+  
+    <a href="/blog/2015/07/15/html-js/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">jquery中html()、text()、val()与js中的对应属性</div>
+    </a>
+  
+</nav>
+
+  
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/blog/2016/07/11/memcacheq/" class="archive-article-date">
-  <time datetime="2016-07-11T15:29:55.000Z" itemprop="datePublished">Jul 11</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/blog/2016/07/11/memcacheq/">MCQ学习笔记</a>
-    </h1>
-  
 
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/blog/2016/06/30/zephir/" class="archive-article-date">
-  <time datetime="2016-06-30T15:42:24.000Z" itemprop="datePublished">Jun 30</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/blog/2016/06/30/zephir/">使用zephir快速编写php扩展</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-database">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/blog/2016/06/25/normal/" class="archive-article-date">
-  <time datetime="2016-06-25T08:32:12.000Z" itemprop="datePublished">Jun 25</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/blog/2016/06/25/normal/">数据库范式的思考</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/blog/2016/06/17/thinking-1/" class="archive-article-date">
-  <time datetime="2016-06-16T18:07:38.000Z" itemprop="datePublished">Jun 17</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/blog/2016/06/17/thinking-1/">In Recent Days</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/blog/2016/05/29/thinking/" class="archive-article-date">
-  <time datetime="2016-05-29T11:18:09.000Z" itemprop="datePublished">May 29</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/blog/2016/05/29/thinking/">standing on the shoulders of the giants</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-
-  <nav id="page-nav">
-    <span class="page-number current">1</span><a class="page-number" href="/blog/archives/page/2/">2</a><a class="page-number" href="/blog/archives/page/3/">3</a><a class="extend next" rel="next" href="/blog/archives/page/2/">__('next') &raquo;</a>
-  </nav>
 </section>
         
           <aside id="sidebar">

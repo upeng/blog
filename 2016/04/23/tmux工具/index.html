@@ -3,14 +3,19 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Archives | Hexo</title>
+  <title>tmux linux下的终端复用工具 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="upeng.github.io/blog/archives/index.html">
+  <meta name="description" content="tmux常用命令tmux打开tmux服务，列出几个最常用的命令①：ctrl+B ②：字符如：123456789ctrl+B % 纵向切屏，将屏幕切成左右两半ctrl+B &amp;quot; 单个双引号，水平切割屏幕上下两半ctrl+B x 确定关掉当前面板（回话）吗？ &amp;apos;y&amp;apos; -&amp;gt;删除当前会话ctrl+B t 显示当前时间ctrl+B ↑ ↓ → ← 会话之间跳转 更多命令参考">
+<meta name="keywords" content="tmux">
+<meta property="og:type" content="article">
+<meta property="og:title" content="tmux linux下的终端复用工具">
+<meta property="og:url" content="upeng.github.io/blog/2016/04/23/tmux工具/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="tmux常用命令tmux打开tmux服务，列出几个最常用的命令①：ctrl+B ②：字符如：123456789ctrl+B % 纵向切屏，将屏幕切成左右两半ctrl+B &amp;quot; 单个双引号，水平切割屏幕上下两半ctrl+B x 确定关掉当前面板（回话）吗？ &amp;apos;y&amp;apos; -&amp;gt;删除当前会话ctrl+B t 显示当前时间ctrl+B ↑ ↓ → ← 会话之间跳转 更多命令参考">
+<meta property="og:updated_time" content="2017-06-28T16:12:44.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="tmux linux下的终端复用工具">
+<meta name="twitter:description" content="tmux常用命令tmux打开tmux服务，列出几个最常用的命令①：ctrl+B ②：字符如：123456789ctrl+B % 纵向切屏，将屏幕切成左右两半ctrl+B &amp;quot; 单个双引号，水平切割屏幕上下两半ctrl+B x 确定关掉当前面板（回话）吗？ &amp;apos;y&amp;apos; -&amp;gt;删除当前会话ctrl+B t 显示当前时间ctrl+B ↑ ↓ → ← 会话之间跳转 更多命令参考">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -59,215 +64,69 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/blog/archives/2016" class="archive-year">2016</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/blog/2016/08/28/mac-lnmp/" class="archive-article-date">
-  <time datetime="2016-08-28T14:28:49.000Z" itemprop="datePublished">Aug 28</time>
+        <section id="main"><article id="post-tmux工具" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2016/04/23/tmux工具/" class="article-date">
+  <time datetime="2016-04-22T17:10:45.000Z" itemprop="datePublished">2016-04-23</time>
 </a>
-      
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/blog/categories/Linux/">Linux</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/blog/2016/08/28/mac-lnmp/">Mac下安装LNMP(Nginx+PHP5.6)环境</a>
+    <h1 class="article-title" itemprop="name">
+      tmux linux下的终端复用工具
     </h1>
   
 
-    </header>
-  </div>
-</article>
-  
+      </header>
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/blog/2016/08/28/mac-primary/" class="archive-article-date">
-  <time datetime="2016-08-28T02:09:29.000Z" itemprop="datePublished">Aug 28</time>
-</a>
+    <div class="article-entry" itemprop="articleBody">
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/blog/2016/08/28/mac-primary/">首次折腾Mac</a>
-    </h1>
-  
+        <h2 id="tmux常用命令"><a href="#tmux常用命令" class="headerlink" title="tmux常用命令"></a>tmux常用命令</h2><p><code>tmux</code>打开tmux服务，列出几个最常用的命令<br>①：ctrl+B ②：字符<br>如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">ctrl+B % 纵向切屏，将屏幕切成左右两半</div><div class="line"></div><div class="line">ctrl+B &quot; 单个双引号，水平切割屏幕上下两半</div><div class="line"></div><div class="line">ctrl+B x 确定关掉当前面板（回话）吗？ &apos;y&apos; -&gt;删除当前会话</div><div class="line"></div><div class="line">ctrl+B t 显示当前时间</div><div class="line"></div><div class="line">ctrl+B ↑ ↓ → ← 会话之间跳转</div></pre></td></tr></table></figure></p>
+<p>更多命令参考<br><a href="http://kumu-linux.github.io/blog/2013/08/06/tmux/" target="_blank" rel="external">http://kumu-linux.github.io/blog/2013/08/06/tmux/</a></p>
 
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/blog/2016/08/15/laravel-basic/" class="archive-article-date">
-  <time datetime="2016-08-15T14:24:32.000Z" itemprop="datePublished">Aug 15</time>
-</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/blog/2016/08/15/laravel-basic/">laravel基础任务学习清单</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/blog/2016/07/17/vuejs/" class="archive-article-date">
-  <time datetime="2016-07-17T07:58:17.000Z" itemprop="datePublished">Jul 17</time>
-</a>
+    </div>
+    <footer class="article-footer">
+      <a data-url="upeng.github.io/blog/2016/04/23/tmux工具/" data-id="cj7hwqlf5001zfsp4zh6uq1dw" class="article-share-link">Share</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/blog/2016/07/17/vuejs/">vuejs与后台数据的交互实践</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/blog/2016/07/13/vagrant/" class="archive-article-date">
-  <time datetime="2016-07-13T15:32:54.000Z" itemprop="datePublished">Jul 13</time>
-</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/blog/2016/07/13/vagrant/">vagrant-快速搭建linux开发环境</a>
-    </h1>
-  
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/tmux/">tmux</a></li></ul>
 
-    </header>
+    </footer>
   </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/blog/2016/04/24/mysqlperformance01/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          mysql之sql优化-慢查询日志开启和查看（1）
+        
+      </div>
+    </a>
+  
+  
+    <a href="/blog/2016/04/20/hexo-guidebook/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">hexo+github搭建blog</div>
+    </a>
+  
+</nav>
+
+  
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/blog/2016/07/11/memcacheq/" class="archive-article-date">
-  <time datetime="2016-07-11T15:29:55.000Z" itemprop="datePublished">Jul 11</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/blog/2016/07/11/memcacheq/">MCQ学习笔记</a>
-    </h1>
-  
 
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/blog/2016/06/30/zephir/" class="archive-article-date">
-  <time datetime="2016-06-30T15:42:24.000Z" itemprop="datePublished">Jun 30</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/blog/2016/06/30/zephir/">使用zephir快速编写php扩展</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-database">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/blog/2016/06/25/normal/" class="archive-article-date">
-  <time datetime="2016-06-25T08:32:12.000Z" itemprop="datePublished">Jun 25</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/blog/2016/06/25/normal/">数据库范式的思考</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/blog/2016/06/17/thinking-1/" class="archive-article-date">
-  <time datetime="2016-06-16T18:07:38.000Z" itemprop="datePublished">Jun 17</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/blog/2016/06/17/thinking-1/">In Recent Days</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/blog/2016/05/29/thinking/" class="archive-article-date">
-  <time datetime="2016-05-29T11:18:09.000Z" itemprop="datePublished">May 29</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/blog/2016/05/29/thinking/">standing on the shoulders of the giants</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-
-  <nav id="page-nav">
-    <span class="page-number current">1</span><a class="page-number" href="/blog/archives/page/2/">2</a><a class="page-number" href="/blog/archives/page/3/">3</a><a class="extend next" rel="next" href="/blog/archives/page/2/">__('next') &raquo;</a>
-  </nav>
 </section>
         
           <aside id="sidebar">

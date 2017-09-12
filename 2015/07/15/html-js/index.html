@@ -3,14 +3,19 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Archives | Hexo</title>
+  <title>jquery中html()、text()、val()与js中的对应属性 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="upeng.github.io/blog/archives/index.html">
+  <meta name="description" content="html()类似于javascript的InnerHtml属性，可以用来读取或者设置某个元素中的HTML内容 例如：Javascript代码123&amp;lt;p&amp;gt;&amp;lt;strong&amp;gt;Hello world&amp;lt;/strong&amp;gt;&amp;lt;/p&amp;gt;   alert($(&amp;apos;p&amp;apos;).html());   返回： &amp;lt;strong&amp;gt;Hello world&amp;l">
+<meta name="keywords" content="JQuery">
+<meta property="og:type" content="article">
+<meta property="og:title" content="jquery中html()、text()、val()与js中的对应属性">
+<meta property="og:url" content="upeng.github.io/blog/2015/07/15/html-js/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="html()类似于javascript的InnerHtml属性，可以用来读取或者设置某个元素中的HTML内容 例如：Javascript代码123&amp;lt;p&amp;gt;&amp;lt;strong&amp;gt;Hello world&amp;lt;/strong&amp;gt;&amp;lt;/p&amp;gt;   alert($(&amp;apos;p&amp;apos;).html());   返回： &amp;lt;strong&amp;gt;Hello world&amp;l">
+<meta property="og:updated_time" content="2017-06-28T16:12:44.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="jquery中html()、text()、val()与js中的对应属性">
+<meta name="twitter:description" content="html()类似于javascript的InnerHtml属性，可以用来读取或者设置某个元素中的HTML内容 例如：Javascript代码123&amp;lt;p&amp;gt;&amp;lt;strong&amp;gt;Hello world&amp;lt;/strong&amp;gt;&amp;lt;/p&amp;gt;   alert($(&amp;apos;p&amp;apos;).html());   返回： &amp;lt;strong&amp;gt;Hello world&amp;l">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -59,215 +64,65 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/blog/archives/2016" class="archive-year">2016</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/blog/2016/08/28/mac-lnmp/" class="archive-article-date">
-  <time datetime="2016-08-28T14:28:49.000Z" itemprop="datePublished">Aug 28</time>
+        <section id="main"><article id="post-html-js" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2015/07/15/html-js/" class="article-date">
+  <time datetime="2015-07-15T10:03:00.000Z" itemprop="datePublished">2015-07-15</time>
 </a>
-      
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/blog/categories/前端/">前端</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/blog/2016/08/28/mac-lnmp/">Mac下安装LNMP(Nginx+PHP5.6)环境</a>
+    <h1 class="article-title" itemprop="name">
+      jquery中html()、text()、val()与js中的对应属性
     </h1>
   
 
-    </header>
-  </div>
-</article>
-  
+      </header>
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/blog/2016/08/28/mac-primary/" class="archive-article-date">
-  <time datetime="2016-08-28T02:09:29.000Z" itemprop="datePublished">Aug 28</time>
-</a>
+    <div class="article-entry" itemprop="articleBody">
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/blog/2016/08/28/mac-primary/">首次折腾Mac</a>
-    </h1>
-  
+        <h3 id="html"><a href="#html" class="headerlink" title="html()"></a>html()</h3><p>类似于javascript的InnerHtml属性，可以用来读取或者设置某个元素中的HTML内容<br> 例如：Javascript代码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;p&gt;&lt;strong&gt;Hello world&lt;/strong&gt;&lt;/p&gt;  </div><div class="line"> alert($(&apos;p&apos;).html());   </div><div class="line">返回： &lt;strong&gt;Hello world&lt;/strong&gt;</div></pre></td></tr></table></figure></p>
+<h3 id="text"><a href="#text" class="headerlink" title="text()"></a>text()</h3><p> 类似于javascript的InnerText属性，可以用来读取或者设置某个元素的文本内容<br>  例如：  Javascript代码<br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;p&gt;&lt;strong&gt;Hello world&lt;/strong&gt;&lt;/p&gt;   </div><div class="line">  alert($(&apos;p&apos;).text());   </div><div class="line">返回：  Hello world</div></pre></td></tr></table></figure></p>
+<h3 id="val"><a href="#val" class="headerlink" title="val()"></a>val()</h3><p> 类似于javascript中的value属性，可以用来设置或者获取元素的值，无论元素是文本框，下拉列表还是单选框，如果元素时多选，则返回一个包含所有选择的值的数组。 </p>
 
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/blog/2016/08/15/laravel-basic/" class="archive-article-date">
-  <time datetime="2016-08-15T14:24:32.000Z" itemprop="datePublished">Aug 15</time>
-</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/blog/2016/08/15/laravel-basic/">laravel基础任务学习清单</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/blog/2016/07/17/vuejs/" class="archive-article-date">
-  <time datetime="2016-07-17T07:58:17.000Z" itemprop="datePublished">Jul 17</time>
-</a>
+    </div>
+    <footer class="article-footer">
+      <a data-url="upeng.github.io/blog/2015/07/15/html-js/" data-id="cj7hwqlc60001fsp4oi3e2fk7" class="article-share-link">Share</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/blog/2016/07/17/vuejs/">vuejs与后台数据的交互实践</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/blog/2016/07/13/vagrant/" class="archive-article-date">
-  <time datetime="2016-07-13T15:32:54.000Z" itemprop="datePublished">Jul 13</time>
-</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/blog/2016/07/13/vagrant/">vagrant-快速搭建linux开发环境</a>
-    </h1>
-  
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/JQuery/">JQuery</a></li></ul>
 
-    </header>
+    </footer>
   </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/blog/2015/08/03/mysql导入导出/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          linux下导入、导出mysql数据库命令
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
+  
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/blog/2016/07/11/memcacheq/" class="archive-article-date">
-  <time datetime="2016-07-11T15:29:55.000Z" itemprop="datePublished">Jul 11</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/blog/2016/07/11/memcacheq/">MCQ学习笔记</a>
-    </h1>
-  
 
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/blog/2016/06/30/zephir/" class="archive-article-date">
-  <time datetime="2016-06-30T15:42:24.000Z" itemprop="datePublished">Jun 30</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/blog/2016/06/30/zephir/">使用zephir快速编写php扩展</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-database">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/blog/2016/06/25/normal/" class="archive-article-date">
-  <time datetime="2016-06-25T08:32:12.000Z" itemprop="datePublished">Jun 25</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/blog/2016/06/25/normal/">数据库范式的思考</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/blog/2016/06/17/thinking-1/" class="archive-article-date">
-  <time datetime="2016-06-16T18:07:38.000Z" itemprop="datePublished">Jun 17</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/blog/2016/06/17/thinking-1/">In Recent Days</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/blog/2016/05/29/thinking/" class="archive-article-date">
-  <time datetime="2016-05-29T11:18:09.000Z" itemprop="datePublished">May 29</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/blog/2016/05/29/thinking/">standing on the shoulders of the giants</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-
-  <nav id="page-nav">
-    <span class="page-number current">1</span><a class="page-number" href="/blog/archives/page/2/">2</a><a class="page-number" href="/blog/archives/page/3/">3</a><a class="extend next" rel="next" href="/blog/archives/page/2/">__('next') &raquo;</a>
-  </nav>
 </section>
         
           <aside id="sidebar">

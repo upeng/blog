@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>PHP设计模式-单例模式 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="单例模式场景:有多个类需要读取数据库，而数据库连接类只需要一个对象就够了。其他的类只需调用这个类的连接对象即可问题：如何获取两个严格相等（全等）的对象（===）答案：只有当两个对象是同一个对象的时候才是全等的！">
+<meta name="keywords" content="设计模式">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PHP设计模式-单例模式">
+<meta property="og:url" content="upeng.github.io/blog/2015/10/14/php-design-single/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="单例模式场景:有多个类需要读取数据库，而数据库连接类只需要一个对象就够了。其他的类只需调用这个类的连接对象即可问题：如何获取两个严格相等（全等）的对象（===）答案：只有当两个对象是同一个对象的时候才是全等的！">
+<meta property="og:updated_time" content="2017-06-28T16:12:44.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="PHP设计模式-单例模式">
+<meta name="twitter:description" content="单例模式场景:有多个类需要读取数据库，而数据库连接类只需要一个对象就够了。其他的类只需调用这个类的连接对象即可问题：如何获取两个严格相等（全等）的对象（===）答案：只有当两个对象是同一个对象的时候才是全等的！">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/blog/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/blog/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/blog/">Home</a>
+        
+          <a class="main-nav-link" href="/blog/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="upeng.github.io/blog"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-php-design-single" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2015/10/14/php-design-single/" class="article-date">
+  <time datetime="2015-10-14T14:21:00.000Z" itemprop="datePublished">2015-10-14</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/blog/categories/PHP编程/">PHP编程</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      PHP设计模式-单例模式
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="单例模式"><a href="#单例模式" class="headerlink" title="单例模式"></a>单例模式</h2><p><code>场景</code>:有多个类需要读取数据库，而数据库连接类只需要一个对象就够了。其他的类只需调用这个类的连接对象即可<br><code>问题</code>：如何获取两个严格相等（全等）的对象（===）<br><code>答案</code>：只有当两个对象是同一个对象的时候才是全等的！</p>
+<a id="more"></a>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div></pre></td><td class="code"><pre><div class="line">//1、用同一个类new两个对象</div><div class="line">class Single&#123;&#125;</div><div class="line">$s1 = new Single();</div><div class="line">$s2 = new Single();</div><div class="line">echo $s1 === $s2 ? &apos;是同一个对象&apos; : &apos;不是同一个对象&apos;;   //不是同一个对象，尽管他们内部方法变量完全相同</div><div class="line"></div><div class="line">//2、不是同一个对象，主要是因为new了两次，所以下面要封锁new操作</div><div class="line">class Single</div><div class="line">&#123;</div><div class="line">    protected function __construct()&#123;&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">$s1 = new Single();  </div><div class="line"></div><div class="line">//3、封锁了外部的new操作，同时需要在内部进行new操作</div><div class="line"></div><div class="line">class Single</div><div class="line">&#123;</div><div class="line">    public static function getIns()</div><div class="line">    &#123;</div><div class="line">        return new self();</div><div class="line">    &#125; </div><div class="line">    protected function __construct()&#123;&#125;</div><div class="line">&#125;</div><div class="line">$s1 = new Single();</div><div class="line">$s2 = new Single();</div><div class="line">echo $s1 === $s2 ? &apos;是同一个对象&apos; : &apos;不是同一个对象&apos;;</div><div class="line">//不是同一个对象！因为内部new了两次！</div><div class="line"></div><div class="line">//4、getIns先判断实例</div><div class="line">class Single</div><div class="line">&#123;</div><div class="line">    protected static $ins = null;</div><div class="line">    public static function getIns()</div><div class="line">    &#123;</div><div class="line">        if (self::$ins === null)</div><div class="line">        &#123;</div><div class="line">            self::$ins = new self();</div><div class="line">        &#125;</div><div class="line">        return self::$ins;</div><div class="line">    &#125; </div><div class="line">    protected function __construct()&#123;&#125;</div><div class="line">&#125;</div><div class="line">$s1 = new Single();</div><div class="line">$s2 = new Single();</div><div class="line">echo $s1 === $s2 ? &apos;是同一个对象&apos; : &apos;不是同一个对象&apos;;//是同一个对象</div><div class="line"></div><div class="line"> &gt; 注:**方法前加final，则方法不能被覆盖**，否则当有类继承它的时候会覆盖construct,又不是同一个对象了，**类前加final，则类不能被继承**</div><div class="line"></div><div class="line">//5、禁止覆盖方法和克隆对象</div><div class="line">class Single</div><div class="line">&#123;</div><div class="line">    protected static $ins = null;</div><div class="line">    public static function getIns()</div><div class="line">    &#123;</div><div class="line">        if (self::$ins === null)</div><div class="line">        &#123;</div><div class="line">            self::$ins = new self();</div><div class="line">        &#125;</div><div class="line">        return self::$ins;</div><div class="line">    &#125; </div><div class="line">    //禁止覆盖方法</div><div class="line">    final protected function __construct()&#123;&#125;</div><div class="line">    //防止克隆</div><div class="line">    final protected function __clone()&#123;&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">class dbSingle extends Single</div><div class="line">&#123;</div><div class="line"></div><div class="line">&#125;</div><div class="line">$s1 = new dbSingle();</div><div class="line">$s2 = new dbSingle();</div><div class="line"></div><div class="line">$s1 = Single::getIns();</div><div class="line">$s2 = clone $s1;</div></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="upeng.github.io/blog/2015/10/14/php-design-single/" data-id="cj7hwqleq001nfsp4uwt1rxw1" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/设计模式/">设计模式</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/blog/2015/10/28/linux-bash/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          常用的bash命令快捷建
+        
+      </div>
+    </a>
+  
+  
+    <a href="/blog/2015/10/12/php-design-model/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">PHP设计模式-工厂模式</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/Linux/">Linux</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/MySQL/">MySQL</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/PHP编程/">PHP编程</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/其他/">其他</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/前端/">前端</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/数据库范式/">数据库范式</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/CI/">CI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/JQuery/">JQuery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Mac/">Mac</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/MySQL/">MySQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/awk/">awk</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/bash/">bash</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/laravel/">laravel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/linux/">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/memcacheq/">memcacheq</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/mysql/">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/php/">php</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/thinking/">thinking</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/tmux/">tmux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/vagrant/">vagrant</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/vuejs/">vuejs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/zephir/">zephir</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/设计模式/">设计模式</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/blog/tags/CI/" style="font-size: 10px;">CI</a> <a href="/blog/tags/JQuery/" style="font-size: 10px;">JQuery</a> <a href="/blog/tags/Mac/" style="font-size: 15px;">Mac</a> <a href="/blog/tags/MySQL/" style="font-size: 10px;">MySQL</a> <a href="/blog/tags/awk/" style="font-size: 10px;">awk</a> <a href="/blog/tags/bash/" style="font-size: 10px;">bash</a> <a href="/blog/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/blog/tags/laravel/" style="font-size: 20px;">laravel</a> <a href="/blog/tags/linux/" style="font-size: 10px;">linux</a> <a href="/blog/tags/memcacheq/" style="font-size: 10px;">memcacheq</a> <a href="/blog/tags/mysql/" style="font-size: 20px;">mysql</a> <a href="/blog/tags/php/" style="font-size: 10px;">php</a> <a href="/blog/tags/thinking/" style="font-size: 15px;">thinking</a> <a href="/blog/tags/tmux/" style="font-size: 10px;">tmux</a> <a href="/blog/tags/vagrant/" style="font-size: 10px;">vagrant</a> <a href="/blog/tags/vuejs/" style="font-size: 10px;">vuejs</a> <a href="/blog/tags/zephir/" style="font-size: 10px;">zephir</a> <a href="/blog/tags/设计模式/" style="font-size: 15px;">设计模式</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/08/">August 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/07/">July 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/06/">June 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/04/">April 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/02/">February 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/01/">January 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2015/10/">October 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2015/08/">August 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2015/07/">July 2015</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/blog/2016/08/28/mac-lnmp/">Mac下安装LNMP(Nginx+PHP5.6)环境</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2016/08/28/mac-primary/">首次折腾Mac</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2016/08/15/laravel-basic/">laravel基础任务学习清单</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2016/07/17/vuejs/">vuejs与后台数据的交互实践</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2016/07/13/vagrant/">vagrant-快速搭建linux开发环境</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/blog/" class="mobile-nav-link">Home</a>
+  
+    <a href="/blog/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css">
+  <script src="/blog/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/blog/js/script.js"></script>
+
+  </div>
+</body>
+</html>

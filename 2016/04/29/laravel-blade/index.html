@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>laravel的blade视图模板引擎 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="blade模板引擎使用很多时候，我们的view模板有很多重复的地方，比如head、footer部分，当然可以定义一些共用的部分，置于common文件夹下，然后使用include将其引入进来。而blade有一套自己的策略 比如定义一个common.blade.php文件，如下：12345678910111213141516171819202122&amp;lt;!DOCTYPE html&amp;gt;&amp;lt;ht">
+<meta name="keywords" content="laravel">
+<meta property="og:type" content="article">
+<meta property="og:title" content="laravel的blade视图模板引擎">
+<meta property="og:url" content="upeng.github.io/blog/2016/04/29/laravel-blade/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="blade模板引擎使用很多时候，我们的view模板有很多重复的地方，比如head、footer部分，当然可以定义一些共用的部分，置于common文件夹下，然后使用include将其引入进来。而blade有一套自己的策略 比如定义一个common.blade.php文件，如下：12345678910111213141516171819202122&amp;lt;!DOCTYPE html&amp;gt;&amp;lt;ht">
+<meta property="og:updated_time" content="2017-06-28T16:12:44.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="laravel的blade视图模板引擎">
+<meta name="twitter:description" content="blade模板引擎使用很多时候，我们的view模板有很多重复的地方，比如head、footer部分，当然可以定义一些共用的部分，置于common文件夹下，然后使用include将其引入进来。而blade有一套自己的策略 比如定义一个common.blade.php文件，如下：12345678910111213141516171819202122&amp;lt;!DOCTYPE html&amp;gt;&amp;lt;ht">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/blog/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/blog/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/blog/">Home</a>
+        
+          <a class="main-nav-link" href="/blog/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="upeng.github.io/blog"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-laravel-blade" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2016/04/29/laravel-blade/" class="article-date">
+  <time datetime="2016-04-28T16:18:00.000Z" itemprop="datePublished">2016-04-29</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/blog/categories/PHP编程/">PHP编程</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      laravel的blade视图模板引擎
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="blade模板引擎使用"><a href="#blade模板引擎使用" class="headerlink" title="blade模板引擎使用"></a>blade模板引擎使用</h3><p>很多时候，我们的view模板有很多重复的地方，比如head、footer部分，当然可以定义一些共用的部分，置于common文件夹下，然后使用include将其引入进来。而blade有一套自己的策略</p>
+<p>比如定义一个<code>common.blade.php</code>文件，如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html&gt;</div><div class="line">    &lt;head&gt;</div><div class="line">        &lt;title&gt;Laravel&lt;/title&gt;</div><div class="line">        &lt;link href=&quot;https://fonts.googleapis.com/css?family=Lato:100&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot;&gt;</div><div class="line">        &lt;style&gt;</div><div class="line">            html, body &#123;height: 100%;&#125;</div><div class="line">            body &#123;margin: 0;width: 100%;display: table;font-weight: 100;font-family: &apos;Lato&apos;;&#125;</div><div class="line">            .container &#123;text-align: center;display: table-cell;vertical-align: middle;</div><div class="line">            &#125;</div><div class="line">            .content &#123;text-align: center;display: inline-block;&#125;</div><div class="line">            .title &#123;font-size: 96px;&#125;</div><div class="line">            .footer&#123;color: green;font-size: 100px;&#125;</div><div class="line">        &lt;/style&gt;</div><div class="line">    &lt;/head&gt;</div><div class="line">    &lt;body&gt; </div><div class="line">        &lt;div class=&quot;container&quot;&gt;</div><div class="line">            @yield(&apos;content&apos;)</div><div class="line">            @yield(&apos;footer&apos;)</div><div class="line">        &lt;/div&gt;</div><div class="line">    &lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure></p>
+<a id="more"></a>
+<ul>
+<li>其中，<code>@yield(&#39;content&#39;)</code>和 <code>@yield(&#39;footer&#39;)</code>是根据不同模板的需求进行动态设置与填充的</li>
+<li><code>welcome.blade.php</code>和<code>contact.blade.php</code>模板与<code>common.blade.php</code>样式相近，只是内容不同，或者后者内容更多。他们均可以继承<code>common.blade.php</code>的所有内容，需要content则可以自定义显示，需要footer可以自定义显示footer</li>
+<li>示例如下</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"># welcome.blade.php</div><div class="line">@extends(&apos;common&apos;)      //继承common.blade.php</div><div class="line">@section(&apos;content&apos;)     //开始</div><div class="line">    &lt;div class=&quot;content&quot;&gt;</div><div class="line">        &lt;div class=&quot;title&quot;&gt;Laravel 5 -welcome&lt;/div&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">@stop                   //结束</div><div class="line"></div><div class="line"></div><div class="line"># contact.blade.php</div><div class="line">@extends(&apos;app&apos;)</div><div class="line">@section(&apos;content&apos;) </div><div class="line">    &lt;div class=&quot;content&quot;&gt;</div><div class="line">        &lt;div class=&quot;title&quot;&gt;contact 825415473@qq.com&lt;/div&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">@stop</div><div class="line">@section(&apos;footer&apos;)</div><div class="line">    &lt;div class=&quot;footer&quot;&gt;</div><div class="line">        Laravel 5</div><div class="line">    &lt;/div&gt;</div><div class="line">@stop</div></pre></td></tr></table></figure>
+<h3 id="blade中的条件判断和循环操作"><a href="#blade中的条件判断和循环操作" class="headerlink" title="blade中的条件判断和循环操作"></a>blade中的条件判断和循环操作</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"># 条件判断和循环操作，通用方法是在&lt;?php **** ?&gt;</div><div class="line"># blade有自己的语法</div><div class="line">@extends(&apos;app&apos;)</div><div class="line">@section(&apos;content&apos;)</div><div class="line"></div><div class="line">@if($condiction == &apos;bool&apos;)</div><div class="line">    &lt;h1&gt;&#123;!!$name!!&#125;&lt;/h1&gt;</div><div class="line">@else</div><div class="line">    &lt;h1&gt;&#123;&#123;$time&#125;&#125;&lt;/h1&gt;</div><div class="line">@endif</div><div class="line"></div><div class="line">&lt;h2&gt;</div><div class="line">    @foreach($arr as $key =&gt; $value)</div><div class="line">        &#123;&#123;$value&#125;&#125;</div><div class="line">    @endforeach</div><div class="line">&lt;/h2&gt;</div><div class="line"></div><div class="line">@stop</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="upeng.github.io/blog/2016/04/29/laravel-blade/" data-id="cj7hwqlcl0006fsp44gtixnkr" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/laravel/">laravel</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/blog/2016/05/07/laravel-migration/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          laravel migration
+        
+      </div>
+    </a>
+  
+  
+    <a href="/blog/2016/04/27/mysqlperformance03/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">mysql数据库之索引优化</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/Linux/">Linux</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/MySQL/">MySQL</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/PHP编程/">PHP编程</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/其他/">其他</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/前端/">前端</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/数据库范式/">数据库范式</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/CI/">CI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/JQuery/">JQuery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Mac/">Mac</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/MySQL/">MySQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/awk/">awk</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/bash/">bash</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/laravel/">laravel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/linux/">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/memcacheq/">memcacheq</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/mysql/">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/php/">php</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/thinking/">thinking</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/tmux/">tmux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/vagrant/">vagrant</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/vuejs/">vuejs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/zephir/">zephir</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/设计模式/">设计模式</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/blog/tags/CI/" style="font-size: 10px;">CI</a> <a href="/blog/tags/JQuery/" style="font-size: 10px;">JQuery</a> <a href="/blog/tags/Mac/" style="font-size: 15px;">Mac</a> <a href="/blog/tags/MySQL/" style="font-size: 10px;">MySQL</a> <a href="/blog/tags/awk/" style="font-size: 10px;">awk</a> <a href="/blog/tags/bash/" style="font-size: 10px;">bash</a> <a href="/blog/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/blog/tags/laravel/" style="font-size: 20px;">laravel</a> <a href="/blog/tags/linux/" style="font-size: 10px;">linux</a> <a href="/blog/tags/memcacheq/" style="font-size: 10px;">memcacheq</a> <a href="/blog/tags/mysql/" style="font-size: 20px;">mysql</a> <a href="/blog/tags/php/" style="font-size: 10px;">php</a> <a href="/blog/tags/thinking/" style="font-size: 15px;">thinking</a> <a href="/blog/tags/tmux/" style="font-size: 10px;">tmux</a> <a href="/blog/tags/vagrant/" style="font-size: 10px;">vagrant</a> <a href="/blog/tags/vuejs/" style="font-size: 10px;">vuejs</a> <a href="/blog/tags/zephir/" style="font-size: 10px;">zephir</a> <a href="/blog/tags/设计模式/" style="font-size: 15px;">设计模式</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/08/">August 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/07/">July 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/06/">June 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/04/">April 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/02/">February 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/01/">January 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2015/10/">October 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2015/08/">August 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2015/07/">July 2015</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/blog/2016/08/28/mac-lnmp/">Mac下安装LNMP(Nginx+PHP5.6)环境</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2016/08/28/mac-primary/">首次折腾Mac</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2016/08/15/laravel-basic/">laravel基础任务学习清单</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2016/07/17/vuejs/">vuejs与后台数据的交互实践</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2016/07/13/vagrant/">vagrant-快速搭建linux开发环境</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/blog/" class="mobile-nav-link">Home</a>
+  
+    <a href="/blog/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css">
+  <script src="/blog/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/blog/js/script.js"></script>
+
+  </div>
+</body>
+</html>

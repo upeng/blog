@@ -3,14 +3,19 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Archives | Hexo</title>
+  <title>mysql添加用户管理员及授权 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="upeng.github.io/blog/archives/index.html">
+  <meta name="description" content="mysql添加用户管理员及授权比如添加test用户，grant 高级 DBA 管理 MySQL 中所有数据库的权限 step1 创建用户1234insert into mysql.user(Host,User,Password) values(&amp;quot;%&amp;quot;,&amp;quot;test&amp;quot;,password(&amp;quot;123qwe&amp;quot;));insert into mysql">
+<meta name="keywords" content="mysql">
+<meta property="og:type" content="article">
+<meta property="og:title" content="mysql添加用户管理员及授权">
+<meta property="og:url" content="upeng.github.io/blog/2016/04/10/mysql-grant/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="mysql添加用户管理员及授权比如添加test用户，grant 高级 DBA 管理 MySQL 中所有数据库的权限 step1 创建用户1234insert into mysql.user(Host,User,Password) values(&amp;quot;%&amp;quot;,&amp;quot;test&amp;quot;,password(&amp;quot;123qwe&amp;quot;));insert into mysql">
+<meta property="og:updated_time" content="2017-06-28T16:12:44.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="mysql添加用户管理员及授权">
+<meta name="twitter:description" content="mysql添加用户管理员及授权比如添加test用户，grant 高级 DBA 管理 MySQL 中所有数据库的权限 step1 创建用户1234insert into mysql.user(Host,User,Password) values(&amp;quot;%&amp;quot;,&amp;quot;test&amp;quot;,password(&amp;quot;123qwe&amp;quot;));insert into mysql">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -59,215 +64,70 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/blog/archives/2016" class="archive-year">2016</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/blog/2016/08/28/mac-lnmp/" class="archive-article-date">
-  <time datetime="2016-08-28T14:28:49.000Z" itemprop="datePublished">Aug 28</time>
+        <section id="main"><article id="post-mysql-grant" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2016/04/10/mysql-grant/" class="article-date">
+  <time datetime="2016-04-10T06:26:00.000Z" itemprop="datePublished">2016-04-10</time>
 </a>
-      
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/blog/categories/MySQL/">MySQL</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/blog/2016/08/28/mac-lnmp/">Mac下安装LNMP(Nginx+PHP5.6)环境</a>
+    <h1 class="article-title" itemprop="name">
+      mysql添加用户管理员及授权
     </h1>
   
 
-    </header>
-  </div>
-</article>
-  
+      </header>
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/blog/2016/08/28/mac-primary/" class="archive-article-date">
-  <time datetime="2016-08-28T02:09:29.000Z" itemprop="datePublished">Aug 28</time>
-</a>
+    <div class="article-entry" itemprop="articleBody">
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/blog/2016/08/28/mac-primary/">首次折腾Mac</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/blog/2016/08/15/laravel-basic/" class="archive-article-date">
-  <time datetime="2016-08-15T14:24:32.000Z" itemprop="datePublished">Aug 15</time>
-</a>
+        <h2 id="mysql添加用户管理员及授权"><a href="#mysql添加用户管理员及授权" class="headerlink" title="mysql添加用户管理员及授权"></a>mysql添加用户管理员及授权</h2><p>比如添加test用户，grant 高级 DBA 管理 MySQL 中所有数据库的权限</p>
+<h3 id="step1-创建用户"><a href="#step1-创建用户" class="headerlink" title="step1 创建用户"></a>step1 创建用户</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">insert into mysql.user(Host,User,Password) values(&quot;%&quot;,&quot;test&quot;,password(&quot;123qwe&quot;));</div><div class="line">insert into mysql.user(Host,User,Password) values(&quot;localhost&quot;,&quot;test&quot;,password(&quot;123qwe&quot;));</div><div class="line">注：%和localhost的区别</div><div class="line">此处的&quot;localhost&quot;，是指该用户只能在本地登录，不能在另外一台机器上远程登录。如果想远程登录的话，将&quot;localhost&quot;改为&quot;%&quot;，表示在任何一台电脑上都可以登录。也可以指定某台机器可以远程登录。</div></pre></td></tr></table></figure>
+<h3 id="step2-为用户授权"><a href="#step2-为用户授权" class="headerlink" title="step2 为用户授权"></a>step2 为用户授权</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">授权格式：grant 权限 on 数据库.* to 用户名@登录主机 identified by &quot;密码&quot;;　</div><div class="line">grant all privileges on testDB.testTable to test@localhost identified by &apos;1234&apos;;</div><div class="line">grant all on *.* to test@&apos;%&apos;;  //全部数据库表的权限</div></pre></td></tr></table></figure>
+<h3 id="step3-刷新系统权限表"><a href="#step3-刷新系统权限表" class="headerlink" title="step3 刷新系统权限表"></a>step3 刷新系统权限表</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">flush privileges; //刷新系统权限表</div></pre></td></tr></table></figure>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/blog/2016/08/15/laravel-basic/">laravel基础任务学习清单</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/blog/2016/07/17/vuejs/" class="archive-article-date">
-  <time datetime="2016-07-17T07:58:17.000Z" itemprop="datePublished">Jul 17</time>
-</a>
+    </div>
+    <footer class="article-footer">
+      <a data-url="upeng.github.io/blog/2016/04/10/mysql-grant/" data-id="cj7hwqldn000xfsp402l45b16" class="article-share-link">Share</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/blog/2016/07/17/vuejs/">vuejs与后台数据的交互实践</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/blog/2016/07/13/vagrant/" class="archive-article-date">
-  <time datetime="2016-07-13T15:32:54.000Z" itemprop="datePublished">Jul 13</time>
-</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/blog/2016/07/13/vagrant/">vagrant-快速搭建linux开发环境</a>
-    </h1>
-  
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/mysql/">mysql</a></li></ul>
 
-    </header>
+    </footer>
   </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/blog/2016/04/20/hexo-guidebook/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          hexo+github搭建blog
+        
+      </div>
+    </a>
+  
+  
+    <a href="/blog/2016/02/25/mysql-think/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">一个脚本引发的思考</div>
+    </a>
+  
+</nav>
+
+  
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/blog/2016/07/11/memcacheq/" class="archive-article-date">
-  <time datetime="2016-07-11T15:29:55.000Z" itemprop="datePublished">Jul 11</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/blog/2016/07/11/memcacheq/">MCQ学习笔记</a>
-    </h1>
-  
 
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/blog/2016/06/30/zephir/" class="archive-article-date">
-  <time datetime="2016-06-30T15:42:24.000Z" itemprop="datePublished">Jun 30</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/blog/2016/06/30/zephir/">使用zephir快速编写php扩展</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-database">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/blog/2016/06/25/normal/" class="archive-article-date">
-  <time datetime="2016-06-25T08:32:12.000Z" itemprop="datePublished">Jun 25</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/blog/2016/06/25/normal/">数据库范式的思考</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/blog/2016/06/17/thinking-1/" class="archive-article-date">
-  <time datetime="2016-06-16T18:07:38.000Z" itemprop="datePublished">Jun 17</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/blog/2016/06/17/thinking-1/">In Recent Days</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/blog/2016/05/29/thinking/" class="archive-article-date">
-  <time datetime="2016-05-29T11:18:09.000Z" itemprop="datePublished">May 29</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/blog/2016/05/29/thinking/">standing on the shoulders of the giants</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-
-  <nav id="page-nav">
-    <span class="page-number current">1</span><a class="page-number" href="/blog/archives/page/2/">2</a><a class="page-number" href="/blog/archives/page/3/">3</a><a class="extend next" rel="next" href="/blog/archives/page/2/">__('next') &raquo;</a>
-  </nav>
 </section>
         
           <aside id="sidebar">

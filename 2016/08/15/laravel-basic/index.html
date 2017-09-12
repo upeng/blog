@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>laravel基础任务学习清单 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="关于Restful路由Route::resource(&amp;#39;task&amp;#39;, &amp;#39;TaskController&amp;#39;);产生多条路由，POST/DELTE/PUT/GET，对应着TaskController的各个方法；对于laravel5.2，使用 php artisan make:controller TaskController --resource可产生默认的多种方法通过p">
+<meta name="keywords" content="laravel">
+<meta property="og:type" content="article">
+<meta property="og:title" content="laravel基础任务学习清单">
+<meta property="og:url" content="upeng.github.io/blog/2016/08/15/laravel-basic/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="关于Restful路由Route::resource(&amp;#39;task&amp;#39;, &amp;#39;TaskController&amp;#39;);产生多条路由，POST/DELTE/PUT/GET，对应着TaskController的各个方法；对于laravel5.2，使用 php artisan make:controller TaskController --resource可产生默认的多种方法通过p">
+<meta property="og:image" content="https://raw.githubusercontent.com/upeng/upeng.github.io/master/image/laravel-route-list.png">
+<meta property="og:updated_time" content="2017-06-28T16:12:44.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="laravel基础任务学习清单">
+<meta name="twitter:description" content="关于Restful路由Route::resource(&amp;#39;task&amp;#39;, &amp;#39;TaskController&amp;#39;);产生多条路由，POST/DELTE/PUT/GET，对应着TaskController的各个方法；对于laravel5.2，使用 php artisan make:controller TaskController --resource可产生默认的多种方法通过p">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/upeng/upeng.github.io/master/image/laravel-route-list.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/blog/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/blog/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/blog/">Home</a>
+        
+          <a class="main-nav-link" href="/blog/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="upeng.github.io/blog"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-laravel-basic" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2016/08/15/laravel-basic/" class="article-date">
+  <time datetime="2016-08-15T14:24:32.000Z" itemprop="datePublished">2016-08-15</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/blog/categories/PHP编程/">PHP编程</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      laravel基础任务学习清单
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="关于Restful路由"><a href="#关于Restful路由" class="headerlink" title="关于Restful路由"></a>关于Restful路由</h2><p><code>Route::resource(&#39;task&#39;, &#39;TaskController&#39;);</code><br>产生多条路由，<code>POST/DELTE/PUT/GET</code>，对应着<code>TaskController</code>的各个方法；<br>对于laravel5.2，使用 <code>php artisan make:controller TaskController --resource</code>可产生默认的多种方法<br>通过<code>php artisan route:list</code>可以显示已经注册的路由列表</p>
+<p><img src="https://raw.githubusercontent.com/upeng/upeng.github.io/master/image/laravel-route-list.png" alt="laravel-route-list"></p>
+<a id="more"></a>
+<h2 id="表单验证"><a href="#表单验证" class="headerlink" title="表单验证"></a>表单验证</h2><blockquote>
+<p>store、update方法常使用</p>
+</blockquote>
+<p>基地控制器<code>Controller</code>内使用了<code>ValidatesRequests</code>这个<code>trait</code>，因此他为所有的控制器都提供了方便的<code>validate</code>验证方法。</p>
+<blockquote>
+<p>调研了解trait机制，为什么TestController use了这个trait，TestController 就可以使用ValidatesRequests的validate方法</p>
+</blockquote>
+<h3 id="最原始的表单验证（Controller中）"><a href="#最原始的表单验证（Controller中）" class="headerlink" title="最原始的表单验证（Controller中）"></a>最原始的表单验证（Controller中）</h3><p>validate方法会验证接受HTTP传入的请求与验证规则，如果验证通过，我们的代码才会继续向下运行。如果验证失败会抛出异常错误返回给用户。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">public function store(Request $request)</div><div class="line">&#123;</div><div class="line">	//验证用户请求</div><div class="line">	$this-&gt;validate($request,[</div><div class="line">		&apos;name&apos; =&gt; &apos;required&apos;,</div><div class="line">		&apos;content&apos; =&gt; &apos;required|min:5&apos;,</div><div class="line">	]);</div><div class="line"></div><div class="line">	//通过验证，保存至数据库</div><div class="line">	Task::create($request);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>说明</strong>：我们将验证规则传递到<code>validate</code>方法中，如果验证失败，则自动生成一个对应的响应。并将验证的错误提醒闪存至<code>session</code>，也就是<code>$errors</code>。当验证失败时，用户将被重定向到我们的控制器 <code>create</code>方法，让我们在视图中显示错误的消息：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">@if (count($errors) &gt; 0)</div><div class="line">	&lt;div class=&quot;alert alert-danger&quot;&gt;</div><div class="line">		&lt;ul&gt;</div><div class="line">			@foreach ($errors-&gt;all() as $error)</div><div class="line">			&lt;li&gt;&#123;&#123;$error&#125;&#125;&lt;/li&gt;</div><div class="line">		&lt;/ul&gt;</div><div class="line">	&lt;/div&gt;</div><div class="line">@endif</div></pre></td></tr></table></figure></p>
+<p><strong>补充</strong>：正常情况下我们想要把错误显示在对应的字段旁边，而不是一起显示在一个列表中；我们打印<code>session</code>中的<code>$errors-&gt;all()</code>是数字索引数组;</p>
+<blockquote>
+<p>要查看特定字段的第一个错误消息【比较常见的场景】</p>
+</blockquote>
+<p><strong>方法如下：</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">@if ($errors-&gt;has(&apos;name&apos;))</div><div class="line">$errors-&gt;first(&apos;name&apos;);</div><div class="line">@endif</div><div class="line"></div><div class="line">@if ($error-&gt;has(&apos;content&apos;))</div><div class="line">$error-&gt;first(&apos;content&apos;);</div><div class="line">@endif</div></pre></td></tr></table></figure></p>
+<blockquote>
+<p>我们想要得到一个字段对应的所有error</p>
+</blockquote>
+<p><strong>方法如下</strong>：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">foreach ($error-&gt;get(&apos;content&apos;) as $message)</div><div class="line">&#123;</div><div class="line">	//</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="表单请求验证，自定义请求类"><a href="#表单请求验证，自定义请求类" class="headerlink" title="表单请求验证，自定义请求类"></a>表单请求验证，自定义请求类</h3><blockquote>
+<p>php artisan make request TaskFormReuest;</p>
+</blockquote>
+<p>这时会在<code>Http/Requests</code>目录生成<code>TaskFormReuest.php</code>,修改<code>rules</code>方法，<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">//权限判断</div><div class="line">public function authorize()</div><div class="line">&#123;</div><div class="line">    return true;</div><div class="line">&#125;</div><div class="line"></div><div class="line">//验证规则</div><div class="line">public function rules()</div><div class="line">&#123;</div><div class="line">    return [</div><div class="line">        &apos;name&apos; =&gt; &apos;required|min:5&apos;,</div><div class="line">    ];</div><div class="line">&#125;</div><div class="line"></div><div class="line">//也可以自定义message方法</div><div class="line">public function messages()</div><div class="line">&#123;</div><div class="line">    return [</div><div class="line">        &apos;title.required&apos; =&gt; &apos;标题是必填的&apos;,</div><div class="line">        &apos;body.required&apos;  =&gt; &apos;消息是必填的&apos;,</div><div class="line">    ];</div><div class="line">&#125;</div><div class="line"></div><div class="line">//messages还可以这样动态设置</div><div class="line">public function messages()</div><div class="line">&#123;</div><div class="line">	return [</div><div class="line">		&apos;required&apos; =&gt; &apos;:attribute 是必填字段&apos;,</div><div class="line">		&apos;min&apos;	=&gt; &apos;:attribute 长度不小于 :min&apos;,</div><div class="line">	];</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h3 id="手动创建验证程序"><a href="#手动创建验证程序" class="headerlink" title="手动创建验证程序"></a>手动创建验证程序</h3><p>不使用validatesRequests的validate方法<br>我们可以use Validator类，手动创建一个validator实例，并通过Validator::make()生成一个新的validator</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">use Validator;</div><div class="line">...</div><div class="line">public function store(Request $request)</div><div class="line">&#123;</div><div class="line">	$validator = Validtor::make($request-&gt;all(),[</div><div class="line">		&apos;name&apos; =&gt; &apos;requeire&apos;,</div><div class="line">		&apos;content&apos; =&gt; &apos;require|min:6&apos;,</div><div class="line">	]);</div><div class="line"></div><div class="line">	if ($validator-&gt;fails())</div><div class="line">	&#123;</div><div class="line">		return redirect()-&gt;action(&apos;TaskController@index&apos;)</div><div class="line">		-&gt;withErrors($validator)</div><div class="line">		        -&gt;withInput();</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong>注</strong>：<code>Validator::make($param1, $param2)</code>，其中<code>$param1</code>是验证的数据，<code>$params</code>是规则</p>
+<h2 id="model操作"><a href="#model操作" class="headerlink" title="model操作"></a>model操作</h2><p>增：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">1. Task::create($request);</div><div class="line">2. </div><div class="line">$task = new Task();</div><div class="line">$task-&gt;name = $request-&gt;name;</div><div class="line">$task-&gt;created_at = Carbon::now();</div><div class="line">$task-&gt;save();</div></pre></td></tr></table></figure></p>
+<p>删：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">1.Task::destroy($id);</div><div class="line">2.Task::findOrFail($id)-&gt;delete();</div></pre></td></tr></table></figure></p>
+<p>改:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Task::update($request, $id);</div></pre></td></tr></table></figure></p>
+<p>查：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">1.Task::all();</div><div class="line">2.Task::where()-&gt;get();</div><div class="line">3.Task::orderBy(&apos;created_at&apos;, &apos;desc&apos;)-&gt;get();</div></pre></td></tr></table></figure></p>
+<h2 id="factory工厂模型使用"><a href="#factory工厂模型使用" class="headerlink" title="factory工厂模型使用"></a>factory工厂模型使用</h2><ul>
+<li><code>Task Model</code>中设置  <code>protected $fillable = [&#39;name&#39;, &#39;created_at&#39;]</code>;</li>
+<li><p><code>datebase/factories/ModelFactory.php</code>新增</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">$factory-&gt;define(App\Task::class, function (Faker\Generator $faker) &#123;</div><div class="line">    return [</div><div class="line">        &apos;name&apos; =&gt; $faker-&gt;sentence,</div><div class="line">        &apos;created_at&apos; =&gt; Carbon\Carbon::now(),</div><div class="line">    ];</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+</li>
+<li><p><code>php artisan tinker</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">namespace App;</div><div class="line">factory(App\Task::class,5)-&gt;create();</div></pre></td></tr></table></figure>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="upeng.github.io/blog/2016/08/15/laravel-basic/" data-id="cj7hwqlcd0004fsp4s22w5dqe" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/laravel/">laravel</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/blog/2016/08/28/mac-primary/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          首次折腾Mac
+        
+      </div>
+    </a>
+  
+  
+    <a href="/blog/2016/07/17/vuejs/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">vuejs与后台数据的交互实践</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/blog/categories/Linux/">Linux</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/MySQL/">MySQL</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/PHP编程/">PHP编程</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/其他/">其他</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/前端/">前端</a></li><li class="category-list-item"><a class="category-list-link" href="/blog/categories/数据库范式/">数据库范式</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/CI/">CI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/JQuery/">JQuery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/Mac/">Mac</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/MySQL/">MySQL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/awk/">awk</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/bash/">bash</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/hexo/">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/laravel/">laravel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/linux/">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/memcacheq/">memcacheq</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/mysql/">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/php/">php</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/thinking/">thinking</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/tmux/">tmux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/vagrant/">vagrant</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/vuejs/">vuejs</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/zephir/">zephir</a></li><li class="tag-list-item"><a class="tag-list-link" href="/blog/tags/设计模式/">设计模式</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/blog/tags/CI/" style="font-size: 10px;">CI</a> <a href="/blog/tags/JQuery/" style="font-size: 10px;">JQuery</a> <a href="/blog/tags/Mac/" style="font-size: 15px;">Mac</a> <a href="/blog/tags/MySQL/" style="font-size: 10px;">MySQL</a> <a href="/blog/tags/awk/" style="font-size: 10px;">awk</a> <a href="/blog/tags/bash/" style="font-size: 10px;">bash</a> <a href="/blog/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/blog/tags/laravel/" style="font-size: 20px;">laravel</a> <a href="/blog/tags/linux/" style="font-size: 10px;">linux</a> <a href="/blog/tags/memcacheq/" style="font-size: 10px;">memcacheq</a> <a href="/blog/tags/mysql/" style="font-size: 20px;">mysql</a> <a href="/blog/tags/php/" style="font-size: 10px;">php</a> <a href="/blog/tags/thinking/" style="font-size: 15px;">thinking</a> <a href="/blog/tags/tmux/" style="font-size: 10px;">tmux</a> <a href="/blog/tags/vagrant/" style="font-size: 10px;">vagrant</a> <a href="/blog/tags/vuejs/" style="font-size: 10px;">vuejs</a> <a href="/blog/tags/zephir/" style="font-size: 10px;">zephir</a> <a href="/blog/tags/设计模式/" style="font-size: 15px;">设计模式</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/08/">August 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/07/">July 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/06/">June 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/05/">May 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/04/">April 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/02/">February 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2016/01/">January 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2015/10/">October 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2015/08/">August 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/blog/archives/2015/07/">July 2015</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/blog/2016/08/28/mac-lnmp/">Mac下安装LNMP(Nginx+PHP5.6)环境</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2016/08/28/mac-primary/">首次折腾Mac</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2016/08/15/laravel-basic/">laravel基础任务学习清单</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2016/07/17/vuejs/">vuejs与后台数据的交互实践</a>
+          </li>
+        
+          <li>
+            <a href="/blog/2016/07/13/vagrant/">vagrant-快速搭建linux开发环境</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/blog/" class="mobile-nav-link">Home</a>
+  
+    <a href="/blog/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/blog/fancybox/jquery.fancybox.css">
+  <script src="/blog/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/blog/js/script.js"></script>
+
+  </div>
+</body>
+</html>

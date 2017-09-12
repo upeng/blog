@@ -3,14 +3,22 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Archives | Hexo</title>
+  <title>Linux常用命令-awk | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="upeng.github.io/blog/archives/index.html">
+  <meta name="description" content="详细的awk使用总结翻阅为知笔记 awkawk中 !a[$0]++ 与 !a[$1…]++功能：  去重  a[$0]是未定义的，即undef !优先级高于++   1.!a[$0]++!a[$0]++可以去除一行中重复的记录，以记录作为数组（可以将a理解为数组）索引；基于上面两点说明，这个不难理解。例子如下 从上面例子可以看出，重复的记录被删除掉，只保留重复记录中第一次出现的记录 2.!a[$1">
+<meta name="keywords" content="awk">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux常用命令-awk">
+<meta property="og:url" content="upeng.github.io/blog/2016/01/31/linux-awk/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="详细的awk使用总结翻阅为知笔记 awkawk中 !a[$0]++ 与 !a[$1…]++功能：  去重  a[$0]是未定义的，即undef !优先级高于++   1.!a[$0]++!a[$0]++可以去除一行中重复的记录，以记录作为数组（可以将a理解为数组）索引；基于上面两点说明，这个不难理解。例子如下 从上面例子可以看出，重复的记录被删除掉，只保留重复记录中第一次出现的记录 2.!a[$1">
+<meta property="og:image" content="http://upfriend-blog.stor.sinaapp.com/1.jpg">
+<meta property="og:image" content="http://upfriend-blog.stor.sinaapp.com/2.jpg">
+<meta property="og:updated_time" content="2017-06-28T16:12:44.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
+<meta name="twitter:title" content="Linux常用命令-awk">
+<meta name="twitter:description" content="详细的awk使用总结翻阅为知笔记 awkawk中 !a[$0]++ 与 !a[$1…]++功能：  去重  a[$0]是未定义的，即undef !优先级高于++   1.!a[$0]++!a[$0]++可以去除一行中重复的记录，以记录作为数组（可以将a理解为数组）索引；基于上面两点说明，这个不难理解。例子如下 从上面例子可以看出，重复的记录被删除掉，只保留重复记录中第一次出现的记录 2.!a[$1">
+<meta name="twitter:image" content="http://upfriend-blog.stor.sinaapp.com/1.jpg">
   
     <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -59,215 +67,93 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/blog/archives/2016" class="archive-year">2016</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/blog/2016/08/28/mac-lnmp/" class="archive-article-date">
-  <time datetime="2016-08-28T14:28:49.000Z" itemprop="datePublished">Aug 28</time>
+        <section id="main"><article id="post-linux-awk" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2016/01/31/linux-awk/" class="article-date">
+  <time datetime="2016-01-31T14:42:00.000Z" itemprop="datePublished">2016-01-31</time>
 </a>
-      
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/blog/categories/Linux/">Linux</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/blog/2016/08/28/mac-lnmp/">Mac下安装LNMP(Nginx+PHP5.6)环境</a>
+    <h1 class="article-title" itemprop="name">
+      Linux常用命令-awk
     </h1>
   
 
-    </header>
-  </div>
-</article>
-  
+      </header>
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/blog/2016/08/28/mac-primary/" class="archive-article-date">
-  <time datetime="2016-08-28T02:09:29.000Z" itemprop="datePublished">Aug 28</time>
-</a>
+    <div class="article-entry" itemprop="articleBody">
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/blog/2016/08/28/mac-primary/">首次折腾Mac</a>
-    </h1>
-  
+        <p>详细的awk使用总结翻阅为知笔记</p>
+<h2 id="awk"><a href="#awk" class="headerlink" title="awk"></a>awk</h2><p>awk中 !a[$0]++ 与 !a[$1…]++<br>功能：</p>
+<blockquote>
+<p>去重</p>
+<ol>
+<li>a[$0]是未定义的，即undef</li>
+<li>!优先级高于++</li>
+</ol>
+</blockquote>
+<p>1.!a[$0]++<br>!a[$0]++可以去除一行中重复的记录，以记录作为数组（可以将a理解为数组）索引；基于上面两点说明，这个不难理解。例子如下<br><img src="http://upfriend-blog.stor.sinaapp.com/1.jpg" alt="请输入图片描述"></p>
+<p>从上面例子可以看出，重复的记录被删除掉，只保留重复记录中第一次出现的记录</p>
+<p>2.!a[$1]++ 或者 !a[$2]++等等<br>!a[$1]++可以根据记录中某个域删除这个域相同的记录，也可以根据这个域相同，执行另外一些相应的操作。例子如下;<br><img src="http://upfriend-blog.stor.sinaapp.com/2.jpg" alt="请输入图片描述"></p>
+<p>从上面例子可以看出，第二个域相同的多条记录被删除，只保留重复记录中第一次出现的记录</p>
+<h3 id="查看文件夹下的文件个数-当前目录的文件和子文件夹的文件数"><a href="#查看文件夹下的文件个数-当前目录的文件和子文件夹的文件数" class="headerlink" title="查看文件夹下的文件个数(当前目录的文件和子文件夹的文件数)"></a>查看文件夹下的文件个数(当前目录的文件和子文件夹的文件数)</h3><p> <code>find ./ -type f | wc -l</code></p>
+<h2 id="wc"><a href="#wc" class="headerlink" title="wc"></a>wc</h2><p>功能：</p>
+<blockquote>
+<p>统计指定文本文件的行数、字数、字符数</p>
+</blockquote>
+<p>用法：</p>
+<ol>
+<li>wc file</li>
+<li>wc -l file</li>
+<li>wc -w file</li>
+<li>wc -c file</li>
+</ol>
+<p>文章部分来源：<a href="http://blog.163.com/njut_wangjian/blog/static/16579642520141027103125556/" target="_blank" rel="external">http://blog.163.com/njut_wangjian/blog/static/16579642520141027103125556/</a></p>
 
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/blog/2016/08/15/laravel-basic/" class="archive-article-date">
-  <time datetime="2016-08-15T14:24:32.000Z" itemprop="datePublished">Aug 15</time>
-</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/blog/2016/08/15/laravel-basic/">laravel基础任务学习清单</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/blog/2016/07/17/vuejs/" class="archive-article-date">
-  <time datetime="2016-07-17T07:58:17.000Z" itemprop="datePublished">Jul 17</time>
-</a>
+    </div>
+    <footer class="article-footer">
+      <a data-url="upeng.github.io/blog/2016/01/31/linux-awk/" data-id="cj7hwqlcz000ffsp4x2z7plnc" class="article-share-link">Share</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/blog/2016/07/17/vuejs/">vuejs与后台数据的交互实践</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/blog/2016/07/13/vagrant/" class="archive-article-date">
-  <time datetime="2016-07-13T15:32:54.000Z" itemprop="datePublished">Jul 13</time>
-</a>
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/blog/2016/07/13/vagrant/">vagrant-快速搭建linux开发环境</a>
-    </h1>
-  
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/awk/">awk</a></li></ul>
 
-    </header>
+    </footer>
   </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/blog/2016/02/25/mysql-think/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          一个脚本引发的思考
+        
+      </div>
+    </a>
+  
+  
+    <a href="/blog/2016/01/30/linux命令/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">linux常用命令（总是forget）</div>
+    </a>
+  
+</nav>
+
+  
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/blog/2016/07/11/memcacheq/" class="archive-article-date">
-  <time datetime="2016-07-11T15:29:55.000Z" itemprop="datePublished">Jul 11</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/blog/2016/07/11/memcacheq/">MCQ学习笔记</a>
-    </h1>
-  
 
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/blog/2016/06/30/zephir/" class="archive-article-date">
-  <time datetime="2016-06-30T15:42:24.000Z" itemprop="datePublished">Jun 30</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/blog/2016/06/30/zephir/">使用zephir快速编写php扩展</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-database">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/blog/2016/06/25/normal/" class="archive-article-date">
-  <time datetime="2016-06-25T08:32:12.000Z" itemprop="datePublished">Jun 25</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/blog/2016/06/25/normal/">数据库范式的思考</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/blog/2016/06/17/thinking-1/" class="archive-article-date">
-  <time datetime="2016-06-16T18:07:38.000Z" itemprop="datePublished">Jun 17</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/blog/2016/06/17/thinking-1/">In Recent Days</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/blog/2016/05/29/thinking/" class="archive-article-date">
-  <time datetime="2016-05-29T11:18:09.000Z" itemprop="datePublished">May 29</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/blog/2016/05/29/thinking/">standing on the shoulders of the giants</a>
-    </h1>
-  
-
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-
-  <nav id="page-nav">
-    <span class="page-number current">1</span><a class="page-number" href="/blog/archives/page/2/">2</a><a class="page-number" href="/blog/archives/page/3/">3</a><a class="extend next" rel="next" href="/blog/archives/page/2/">__('next') &raquo;</a>
-  </nav>
 </section>
         
           <aside id="sidebar">
