@@ -3,20 +3,19 @@
 <head>
   <meta charset="utf-8">
   
-  <title>linux下导入、导出mysql数据库命令 | Taylor&#39;s Learning Diary</title>
+  <title>Eloquent ORM和查询构造器 | Taylor&#39;s Learning Diary</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一、导出数据库用mysqldump命令（注意mysql的安装路径，即此命令的路径）： 导出数据和表结构：mysqldump -u用户名 -p密码 数据库名 &amp;gt; 数据库名.sqleg /usr/local/mysql/bin/   mysqldump -uroot -p abc &amp;gt; abc.sql敲回车后会提示输入密码  只导出表结构mysqldump -u用户名 -p密码 -d 数据库">
-<meta name="keywords" content="mysql">
-<meta property="og:type" content="article">
-<meta property="og:title" content="linux下导入、导出mysql数据库命令">
-<meta property="og:url" content="upeng.github.io/blog/2015/08/03/mysql导入导出/index.html">
+  <meta name="description" content="Eloquent ORM和查询构造器123Model::all();Model::where();Model::groupBy()-&amp;gt;select(&amp;apos;field_name&amp;apos;)-&amp;gt;get()-&amp;gt;toArray() 之前一直使用ORM，后面可以尝试使用查询构造器，ORM相比查询构造器，不需要指定table_name和field等信息，但是也有局限性，比如我们经常会">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Eloquent ORM和查询构造器">
+<meta property="og:url" content="upeng.github.io/blog/laravel-eloquent-orm/index.html">
 <meta property="og:site_name" content="Taylor&#39;s Learning Diary">
-<meta property="og:description" content="一、导出数据库用mysqldump命令（注意mysql的安装路径，即此命令的路径）： 导出数据和表结构：mysqldump -u用户名 -p密码 数据库名 &amp;gt; 数据库名.sqleg /usr/local/mysql/bin/   mysqldump -uroot -p abc &amp;gt; abc.sql敲回车后会提示输入密码  只导出表结构mysqldump -u用户名 -p密码 -d 数据库">
+<meta property="og:description" content="Eloquent ORM和查询构造器123Model::all();Model::where();Model::groupBy()-&amp;gt;select(&amp;apos;field_name&amp;apos;)-&amp;gt;get()-&amp;gt;toArray() 之前一直使用ORM，后面可以尝试使用查询构造器，ORM相比查询构造器，不需要指定table_name和field等信息，但是也有局限性，比如我们经常会">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2017-06-28T16:12:44.000Z">
+<meta property="og:updated_time" content="2017-09-14T16:01:57.699Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="linux下导入、导出mysql数据库命令">
-<meta name="twitter:description" content="一、导出数据库用mysqldump命令（注意mysql的安装路径，即此命令的路径）： 导出数据和表结构：mysqldump -u用户名 -p密码 数据库名 &amp;gt; 数据库名.sqleg /usr/local/mysql/bin/   mysqldump -uroot -p abc &amp;gt; abc.sql敲回车后会提示输入密码  只导出表结构mysqldump -u用户名 -p密码 -d 数据库">
+<meta name="twitter:title" content="Eloquent ORM和查询构造器">
+<meta name="twitter:description" content="Eloquent ORM和查询构造器123Model::all();Model::where();Model::groupBy()-&amp;gt;select(&amp;apos;field_name&amp;apos;)-&amp;gt;get()-&amp;gt;toArray() 之前一直使用ORM，后面可以尝试使用查询构造器，ORM相比查询构造器，不需要指定table_name和field等信息，但是也有局限性，比如我们经常会">
   
     <link rel="alternate" href="/atom.xml" title="Taylor&#39;s Learning Diary" type="application/atom+xml">
   
@@ -65,16 +64,12 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-mysql导入导出" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="page-" class="article article-type-page" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/blog/2015/08/03/mysql导入导出/" class="article-date">
-  <time datetime="2015-08-03T03:09:00.000Z" itemprop="datePublished">2015-08-03</time>
+    <a href="/blog/laravel-eloquent-orm/index.html" class="article-date">
+  <time datetime="2017-09-14T15:57:57.000Z" itemprop="datePublished">2017-09-14</time>
 </a>
     
-  <div class="article-category">
-    <a class="article-category-link" href="/blog/categories/MySQL/">MySQL</a>
-  </div>
-
   </div>
   <div class="article-inner">
     
@@ -83,7 +78,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      linux下导入、导出mysql数据库命令
+      Eloquent ORM和查询构造器
     </h1>
   
 
@@ -91,58 +86,28 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="一、导出数据库用mysqldump命令（注意mysql的安装路径，即此命令的路径）："><a href="#一、导出数据库用mysqldump命令（注意mysql的安装路径，即此命令的路径）：" class="headerlink" title="一、导出数据库用mysqldump命令（注意mysql的安装路径，即此命令的路径）："></a>一、导出数据库用mysqldump命令（注意mysql的安装路径，即此命令的路径）：</h2><ul>
-<li><h3 id="导出数据和表结构："><a href="#导出数据和表结构：" class="headerlink" title="导出数据和表结构："></a>导出数据和表结构：</h3><p>mysqldump -u用户名 -p密码 数据库名 &gt; 数据库名.sql<br>eg /usr/local/mysql/bin/   mysqldump -uroot -p abc &gt; abc.sql<br>敲回车后会提示输入密码</p>
-</li>
-<li><h3 id="只导出表结构"><a href="#只导出表结构" class="headerlink" title="只导出表结构"></a>只导出表结构</h3><p>mysqldump -u用户名 -p密码 -d 数据库名 &gt; 数据库名.sql<br>eg /usr/local/mysql/bin/   mysqldump -uroot -p -d abc &gt; abc.sql</p>
-</li>
-</ul>
-<p>注：/usr/local/mysql/bin/  —&gt;  mysql的data目录</p>
-<h2 id="二、导入数据库"><a href="#二、导入数据库" class="headerlink" title="二、导入数据库"></a>二、导入数据库</h2><ol>
-<li><h3 id="首先建空数据库"><a href="#首先建空数据库" class="headerlink" title="首先建空数据库"></a>首先建空数据库</h3><p>mysql&gt;create database abc;</p>
-</li>
-<li><h3 id="导入数据库"><a href="#导入数据库" class="headerlink" title="导入数据库"></a>导入数据库</h3><p>方法一：<br>（1）选择数据库<br>mysql&gt;use abc;<br>（2）设置数据库编码<br>mysql&gt;set names utf8;<br>（3）导入数据（注意sql文件的路径）<br>mysql&gt;source /home/abc/abc.sql;<br>方法二：<br>mysql -u用户名 -p密码 数据库名 &lt; 数据库名.sql<br>eg mysql -uabc_f -p abc &lt; abc.sql</p>
-</li>
-</ol>
-<p>建议使用第二种方法导入。</p>
-<h3 id="三、关于导入导出数据库需注意的地方（总是忘记！）"><a href="#三、关于导入导出数据库需注意的地方（总是忘记！）" class="headerlink" title="三、关于导入导出数据库需注意的地方（总是忘记！）"></a>三、关于导入导出数据库需注意的地方（总是忘记！）</h3><ul>
-<li><p><code>而导入数据库和导出正好相反（废话），要先进入mysql，然后使用source命令</code></p>
-</li>
-<li><p><code>导出数据库是在linux命令行模式中，当前位于哪个目录就导出到哪里（途中可能需要输入user password）</code> </p>
-</li>
-</ul>
+        <h3 id="Eloquent-ORM和查询构造器"><a href="#Eloquent-ORM和查询构造器" class="headerlink" title="Eloquent ORM和查询构造器"></a>Eloquent ORM和查询构造器</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Model::all();</div><div class="line">Model::where();</div><div class="line">Model::groupBy()-&gt;select(&apos;field_name&apos;)-&gt;get()-&gt;toArray()</div></pre></td></tr></table></figure>
+<p>之前一直使用ORM，后面可以尝试使用查询构造器，ORM相比查询构造器，不需要指定table_name和field等信息，但是也有局限性，比如我们经常会需要查询指定字段field<br>对于查询构造器而言是十分方便的select字段名接近原生查询方法，易理解易记忆。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">$users = DB::table(&apos;users&apos;)-&gt;select(&apos;name&apos;, &apos;email&apos;)-&gt;get();</div><div class="line">//那么ORM是否无法查询指定字段呢？当然不是,ORM也是可以滴</div><div class="line">Market::all([*])</div><div class="line">//将Model类作为一个obj，然后链式操作</div><div class="line">$market = Marketer::query(); </div><div class="line">//根据条件选择性地执行下面的条件</div><div class="line">$market-&gt;where();</div></pre></td></tr></table></figure></p>
+<p>查询构造可以指定tablename为某个Model的static变量,便于维护。当然查询构造器有很多很好用的查询方式，而且链式操作强悍，实例：<a href="https://cs.laravel-china.org/#db" target="_blank" rel="external">查询构造器</a></p>
+<h3 id="踩到的一个坑"><a href="#踩到的一个坑" class="headerlink" title="踩到的一个坑"></a>踩到的一个坑</h3><blockquote>
+<p>多个or和and条件查询<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">select * from users where (id=2 or name=&apos;taylor&apos; or age=27) and address=&apos;shanghai&apos;</div><div class="line"></div><div class="line">Users::where(id, 2)</div><div class="line">    -&gt;orWhere(name, &apos;taylor&apos;)</div><div class="line">    -&gt;orWhere(age, 27)</div><div class="line">    -&gt;where(address, &apos;shanghai&apos;)</div><div class="line"> </div><div class="line">``` </div><div class="line">发现结果和预期不同，因为`and`逻辑会先于`or`，所以会出现问题，那么如何**按照我们指定的顺序**去查询？官方手册并未这么详细，在Stack Overflow找到了答案：</div><div class="line">[Laravel 5 Eloquent where and or in Clauses](https://stackoverflow.com/questions/30434037/laravel-5-eloquent-where-and-or-in-clauses)</div></pre></td></tr></table></figure></p>
+</blockquote>
+<p>$market-&gt;where( {<br>Users::where(function($q){<br>    $q-&gt;where(‘id’, 2)<br>    -&gt;orWhere(‘name’, ‘taylor’)<br>    -&gt;orWhere(‘age’, 27)<br>})-&gt;where(‘address’, ‘shanghai’);</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">继续，还有坑，因为我们传递的都是数值和字符串，正常情况是变量</div></pre></td></tr></table></figure>
+<p>$id = 2;<br>$market-&gt;where( {<br>Users::where(function($q){<br>    $q-&gt;where(‘id’, $id)<br>    -&gt;orWhere(‘name’, ‘taylor’)<br>    -&gt;orWhere(‘age’, 27)<br>})-&gt;where(‘address’, ‘shanghai’);</p>
+<p>```</p>
+<p><code>Error: $id is not definied</code><br><code>Reason:</code> 匿名函数内部的<code>where</code>和<code>orWhere</code>是一起的（括号），但是在匿名函数内是取不到其外部的变量的，可以在<code>function</code>内部传参数解决，也可以将变量赋值成成员变量解决；<br>比如<code>$this-&gt;id = 2；</code>这样可以 将<code>$id</code> 改成<code>$this-&gt;id</code></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="upeng.github.io/blog/2015/08/03/mysql导入导出/" data-id="cj7knmfsg001a6sp4mywko188" class="article-share-link">Share</a>
+      <a data-url="upeng.github.io/blog/laravel-eloquent-orm/index.html" data-id="cj7knmfqh00016sp4nde2rh5l" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/mysql/">mysql</a></li></ul>
-
     </footer>
   </div>
   
     
-<nav id="article-nav">
-  
-    <a href="/blog/2015/08/13/php-ci1/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          CI模型-视图-控制器 命名规范
-        
-      </div>
-    </a>
-  
-  
-    <a href="/blog/2015/07/15/html-js/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">jquery中html()、text()、val()与js中的对应属性</div>
-    </a>
-  
-</nav>
-
   
 </article>
 
