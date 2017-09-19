@@ -18,7 +18,7 @@
 <meta name="twitter:title" content="vagrant-快速搭建linux开发环境">
 <meta name="twitter:description" content="平时开发测试使用公司提供的弹性开发机（Centos），自己想折腾一些东西又不方面在上面部署,鉴于  学习linux考虑（比如经常装扩展插件啥的），装WAMP有些low而且不适合扩展。 在windows上装linux虚拟机（VMare等）又太占内存（o(╯□╰)o我的笔记本只有4G内存。。。）  有没有那种快捷的搭建linux开发环境的东东呢？答案是肯定的。偶然间发现了vagrant，它就像一个容器">
   
-    <link rel="alternate" href="/blog/atom.xml" title="Taylor&#39;s Learning Diary" type="application/atom+xml">
+    <link rel="alternate" href="/atom.xml" title="Taylor&#39;s Learning Diary" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
@@ -54,7 +54,7 @@
       </nav>
       <nav id="sub-nav">
         
-          <a id="nav-rss-link" class="nav-icon" href="/blog/atom.xml" title="RSS Feed"></a>
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
         <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
       </nav>
@@ -105,14 +105,14 @@
 <h3 id="启动虚拟机"><a href="#启动虚拟机" class="headerlink" title="启动虚拟机"></a>启动虚拟机</h3><p>vargant up<br>vagrant up之前需要将Vagrant文件的第25行注释去掉，这样才能在windows中访问我们在linux中创建的程序；在trusty版本的Ubuntu中，有个目录 <code>/vagrant</code>与本地windows中Vagrant同级，因此可以本地编辑，linux中运行，就像磁盘映射。</p>
 <h3 id="登录虚拟机"><a href="#登录虚拟机" class="headerlink" title="登录虚拟机"></a>登录虚拟机</h3><p>vagrant ssh<br>使用vagrant ssh进入Ubuntu系统；进入后需要更新升级Ubuntu的一些包和工具，同事需要安装我们的LAMP。<br>升级包命令： <code>sudo apt-get update</code><br>安装php apache: <code>sudo apt-get install apache2 php5 libapache2-mod-php5</code><br>安装mysql: <code>sudo apt-get install mysql-server mysql-client php5-mysql</code></p>
 <h3 id="配置apache2"><a href="#配置apache2" class="headerlink" title="配置apache2"></a>配置apache2</h3><p>安装完成后访问：<code>http://localhost:8080</code> , 默认指向 <code>/var/www/html</code> ,修改配置文件如下：<br>配置文件路径  <code>/etc/apache2/sites-available/000-default.conf</code></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">DocumentRoot /vagrant</div><div class="line">&lt;Directory /vagrant&gt;</div><div class="line">                Options -Indexes +followSymLinks +MultiViews</div><div class="line">                AllowOverride all</div><div class="line">                Require all granted</div><div class="line">&lt;/Directory&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="attribute"><span class="nomarkup">DocumentRoot</span></span> /vagrant</div><div class="line"><span class="section">&lt;Directory /vagrant&gt;</span></div><div class="line">                <span class="attribute"><span class="nomarkup">Options</span></span> -Indexes +followSymLinks +MultiViews</div><div class="line">                <span class="attribute">AllowOverride</span> <span class="literal">all</span></div><div class="line">                <span class="attribute">Require</span> <span class="literal">all</span> granted</div><div class="line"><span class="section">&lt;/Directory&gt;</span></div></pre></td></tr></table></figure>
 <p>修改完成后重启apache <code>service apache2 restart</code></p>
 <p>参考：<br><a href="http://rrylee.github.io/2015/11/26/quick-start-linux-php/" target="_blank" rel="external">http://rrylee.github.io/2015/11/26/quick-start-linux-php/</a><br><a href="http://rmingwang.com/vagrant-commands-and-config.html" target="_blank" rel="external">http://rmingwang.com/vagrant-commands-and-config.html</a></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://upeng.github.io/blog/2016/07/13/vagrant/" data-id="cj7rsx8fb0029kop4nb60hqbf" class="article-share-link">Share</a>
+      <a data-url="https://upeng.github.io/blog/2016/07/13/vagrant/" data-id="cj7rv5q4k001xykp428cdojcr" class="article-share-link">Share</a>
       
         <a href="https://upeng.github.io/blog/2016/07/13/vagrant/#disqus_thread" class="article-comment-link">留言</a>
       

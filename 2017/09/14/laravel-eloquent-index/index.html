@@ -5,20 +5,20 @@
   
   <title>laravel Eloquent ORM和查询构造器使用小结&amp;一个自己不知道的小坑 | Taylor&#39;s Learning Diary</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Eloquent ORM和查询构造器123Model::all();Model::where();Model::groupBy()-&amp;gt;select(&amp;apos;field_name&amp;apos;)-&amp;gt;get()-&amp;gt;toArray() 之前一直使用ORM，后面可以尝试使用查询构造器，ORM相比查询构造器，不需要指定table_name和field等信息，但是也有局限性，比如我们经常会">
+  <meta name="description" content="Eloquent ORM和查询构造器123Model::all();Model::where();Model::groupBy()-&amp;gt;select(&apos;field_name&apos;)-&amp;gt;get()-&amp;gt;toArray() 之前一直使用ORM，后面可以尝试使用查询构造器，ORM相比查询构造器，不需要指定table_name和field等信息，但是也有局限性，比如我们经常会需要查询指定字段fi">
 <meta name="keywords" content="laravel,eloquent">
 <meta property="og:type" content="article">
 <meta property="og:title" content="laravel Eloquent ORM和查询构造器使用小结&amp;一个自己不知道的小坑">
 <meta property="og:url" content="https://upeng.github.io/blog/2017/09/14/laravel-eloquent-index/index.html">
 <meta property="og:site_name" content="Taylor&#39;s Learning Diary">
-<meta property="og:description" content="Eloquent ORM和查询构造器123Model::all();Model::where();Model::groupBy()-&amp;gt;select(&amp;apos;field_name&amp;apos;)-&amp;gt;get()-&amp;gt;toArray() 之前一直使用ORM，后面可以尝试使用查询构造器，ORM相比查询构造器，不需要指定table_name和field等信息，但是也有局限性，比如我们经常会">
+<meta property="og:description" content="Eloquent ORM和查询构造器123Model::all();Model::where();Model::groupBy()-&amp;gt;select(&apos;field_name&apos;)-&amp;gt;get()-&amp;gt;toArray() 之前一直使用ORM，后面可以尝试使用查询构造器，ORM相比查询构造器，不需要指定table_name和field等信息，但是也有局限性，比如我们经常会需要查询指定字段fi">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:updated_time" content="2017-09-14T16:44:39.095Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="laravel Eloquent ORM和查询构造器使用小结&amp;一个自己不知道的小坑">
-<meta name="twitter:description" content="Eloquent ORM和查询构造器123Model::all();Model::where();Model::groupBy()-&amp;gt;select(&amp;apos;field_name&amp;apos;)-&amp;gt;get()-&amp;gt;toArray() 之前一直使用ORM，后面可以尝试使用查询构造器，ORM相比查询构造器，不需要指定table_name和field等信息，但是也有局限性，比如我们经常会">
+<meta name="twitter:description" content="Eloquent ORM和查询构造器123Model::all();Model::where();Model::groupBy()-&amp;gt;select(&apos;field_name&apos;)-&amp;gt;get()-&amp;gt;toArray() 之前一直使用ORM，后面可以尝试使用查询构造器，ORM相比查询构造器，不需要指定table_name和field等信息，但是也有局限性，比如我们经常会需要查询指定字段fi">
   
-    <link rel="alternate" href="/blog/atom.xml" title="Taylor&#39;s Learning Diary" type="application/atom+xml">
+    <link rel="alternate" href="/atom.xml" title="Taylor&#39;s Learning Diary" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
@@ -54,7 +54,7 @@
       </nav>
       <nav id="sub-nav">
         
-          <a id="nav-rss-link" class="nav-icon" href="/blog/atom.xml" title="RSS Feed"></a>
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
         <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
       </nav>
@@ -91,11 +91,11 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="Eloquent-ORM和查询构造器"><a href="#Eloquent-ORM和查询构造器" class="headerlink" title="Eloquent ORM和查询构造器"></a>Eloquent ORM和查询构造器</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Model::all();</div><div class="line">Model::where();</div><div class="line">Model::groupBy()-&gt;select(&apos;field_name&apos;)-&gt;get()-&gt;toArray()</div></pre></td></tr></table></figure>
-<p>之前一直使用ORM，后面可以尝试使用查询构造器，ORM相比查询构造器，不需要指定table_name和field等信息，但是也有局限性，比如我们经常会需要查询指定字段field<br>对于查询构造器而言是十分方便的select字段名接近原生查询方法，易理解易记忆。<br><a id="more"></a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">$users = DB::table(&apos;users&apos;)-&gt;select(&apos;name&apos;, &apos;email&apos;)-&gt;get();</div><div class="line">//那么ORM是否无法查询指定字段呢？当然不是,ORM也是可以滴</div><div class="line">Market::all([*])</div><div class="line">//将Model类作为一个obj，然后链式操作</div><div class="line">$market = Marketer::query(); </div><div class="line">//根据条件选择性地执行下面的条件</div><div class="line">$market-&gt;where();</div></pre></td></tr></table></figure></p>
+        <h3 id="Eloquent-ORM和查询构造器"><a href="#Eloquent-ORM和查询构造器" class="headerlink" title="Eloquent ORM和查询构造器"></a>Eloquent ORM和查询构造器</h3><figure class="highlight livescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Model::all();</div><div class="line">Model::where();</div><div class="line">Model::groupBy<span class="function"><span class="params">()</span>-&gt;</span>select<span class="function"><span class="params">(<span class="string">'field_name'</span>)</span>-&gt;</span>get<span class="function"><span class="params">()</span>-&gt;</span>toArray()</div></pre></td></tr></table></figure>
+<p>之前一直使用ORM，后面可以尝试使用查询构造器，ORM相比查询构造器，不需要指定table_name和field等信息，但是也有局限性，比如我们经常会需要查询指定字段field<br>对于查询构造器而言是十分方便的select字段名接近原生查询方法，易理解易记忆。<br><a id="more"></a><br><figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">$users = DB::table(<span class="string">'users'</span>)-&gt;select(<span class="string">'name'</span>, <span class="string">'email'</span>)-&gt;get();</div><div class="line"><span class="comment">//那么ORM是否无法查询指定字段呢？当然不是,ORM也是可以滴</span></div><div class="line">Market::all([*])</div><div class="line"><span class="comment">//将Model类作为一个obj，然后链式操作</span></div><div class="line">$market = Marketer::query(); </div><div class="line"><span class="comment">//根据条件选择性地执行下面的条件</span></div><div class="line">$market-&gt;where();</div></pre></td></tr></table></figure></p>
 <p>查询构造可以指定tablename为某个Model的static变量,便于维护。当然查询构造器有很多很好用的查询方式，而且链式操作强悍，实例：<a href="https://cs.laravel-china.org/#db" target="_blank" rel="external">查询构造器</a></p>
 <h3 id="踩到的一个坑"><a href="#踩到的一个坑" class="headerlink" title="踩到的一个坑"></a>踩到的一个坑</h3><blockquote>
-<p>多个or和and条件查询<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">select * from users where (id=2 or name=&apos;taylor&apos; or age=27) and address=&apos;shanghai&apos;</div><div class="line"></div><div class="line">Users::where(id, 2)</div><div class="line">    -&gt;orWhere(name, &apos;taylor&apos;)</div><div class="line">    -&gt;orWhere(age, 27)</div><div class="line">    -&gt;where(address, &apos;shanghai&apos;)</div><div class="line"> </div><div class="line">``` </div><div class="line">发现结果和预期不同，因为`and`逻辑会先于`or`，所以会出现问题，那么如何**按照我们指定的顺序**去查询？官方手册并未这么详细，在Stack Overflow找到了答案：</div><div class="line">[Laravel 5 Eloquent where and or in Clauses](https://stackoverflow.com/questions/30434037/laravel-5-eloquent-where-and-or-in-clauses)</div></pre></td></tr></table></figure></p>
+<p>多个or和and条件查询<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> * <span class="keyword">from</span> <span class="keyword">users</span> <span class="keyword">where</span> (<span class="keyword">id</span>=<span class="number">2</span> <span class="keyword">or</span> <span class="keyword">name</span>=<span class="string">'taylor'</span> <span class="keyword">or</span> age=<span class="number">27</span>) <span class="keyword">and</span> address=<span class="string">'shanghai'</span></div><div class="line"></div><div class="line"><span class="keyword">Users</span>::<span class="keyword">where</span>(<span class="keyword">id</span>, <span class="number">2</span>)</div><div class="line">    -&gt;orWhere(<span class="keyword">name</span>, <span class="string">'taylor'</span>)</div><div class="line">    -&gt;orWhere(age, <span class="number">27</span>)</div><div class="line">    -&gt;<span class="keyword">where</span>(address, <span class="string">'shanghai'</span>)</div><div class="line"> </div><div class="line"><span class="string">``</span><span class="string">` </span></div><div class="line"><span class="string">发现结果和预期不同，因为`</span><span class="keyword">and</span><span class="string">`逻辑会先于`</span><span class="keyword">or</span><span class="string">`，所以会出现问题，那么如何**按照我们指定的顺序**去查询？官方手册并未这么详细，在Stack Overflow找到了答案：</span></div><div class="line"><span class="string">[Laravel 5 Eloquent where and or in Clauses](https://stackoverflow.com/questions/30434037/laravel-5-eloquent-where-and-or-in-clauses)</span></div></pre></td></tr></table></figure></p>
 </blockquote>
 <p>$market-&gt;where( {<br>Users::where(function($q){<br>    $q-&gt;where(‘id’, 2)<br>    -&gt;orWhere(‘name’, ‘taylor’)<br>    -&gt;orWhere(‘age’, 27)<br>})-&gt;where(‘address’, ‘shanghai’);</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">继续，还有坑，因为我们传递的都是数值和字符串，正常情况是变量</div></pre></td></tr></table></figure>
@@ -106,7 +106,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://upeng.github.io/blog/2017/09/14/laravel-eloquent-index/" data-id="cj7rsx8ct000bkop49fb3uvsy" class="article-share-link">Share</a>
+      <a data-url="https://upeng.github.io/blog/2017/09/14/laravel-eloquent-index/" data-id="cj7rv5q2m000cykp4g50ep8pm" class="article-share-link">Share</a>
       
         <a href="https://upeng.github.io/blog/2017/09/14/laravel-eloquent-index/#disqus_thread" class="article-comment-link">留言</a>
       

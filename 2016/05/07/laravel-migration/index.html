@@ -18,7 +18,7 @@
 <meta name="twitter:title" content="laravel migration">
 <meta name="twitter:description" content="laravel migration工具新建表articles步骤 migrations下生成2015_12_13_104637_create_articles_table.php文件php artisan make:migration create_articles_table --create=articles 修改生成的文件2015_12_13_104637_create_articles_t">
   
-    <link rel="alternate" href="/blog/atom.xml" title="Taylor&#39;s Learning Diary" type="application/atom+xml">
+    <link rel="alternate" href="/atom.xml" title="Taylor&#39;s Learning Diary" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
@@ -54,7 +54,7 @@
       </nav>
       <nav id="sub-nav">
         
-          <a id="nav-rss-link" class="nav-icon" href="/blog/atom.xml" title="RSS Feed"></a>
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
         <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
       </nav>
@@ -95,31 +95,31 @@
 <li>migrations下生成<code>2015_12_13_104637_create_articles_table.php</code>文件<br><code>php artisan make:migration create_articles_table --create=articles</code></li>
 <li>修改生成的文件<code>2015_12_13_104637_create_articles_table.php</code></li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">Schema::create(&apos;articles&apos;, function (Blueprint $table) &#123;</div><div class="line">    $table-&gt;increments(&apos;id&apos;);</div><div class="line">    $table-&gt;string(&apos;title&apos;);</div><div class="line">    $table-&gt;text(&apos;content&apos;);</div><div class="line">    $table-&gt;timestamp(&apos;published_at&apos;);</div><div class="line">    $table-&gt;timestamps();</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">Schema::create(<span class="string">'articles'</span>, <span class="function"><span class="keyword">function</span> <span class="params">(Blueprint $table)</span> </span>&#123;</div><div class="line">    $table-&gt;increments(<span class="string">'id'</span>);</div><div class="line">    $table-&gt;string(<span class="string">'title'</span>);</div><div class="line">    $table-&gt;text(<span class="string">'content'</span>);</div><div class="line">    $table-&gt;timestamp(<span class="string">'published_at'</span>);</div><div class="line">    $table-&gt;timestamps();</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
 <ul>
 <li>保存文件，执行下面命令，数据库中生成articls表<br><code>php artisan migrate</code></li>
 </ul>
-<h3 id="删除刚才创建的table"><a href="#删除刚才创建的table" class="headerlink" title="删除刚才创建的table"></a>删除刚才创建的table</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">//回退操作</div><div class="line">php artisan migrate:rollback</div></pre></td></tr></table></figure>
+<h3 id="删除刚才创建的table"><a href="#删除刚才创建的table" class="headerlink" title="删除刚才创建的table"></a>删除刚才创建的table</h3><figure class="highlight groovy"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//回退操作</span></div><div class="line">php artisan <span class="string">migrate:</span>rollback</div></pre></td></tr></table></figure>
 <a id="more"></a>
 <h3 id="增加表字段"><a href="#增加表字段" class="headerlink" title="增加表字段"></a>增加表字段</h3><ol>
 <li><p>如果将table drop后在create中添加字段,会删除表中已有数据。</p>
 </li>
 <li><p>在migrations下新建文件<code>add_intro_into_articles</code></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">php artisan make:migration add_intro_into_articles --table=articles</div></pre></td></tr></table></figure>
+<figure class="highlight gams"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">php artisan make:migration add_intro_into_articles --<span class="keyword">table</span>=articles</div></pre></td></tr></table></figure>
 </li>
 <li><p>修改add_intro_into_articles</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">public function up()</div><div class="line">&#123;</div><div class="line">    Schema::table(&apos;articles&apos;, function (Blueprint $table) &#123;</div><div class="line">        $table-&gt;string(&apos;intro&apos;);</div><div class="line">    &#125;);</div><div class="line">&#125;</div><div class="line"></div><div class="line">public function down()</div><div class="line">&#123;</div><div class="line">    Schema::table(&apos;articles&apos;, function (Blueprint $table) &#123;</div><div class="line">        $table-&gt;dropColumn(&apos;intro&apos;);</div><div class="line">    &#125;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">up</span><span class="params">()</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    Schema::table(<span class="string">'articles'</span>, <span class="function"><span class="keyword">function</span> <span class="params">(Blueprint $table)</span> </span>&#123;</div><div class="line">        $table-&gt;string(<span class="string">'intro'</span>);</div><div class="line">    &#125;);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">down</span><span class="params">()</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    Schema::table(<span class="string">'articles'</span>, <span class="function"><span class="keyword">function</span> <span class="params">(Blueprint $table)</span> </span>&#123;</div><div class="line">        $table-&gt;dropColumn(<span class="string">'intro'</span>);</div><div class="line">    &#125;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 </li>
 </ol>
 <ul>
-<li>注意关键字的不同，导致生成的文件中匿名函数书写的不同<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">--create=tablename</div><div class="line">Schema::create(&apos;articles&apos;,function()&#123;&#125;);</div><div class="line"></div><div class="line">--table=tablename</div><div class="line">Schema::table(&apos;articles&apos;, function()&#123;&#125;);</div></pre></td></tr></table></figure>
+<li>注意关键字的不同，导致生成的文件中匿名函数书写的不同<figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">--create=tablename</span></div><div class="line">Schema::<span class="built_in">create</span>(<span class="string">'articles'</span>,<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;&#125;);</div><div class="line"></div><div class="line"><span class="comment">--table=tablename</span></div><div class="line">Schema::<span class="built_in">table</span>(<span class="string">'articles'</span>, <span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;&#125;);</div></pre></td></tr></table></figure>
 </li>
 </ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://upeng.github.io/blog/2016/05/07/laravel-migration/" data-id="cj7rsx8cx000ckop4npc3z3g9" class="article-share-link">Share</a>
+      <a data-url="https://upeng.github.io/blog/2016/05/07/laravel-migration/" data-id="cj7rv5q2b0007ykp42kaq57xt" class="article-share-link">Share</a>
       
         <a href="https://upeng.github.io/blog/2016/05/07/laravel-migration/#disqus_thread" class="article-comment-link">留言</a>
       

@@ -16,7 +16,7 @@
 <meta name="twitter:title" content="Taylor&#39;s Learning Diary">
 <meta name="twitter:description" content="LNMP">
   
-    <link rel="alternate" href="/blog/atom.xml" title="Taylor&#39;s Learning Diary" type="application/atom+xml">
+    <link rel="alternate" href="/atom.xml" title="Taylor&#39;s Learning Diary" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
@@ -52,7 +52,7 @@
       </nav>
       <nav id="sub-nav">
         
-          <a id="nav-rss-link" class="nav-icon" href="/blog/atom.xml" title="RSS Feed"></a>
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
         <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
       </nav>
@@ -91,7 +91,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="Eloquent-ORM和查询构造器"><a href="#Eloquent-ORM和查询构造器" class="headerlink" title="Eloquent ORM和查询构造器"></a>Eloquent ORM和查询构造器</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Model::all();</div><div class="line">Model::where();</div><div class="line">Model::groupBy()-&gt;select(&apos;field_name&apos;)-&gt;get()-&gt;toArray()</div></pre></td></tr></table></figure>
+        <h3 id="Eloquent-ORM和查询构造器"><a href="#Eloquent-ORM和查询构造器" class="headerlink" title="Eloquent ORM和查询构造器"></a>Eloquent ORM和查询构造器</h3><figure class="highlight livescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Model::all();</div><div class="line">Model::where();</div><div class="line">Model::groupBy<span class="function"><span class="params">()</span>-&gt;</span>select<span class="function"><span class="params">(<span class="string">'field_name'</span>)</span>-&gt;</span>get<span class="function"><span class="params">()</span>-&gt;</span>toArray()</div></pre></td></tr></table></figure>
 <p>之前一直使用ORM，后面可以尝试使用查询构造器，ORM相比查询构造器，不需要指定table_name和field等信息，但是也有局限性，比如我们经常会需要查询指定字段field<br>对于查询构造器而言是十分方便的select字段名接近原生查询方法，易理解易记忆。<br>
         
           <p class="article-more-link">
@@ -101,7 +101,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://upeng.github.io/blog/2017/09/14/laravel-eloquent-index/" data-id="cj7rsx8ct000bkop49fb3uvsy" class="article-share-link">Share</a>
+      <a data-url="https://upeng.github.io/blog/2017/09/14/laravel-eloquent-index/" data-id="cj7rv5q2m000cykp4g50ep8pm" class="article-share-link">Share</a>
       
         <a href="https://upeng.github.io/blog/2017/09/14/laravel-eloquent-index/#disqus_thread" class="article-comment-link">留言</a>
       
@@ -137,14 +137,14 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="tar后缀文件"><a href="#tar后缀文件" class="headerlink" title="tar后缀文件"></a>tar后缀文件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">//解包</div><div class="line">tar xvf FileName.tar</div><div class="line">//打包</div><div class="line">tar cvf FileName.tar DirName</div></pre></td></tr></table></figure>
-<h3 id="tar-gz-和-tgz后缀文件"><a href="#tar-gz-和-tgz后缀文件" class="headerlink" title="tar.gz 和 .tgz后缀文件"></a>tar.gz 和 .tgz后缀文件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">//解压</div><div class="line">tar zxvf FileName.tar.gz</div><div class="line">//压缩</div><div class="line">tar zcvf FileName.tar.gz DirName</div></pre></td></tr></table></figure>
-<h3 id="zip后缀文件"><a href="#zip后缀文件" class="headerlink" title="zip后缀文件"></a>zip后缀文件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">//解压</div><div class="line">unzip FileName.zip</div><div class="line">//压缩</div><div class="line">zip FileName.zip DirName</div><div class="line">压缩一个目录使用 -r 参数，-r 递归。例： $ zip -r FileName.zip DirName</div></pre></td></tr></table></figure>
-<h3 id="rar后缀文件"><a href="#rar后缀文件" class="headerlink" title="rar后缀文件"></a>rar后缀文件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">//解压</div><div class="line">rar x FileName.rar</div><div class="line">//压缩</div><div class="line">rar a FileName.rar DirName</div><div class="line">　　</div><div class="line">rar请到：http://www.rarsoft.com/download.htm 下载！</div><div class="line">解压后请将rar_static拷贝到/usr/bin目录（其他由$PATH环境变量指定的目录也可以）：</div><div class="line">[root@www]# cp rar_static /usr/bin/rar</div></pre></td></tr></table></figure>
+        <h3 id="tar后缀文件"><a href="#tar后缀文件" class="headerlink" title="tar后缀文件"></a>tar后缀文件</h3><figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//解包</span></div><div class="line">tar xvf FileName.tar</div><div class="line"><span class="comment">//打包</span></div><div class="line">tar cvf FileName<span class="selector-class">.tar</span> DirName</div></pre></td></tr></table></figure>
+<h3 id="tar-gz-和-tgz后缀文件"><a href="#tar-gz-和-tgz后缀文件" class="headerlink" title="tar.gz 和 .tgz后缀文件"></a>tar.gz 和 .tgz后缀文件</h3><figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//解压</span></div><div class="line">tar zxvf FileName<span class="selector-class">.tar</span><span class="selector-class">.gz</span></div><div class="line"><span class="comment">//压缩</span></div><div class="line">tar zcvf FileName<span class="selector-class">.tar</span><span class="selector-class">.gz</span> DirName</div></pre></td></tr></table></figure>
+<h3 id="zip后缀文件"><a href="#zip后缀文件" class="headerlink" title="zip后缀文件"></a>zip后缀文件</h3><figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//解压</span></div><div class="line">unzip FileName.zip</div><div class="line"><span class="comment">//压缩</span></div><div class="line">zip FileName<span class="selector-class">.zip</span> DirName</div><div class="line">压缩一个目录使用 -r 参数，-r 递归。例： $ zip -r FileName<span class="selector-class">.zip</span> DirName</div></pre></td></tr></table></figure>
+<h3 id="rar后缀文件"><a href="#rar后缀文件" class="headerlink" title="rar后缀文件"></a>rar后缀文件</h3><figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//解压</span></div><div class="line">rar x FileName.rar</div><div class="line"><span class="comment">//压缩</span></div><div class="line">rar a FileName.rar DirName</div><div class="line">　　</div><div class="line">rar请到：http:<span class="comment">//www.rarsoft.com/download.htm 下载！</span></div><div class="line">解压后请将rar_static拷贝到/usr/bin目录（其他由$PATH环境变量指定的目录也可以）：</div><div class="line">[<span class="meta">root@www</span>]<span class="meta"># cp rar_static /usr/bin/rar</span></div></pre></td></tr></table></figure>
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://upeng.github.io/blog/2017/09/10/Linux压缩解压缩命令-index/" data-id="cj7rsx8bz0000kop4c0ex5a6k" class="article-share-link">Share</a>
+      <a data-url="https://upeng.github.io/blog/2017/09/10/Linux压缩解压缩命令-index/" data-id="cj7rv5q1l0000ykp4mm77b2rr" class="article-share-link">Share</a>
       
         <a href="https://upeng.github.io/blog/2017/09/10/Linux压缩解压缩命令-index/#disqus_thread" class="article-comment-link">留言</a>
       
@@ -186,8 +186,8 @@
 <blockquote>
 <p>确保系统已经安装xcode，然后使用一行命令安装依赖管理工具Homebrew</p>
 </blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;</div></pre></td></tr></table></figure>
-<p>之后就可以使用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">brew install FORMULA</div></pre></td></tr></table></figure></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/<span class="keyword">install</span>/<span class="keyword">master</span>/<span class="keyword">install</span>)<span class="string">"</span></div></pre></td></tr></table></figure>
+<p>之后就可以使用<br><figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">brew </span><span class="keyword">install </span>FORMULA</div></pre></td></tr></table></figure></p>
 <p>来安装所需要的依赖了.更详细的信息参考Homebrew的[官方Cookbook][1]</p>
 <p>因此使用Homebrew常见的流程是：</p>
 <ol>
@@ -203,7 +203,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://upeng.github.io/blog/2016/08/28/mac-lnmp/" data-id="cj7rsx8di000tkop4ooyh2kt2" class="article-share-link">Share</a>
+      <a data-url="https://upeng.github.io/blog/2016/08/28/mac-lnmp/" data-id="cj7rv5q2y000mykp46les5oh7" class="article-share-link">Share</a>
       
         <a href="https://upeng.github.io/blog/2016/08/28/mac-lnmp/#disqus_thread" class="article-comment-link">留言</a>
       
@@ -260,7 +260,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://upeng.github.io/blog/2016/08/28/mac-primary/" data-id="cj7rsx8dl000wkop4cv7zat2k" class="article-share-link">Share</a>
+      <a data-url="https://upeng.github.io/blog/2016/08/28/mac-primary/" data-id="cj7rv5q37000vykp469a7pdm2" class="article-share-link">Share</a>
       
         <a href="https://upeng.github.io/blog/2016/08/28/mac-primary/#disqus_thread" class="article-comment-link">留言</a>
       
@@ -310,7 +310,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://upeng.github.io/blog/2016/08/15/laravel-basic/" data-id="cj7rsx8cj0006kop4libr64w8" class="article-share-link">Share</a>
+      <a data-url="https://upeng.github.io/blog/2016/08/15/laravel-basic/" data-id="cj7rv5q260005ykp40wxbpkdh" class="article-share-link">Share</a>
       
         <a href="https://upeng.github.io/blog/2016/08/15/laravel-basic/#disqus_thread" class="article-comment-link">留言</a>
       
@@ -361,7 +361,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://upeng.github.io/blog/2016/07/17/vuejs/" data-id="cj7rsx8fd002dkop4qoliq676" class="article-share-link">Share</a>
+      <a data-url="https://upeng.github.io/blog/2016/07/17/vuejs/" data-id="cj7rv5q4r0024ykp4apu5wuw3" class="article-share-link">Share</a>
       
         <a href="https://upeng.github.io/blog/2016/07/17/vuejs/#disqus_thread" class="article-comment-link">留言</a>
       
@@ -415,7 +415,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://upeng.github.io/blog/2016/07/13/vagrant/" data-id="cj7rsx8fb0029kop4nb60hqbf" class="article-share-link">Share</a>
+      <a data-url="https://upeng.github.io/blog/2016/07/13/vagrant/" data-id="cj7rv5q4k001xykp428cdojcr" class="article-share-link">Share</a>
       
         <a href="https://upeng.github.io/blog/2016/07/13/vagrant/#disqus_thread" class="article-comment-link">留言</a>
       
@@ -467,7 +467,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://upeng.github.io/blog/2016/07/11/memcacheq/" data-id="cj7rsx8dp0010kop4i9qj7s8n" class="article-share-link">Share</a>
+      <a data-url="https://upeng.github.io/blog/2016/07/11/memcacheq/" data-id="cj7rv5q31000pykp4278y8zvm" class="article-share-link">Share</a>
       
         <a href="https://upeng.github.io/blog/2016/07/11/memcacheq/#disqus_thread" class="article-comment-link">留言</a>
       
@@ -516,7 +516,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://upeng.github.io/blog/2016/06/30/zephir/" data-id="cj7rsx8ff002gkop4uaml2uws" class="article-share-link">Share</a>
+      <a data-url="https://upeng.github.io/blog/2016/06/30/zephir/" data-id="cj7rv5q60003qykp47pb6huau" class="article-share-link">Share</a>
       
         <a href="https://upeng.github.io/blog/2016/06/30/zephir/#disqus_thread" class="article-comment-link">留言</a>
       
@@ -565,7 +565,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://upeng.github.io/blog/2016/06/25/normal/" data-id="cj7rsx8el001kkop4zc7ynf3x" class="article-share-link">Share</a>
+      <a data-url="https://upeng.github.io/blog/2016/06/25/normal/" data-id="cj7rv5q3w001dykp4qufwrwn5" class="article-share-link">Share</a>
       
         <a href="https://upeng.github.io/blog/2016/06/25/normal/#disqus_thread" class="article-comment-link">留言</a>
       
