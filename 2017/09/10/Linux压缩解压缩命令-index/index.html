@@ -3,19 +3,20 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Linux压缩解压缩命令 | Taylor&#39;s Learning Diary</title>
+  <title>Linux常用压缩解压缩命令 | Taylor&#39;s Learning Diary</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="tar后缀文件1234//解包tar xvf FileName.tar//打包tar cvf FileName.tar DirName tar.gz 和 .tgz后缀文件1234//解压tar zxvf FileName.tar.gz//压缩tar zcvf FileName.tar.gz DirName zip后缀文件12345//解压unzip FileName.zip//压缩zip File">
+  <meta name="description" content="tar后缀文件//解包tar xvf FileName.tar//打包tar cvf FileName.tar DirName zip后缀文件//解压unzip FileName.zip//压缩zip FileName.zip DirName压缩一个目录使用 -r 参数，-r 递归。例： $ zip -r FileName.zip DirName">
+<meta name="keywords" content="linux">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Linux压缩解压缩命令">
+<meta property="og:title" content="Linux常用压缩解压缩命令">
 <meta property="og:url" content="https://upeng.github.io/blog/2017/09/10/Linux压缩解压缩命令-index/index.html">
 <meta property="og:site_name" content="Taylor&#39;s Learning Diary">
-<meta property="og:description" content="tar后缀文件1234//解包tar xvf FileName.tar//打包tar cvf FileName.tar DirName tar.gz 和 .tgz后缀文件1234//解压tar zxvf FileName.tar.gz//压缩tar zcvf FileName.tar.gz DirName zip后缀文件12345//解压unzip FileName.zip//压缩zip File">
+<meta property="og:description" content="tar后缀文件//解包tar xvf FileName.tar//打包tar cvf FileName.tar DirName zip后缀文件//解压unzip FileName.zip//压缩zip FileName.zip DirName压缩一个目录使用 -r 参数，-r 递归。例： $ zip -r FileName.zip DirName">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2017-09-14T17:08:14.285Z">
+<meta property="og:updated_time" content="2017-09-19T17:57:02.105Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Linux压缩解压缩命令">
-<meta name="twitter:description" content="tar后缀文件1234//解包tar xvf FileName.tar//打包tar cvf FileName.tar DirName tar.gz 和 .tgz后缀文件1234//解压tar zxvf FileName.tar.gz//压缩tar zcvf FileName.tar.gz DirName zip后缀文件12345//解压unzip FileName.zip//压缩zip File">
+<meta name="twitter:title" content="Linux常用压缩解压缩命令">
+<meta name="twitter:description" content="tar后缀文件//解包tar xvf FileName.tar//打包tar cvf FileName.tar DirName zip后缀文件//解压unzip FileName.zip//压缩zip FileName.zip DirName压缩一个目录使用 -r 参数，-r 递归。例： $ zip -r FileName.zip DirName">
   
     <link rel="alternate" href="/atom.xml" title="Taylor&#39;s Learning Diary" type="application/atom+xml">
   
@@ -70,6 +71,10 @@
   <time datetime="2017-09-10T13:00:00.000Z" itemprop="datePublished">2017-09-10</time>
 </a>
     
+  <div class="article-category">
+    <a class="article-category-link" href="/blog/categories/Linux/">Linux</a>
+  </div>
+
   </div>
   <div class="article-inner">
     
@@ -78,7 +83,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Linux压缩解压缩命令
+      Linux常用压缩解压缩命令
     </h1>
   
 
@@ -86,10 +91,12 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="tar后缀文件"><a href="#tar后缀文件" class="headerlink" title="tar后缀文件"></a>tar后缀文件</h3><figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//解包</span></div><div class="line">tar xvf FileName.tar</div><div class="line"><span class="comment">//打包</span></div><div class="line">tar cvf FileName<span class="selector-class">.tar</span> DirName</div></pre></td></tr></table></figure>
-<h3 id="tar-gz-和-tgz后缀文件"><a href="#tar-gz-和-tgz后缀文件" class="headerlink" title="tar.gz 和 .tgz后缀文件"></a>tar.gz 和 .tgz后缀文件</h3><figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//解压</span></div><div class="line">tar zxvf FileName<span class="selector-class">.tar</span><span class="selector-class">.gz</span></div><div class="line"><span class="comment">//压缩</span></div><div class="line">tar zcvf FileName<span class="selector-class">.tar</span><span class="selector-class">.gz</span> DirName</div></pre></td></tr></table></figure>
-<h3 id="zip后缀文件"><a href="#zip后缀文件" class="headerlink" title="zip后缀文件"></a>zip后缀文件</h3><figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//解压</span></div><div class="line">unzip FileName.zip</div><div class="line"><span class="comment">//压缩</span></div><div class="line">zip FileName<span class="selector-class">.zip</span> DirName</div><div class="line">压缩一个目录使用 -r 参数，-r 递归。例： $ zip -r FileName<span class="selector-class">.zip</span> DirName</div></pre></td></tr></table></figure>
-<h3 id="rar后缀文件"><a href="#rar后缀文件" class="headerlink" title="rar后缀文件"></a>rar后缀文件</h3><figure class="highlight cs"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//解压</span></div><div class="line">rar x FileName.rar</div><div class="line"><span class="comment">//压缩</span></div><div class="line">rar a FileName.rar DirName</div><div class="line">　　</div><div class="line">rar请到：http:<span class="comment">//www.rarsoft.com/download.htm 下载！</span></div><div class="line">解压后请将rar_static拷贝到/usr/bin目录（其他由$PATH环境变量指定的目录也可以）：</div><div class="line">[<span class="meta">root@www</span>]<span class="meta"># cp rar_static /usr/bin/rar</span></div></pre></td></tr></table></figure>
+        <p><strong>tar后缀文件</strong><br>//解包<br><code>tar xvf FileName.tar</code><br>//打包<br><code>tar cvf FileName.tar DirName</code></p>
+<p><strong>zip后缀文件</strong><br>//解压<br><code>unzip FileName.zip</code><br>//压缩<br><code>zip FileName.zip DirName</code><br>压缩一个目录使用 -r 参数，-r 递归。例： <code>$ zip -r FileName.zip DirName</code></p>
+<a id="more"></a>
+<p><strong>tar.gz 和 .tgz后缀文件</strong><br>//解压<br><code>tar zxvf FileName.tar.gz</code><br>//压缩<br><code>tar zcvf FileName.tar.gz DirName</code></p>
+<p><strong>rar后缀文件</strong><br>//解压<br><code>rar x FileName.rar</code><br>//压缩<br><code>rar a FileName.rar DirName</code><br>rar请到：<code>http://www.rarsoft.com/download.htm</code> 下载！<br>解压后请将<code>rar_static</code>拷贝到<code>/usr/bin</code>目录（其他由$PATH环境变量指定的目录也可以）：<br><code>[root@www]# cp rar_static /usr/bin/rar</code>　　</p>
+
       
     </div>
     <footer class="article-footer">
@@ -98,6 +105,8 @@
         <a href="https://upeng.github.io/blog/2017/09/10/Linux压缩解压缩命令-index/#disqus_thread" class="article-comment-link">留言</a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/linux/">linux</a></li></ul>
+
     </footer>
   </div>
   
@@ -148,7 +157,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/blog/tags/CI/" style="font-size: 10px;">CI</a> <a href="/blog/tags/JQuery/" style="font-size: 10px;">JQuery</a> <a href="/blog/tags/Mac/" style="font-size: 13.33px;">Mac</a> <a href="/blog/tags/MySQL/" style="font-size: 10px;">MySQL</a> <a href="/blog/tags/awk/" style="font-size: 10px;">awk</a> <a href="/blog/tags/bash/" style="font-size: 10px;">bash</a> <a href="/blog/tags/eloquent/" style="font-size: 10px;">eloquent</a> <a href="/blog/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/blog/tags/laravel/" style="font-size: 20px;">laravel</a> <a href="/blog/tags/linux/" style="font-size: 10px;">linux</a> <a href="/blog/tags/memcacheq/" style="font-size: 10px;">memcacheq</a> <a href="/blog/tags/mysql/" style="font-size: 16.67px;">mysql</a> <a href="/blog/tags/php/" style="font-size: 10px;">php</a> <a href="/blog/tags/thinking/" style="font-size: 13.33px;">thinking</a> <a href="/blog/tags/tmux/" style="font-size: 10px;">tmux</a> <a href="/blog/tags/vagrant/" style="font-size: 10px;">vagrant</a> <a href="/blog/tags/vuejs/" style="font-size: 10px;">vuejs</a> <a href="/blog/tags/zephir/" style="font-size: 10px;">zephir</a> <a href="/blog/tags/设计模式/" style="font-size: 13.33px;">设计模式</a>
+      <a href="/blog/tags/CI/" style="font-size: 10px;">CI</a> <a href="/blog/tags/JQuery/" style="font-size: 10px;">JQuery</a> <a href="/blog/tags/Mac/" style="font-size: 13.33px;">Mac</a> <a href="/blog/tags/MySQL/" style="font-size: 10px;">MySQL</a> <a href="/blog/tags/awk/" style="font-size: 10px;">awk</a> <a href="/blog/tags/bash/" style="font-size: 10px;">bash</a> <a href="/blog/tags/eloquent/" style="font-size: 10px;">eloquent</a> <a href="/blog/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/blog/tags/laravel/" style="font-size: 20px;">laravel</a> <a href="/blog/tags/linux/" style="font-size: 13.33px;">linux</a> <a href="/blog/tags/memcacheq/" style="font-size: 10px;">memcacheq</a> <a href="/blog/tags/mysql/" style="font-size: 16.67px;">mysql</a> <a href="/blog/tags/php/" style="font-size: 10px;">php</a> <a href="/blog/tags/thinking/" style="font-size: 13.33px;">thinking</a> <a href="/blog/tags/tmux/" style="font-size: 10px;">tmux</a> <a href="/blog/tags/vagrant/" style="font-size: 10px;">vagrant</a> <a href="/blog/tags/vuejs/" style="font-size: 10px;">vuejs</a> <a href="/blog/tags/zephir/" style="font-size: 10px;">zephir</a> <a href="/blog/tags/设计模式/" style="font-size: 13.33px;">设计模式</a>
     </div>
   </div>
 
@@ -174,7 +183,7 @@
           </li>
         
           <li>
-            <a href="/blog/2017/09/10/Linux压缩解压缩命令-index/">Linux压缩解压缩命令</a>
+            <a href="/blog/2017/09/10/Linux压缩解压缩命令-index/">Linux常用压缩解压缩命令</a>
           </li>
         
           <li>
