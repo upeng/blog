@@ -4,6 +4,420 @@
 
     
   <url>
+    <loc>https://upeng.github.io/blog/blog/2016/10/12/static/</loc>
+    <lastmod>2017-09-28T15:31:09.518Z</lastmod>
+    <data>
+        <display>
+        <title>静态方法和静态成员变量</title>
+        <pubTime>2016-10-12T15:29:13.000Z</pubTime>
+        
+        <tag>static</tag>
+         
+         
+           
+             
+              <breadCrumb title="PHP" url="https://upeng.github.io/blog/blog/categories/PHP/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://upeng.github.io/blog/blog/2016/11/13/linux-php-command/</loc>
+    <lastmod>2017-09-28T15:28:16.699Z</lastmod>
+    <data>
+        <display>
+        <title>经常使用到的几个命令行linux&php</title>
+        <pubTime>2016-11-13T15:24:35.000Z</pubTime>
+        
+        <tag>linux</tag>
+         
+        <tag>nc</tag>
+         
+        <tag>php</tag>
+         
+         
+           
+             
+              <breadCrumb title="PHP" url="https://upeng.github.io/blog/blog/categories/PHP/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://upeng.github.io/blog/blog/2016/10/11/publish-laravel-package/</loc>
+    <lastmod>2017-09-28T15:22:56.450Z</lastmod>
+    <data>
+        <display>
+        <title>从编写到发布laravel扩展</title>
+        <pubTime>2016-10-11T15:08:11.000Z</pubTime>
+        
+        <tag>laravel</tag>
+         
+        <tag>composer</tag>
+         
+        <tag>packageist</tag>
+         
+         
+           
+             
+              <breadCrumb title="PHP" url="https://upeng.github.io/blog/blog/categories/PHP/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://upeng.github.io/blog/blog/2016/12/04/zsh-and-item2/</loc>
+    <lastmod>2017-09-28T15:22:09.710Z</lastmod>
+    <data>
+        <display>
+        <title>Mac下的终端和命令行item2和zsh</title>
+        <pubTime>2016-12-04T15:19:50.000Z</pubTime>
+        
+        <tag>item</tag>
+         
+        <tag>zsh</tag>
+         
+        <tag>mac</tag>
+         
+         
+           
+             
+              <breadCrumb title="其他" url="https://upeng.github.io/blog/blog/categories/%E5%85%B6%E4%BB%96/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://upeng.github.io/blog/blog/2016/06/30/zephir/</loc>
+    <lastmod>2017-09-28T15:12:22.874Z</lastmod>
+    <data>
+        <display>
+        <title>使用zephir快速编写php扩展</title>
+        <pubTime>2016-06-30T15:42:24.000Z</pubTime>
+        
+        <tag>zephir</tag>
+         
+         
+           
+             
+              <breadCrumb title="PHP" url="https://upeng.github.io/blog/blog/categories/PHP/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://upeng.github.io/blog/blog/2016/04/25/laravel-primary/</loc>
+    <lastmod>2017-09-28T15:11:47.031Z</lastmod>
+    <data>
+        <display>
+        <title>laravel初体验</title>
+        <pubTime>2016-04-25T12:10:00.000Z</pubTime>
+        
+        <tag>laravel</tag>
+         
+         
+           
+             
+              <breadCrumb title="PHP" url="https://upeng.github.io/blog/blog/categories/PHP/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://upeng.github.io/blog/blog/2016/05/07/laravel-migration/</loc>
+    <lastmod>2017-09-28T15:11:44.458Z</lastmod>
+    <data>
+        <display>
+        <title>laravel migration</title>
+        <pubTime>2016-05-07T12:10:00.000Z</pubTime>
+        
+        <tag>laravel</tag>
+         
+         
+           
+             
+              <breadCrumb title="PHP" url="https://upeng.github.io/blog/blog/categories/PHP/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://upeng.github.io/blog/blog/2017/09/14/laravel-eloquent-index/</loc>
+    <lastmod>2017-09-28T15:11:39.741Z</lastmod>
+    <data>
+        <display>
+        <title>Eloquent ORM多个and和or条件查询</title>
+        <pubTime>2017-09-14T14:38:00.000Z</pubTime>
+        
+        <tag>laravel</tag>
+         
+        <tag>eloquent</tag>
+         
+         
+           
+             
+              <breadCrumb title="PHP" url="https://upeng.github.io/blog/blog/categories/PHP/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://upeng.github.io/blog/blog/2016/04/29/laravel-blade/</loc>
+    <lastmod>2017-09-28T15:11:35.232Z</lastmod>
+    <data>
+        <display>
+        <title>laravel的blade视图模板引擎</title>
+        <pubTime>2016-04-28T16:18:00.000Z</pubTime>
+        
+        <tag>laravel</tag>
+         
+         
+           
+             
+              <breadCrumb title="PHP" url="https://upeng.github.io/blog/blog/categories/PHP/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://upeng.github.io/blog/blog/2016/08/15/laravel-basic/</loc>
+    <lastmod>2017-09-28T15:11:30.923Z</lastmod>
+    <data>
+        <display>
+        <title>laravel基础任务学习清单</title>
+        <pubTime>2016-08-15T14:24:32.000Z</pubTime>
+        
+        <tag>laravel</tag>
+         
+         
+           
+             
+              <breadCrumb title="PHP" url="https://upeng.github.io/blog/blog/categories/PHP/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://upeng.github.io/blog/blog/2016/05/29/laravel-auth/</loc>
+    <lastmod>2017-09-28T15:11:28.206Z</lastmod>
+    <data>
+        <display>
+        <title>laravel学习笔记-用户认证</title>
+        <pubTime>2016-05-29T00:17:07.000Z</pubTime>
+        
+        <tag>laravel</tag>
+         
+         
+           
+             
+              <breadCrumb title="PHP" url="https://upeng.github.io/blog/blog/categories/PHP/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://upeng.github.io/blog/blog/2016/05/28/php-detail/</loc>
+    <lastmod>2017-09-28T15:11:10.591Z</lastmod>
+    <data>
+        <display>
+        <title>几个值得深思的 PHP 面试问题</title>
+        <pubTime>2016-05-27T16:04:26.000Z</pubTime>
+        
+        <tag>php</tag>
+         
+         
+           
+             
+              <breadCrumb title="PHP" url="https://upeng.github.io/blog/blog/categories/PHP/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://upeng.github.io/blog/blog/2015/10/14/php-design-single/</loc>
+    <lastmod>2017-09-28T15:11:07.617Z</lastmod>
+    <data>
+        <display>
+        <title>PHP设计模式-单例模式</title>
+        <pubTime>2015-10-14T14:21:00.000Z</pubTime>
+        
+        <tag>设计模式</tag>
+         
+         
+           
+             
+              <breadCrumb title="PHP" url="https://upeng.github.io/blog/blog/categories/PHP/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://upeng.github.io/blog/blog/2015/10/12/php-design-model/</loc>
+    <lastmod>2017-09-28T15:11:04.876Z</lastmod>
+    <data>
+        <display>
+        <title>PHP设计模式-工厂模式</title>
+        <pubTime>2015-10-12T14:12:00.000Z</pubTime>
+        
+        <tag>设计模式</tag>
+         
+         
+           
+             
+              <breadCrumb title="PHP" url="https://upeng.github.io/blog/blog/categories/PHP/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://upeng.github.io/blog/blog/2015/08/13/php-ci1/</loc>
+    <lastmod>2017-09-28T15:11:01.739Z</lastmod>
+    <data>
+        <display>
+        <title>CI模型-视图-控制器 命名规范</title>
+        <pubTime>2015-08-13T11:47:00.000Z</pubTime>
+        
+        <tag>CI</tag>
+         
+         
+           
+             
+              <breadCrumb title="PHP" url="https://upeng.github.io/blog/blog/categories/PHP/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://upeng.github.io/blog/blog/2016/09/11/vim/</loc>
+    <lastmod>2017-09-28T15:07:00.739Z</lastmod>
+    <data>
+        <display>
+        <title>vim学习笔记</title>
+        <pubTime>2016-09-11T15:05:25.000Z</pubTime>
+        
+        <tag>linux</tag>
+         
+        <tag>vim</tag>
+         
+         
+           
+             
+              <breadCrumb title="Linux" url="https://upeng.github.io/blog/blog/categories/Linux/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://upeng.github.io/blog/blog/2016/12/08/idempotence/</loc>
+    <lastmod>2017-09-28T15:05:00.161Z</lastmod>
+    <data>
+        <display>
+        <title>在编程中的幂等性idempotence</title>
+        <pubTime>2016-12-08T14:46:55.000Z</pubTime>
+        
+        <tag>idempotence</tag>
+         
+         
+           
+             
+              <breadCrumb title="Thinking" url="https://upeng.github.io/blog/blog/categories/Thinking/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://upeng.github.io/blog/blog/2016/12/17/vuejs/</loc>
+    <lastmod>2017-09-28T15:04:37.545Z</lastmod>
+    <data>
+        <display>
+        <title>vuejs与后台数据的交互实践</title>
+        <pubTime>2016-12-17T07:58:17.000Z</pubTime>
+        
+        <tag>vuejs</tag>
+         
+         
+           
+             
+              <breadCrumb title="前端" url="https://upeng.github.io/blog/blog/categories/%E5%89%8D%E7%AB%AF/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://upeng.github.io/blog/blog/2016/12/13/algorithm/</loc>
+    <lastmod>2017-09-28T15:03:52.290Z</lastmod>
+    <data>
+        <display>
+        <title>判断一个整数的二进制中1的个数</title>
+        <pubTime>2016-12-13T15:02:26.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="算法" url="https://upeng.github.io/blog/blog/categories/%E7%AE%97%E6%B3%95/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://upeng.github.io/blog/blog/2016/12/05/mysql-master-slave/</loc>
+    <lastmod>2017-09-28T14:46:04.609Z</lastmod>
+    <data>
+        <display>
+        <title>mysql主从复制原理理解与实践</title>
+        <pubTime>2016-12-05T14:40:03.000Z</pubTime>
+        
+        <tag>mysql</tag>
+         
+         
+           
+             
+              <breadCrumb title="MySQL" url="https://upeng.github.io/blog/blog/categories/MySQL/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://upeng.github.io/blog/blog/2017/09/28/linux-sed/</loc>
     <lastmod>2017-09-28T14:29:28.532Z</lastmod>
     <data>
@@ -41,28 +455,6 @@
            
              
               <breadCrumb title="Linux" url="https://upeng.github.io/blog/blog/categories/Linux/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://upeng.github.io/blog/blog/2017/09/14/laravel-eloquent-index/</loc>
-    <lastmod>2017-09-20T15:14:19.914Z</lastmod>
-    <data>
-        <display>
-        <title>Eloquent ORM多个and和or条件查询</title>
-        <pubTime>2017-09-14T14:38:00.000Z</pubTime>
-        
-        <tag>laravel</tag>
-         
-        <tag>eloquent</tag>
-         
-         
-           
-             
-              <breadCrumb title="PHP编程" url="https://upeng.github.io/blog/blog/categories/PHP%E7%BC%96%E7%A8%8B/"/>
           
         </display>
     </data>
@@ -110,19 +502,19 @@
 
     
   <url>
-    <loc>https://upeng.github.io/blog/blog/2016/04/29/laravel-blade/</loc>
+    <loc>https://upeng.github.io/blog/blog/2016/07/11/memcacheq/</loc>
     <lastmod>2017-06-28T16:12:44.000Z</lastmod>
     <data>
         <display>
-        <title>laravel的blade视图模板引擎</title>
-        <pubTime>2016-04-28T16:18:00.000Z</pubTime>
+        <title>MCQ学习笔记</title>
+        <pubTime>2016-07-11T15:29:55.000Z</pubTime>
         
-        <tag>laravel</tag>
+        <tag>memcacheq</tag>
          
          
            
              
-              <breadCrumb title="PHP编程" url="https://upeng.github.io/blog/blog/categories/PHP%E7%BC%96%E7%A8%8B/"/>
+              <breadCrumb title="其他" url="https://upeng.github.io/blog/blog/categories/%E5%85%B6%E4%BB%96/"/>
           
         </display>
     </data>
@@ -130,19 +522,19 @@
 
     
   <url>
-    <loc>https://upeng.github.io/blog/blog/2016/05/07/laravel-migration/</loc>
+    <loc>https://upeng.github.io/blog/blog/2016/06/17/thinking-1/</loc>
     <lastmod>2017-06-28T16:12:44.000Z</lastmod>
     <data>
         <display>
-        <title>laravel migration</title>
-        <pubTime>2016-05-07T12:10:00.000Z</pubTime>
+        <title>In Recent Days</title>
+        <pubTime>2016-06-16T18:07:38.000Z</pubTime>
         
-        <tag>laravel</tag>
+        <tag>thinking</tag>
          
          
            
              
-              <breadCrumb title="PHP编程" url="https://upeng.github.io/blog/blog/categories/PHP%E7%BC%96%E7%A8%8B/"/>
+              <breadCrumb title="其他" url="https://upeng.github.io/blog/blog/categories/%E5%85%B6%E4%BB%96/"/>
           
         </display>
     </data>
@@ -150,19 +542,19 @@
 
     
   <url>
-    <loc>https://upeng.github.io/blog/blog/2016/04/23/tmux%E5%B7%A5%E5%85%B7/</loc>
+    <loc>https://upeng.github.io/blog/blog/2015/08/03/mysql%E5%AF%BC%E5%85%A5%E5%AF%BC%E5%87%BA/</loc>
     <lastmod>2017-06-28T16:12:44.000Z</lastmod>
     <data>
         <display>
-        <title>tmux linux下的终端复用工具</title>
-        <pubTime>2016-04-22T17:10:45.000Z</pubTime>
+        <title>linux下导入、导出mysql数据库命令</title>
+        <pubTime>2015-08-03T03:09:00.000Z</pubTime>
         
-        <tag>tmux</tag>
+        <tag>mysql</tag>
          
          
            
              
-              <breadCrumb title="Linux" url="https://upeng.github.io/blog/blog/categories/Linux/"/>
+              <breadCrumb title="MySQL" url="https://upeng.github.io/blog/blog/categories/MySQL/"/>
           
         </display>
     </data>
@@ -170,39 +562,19 @@
 
     
   <url>
-    <loc>https://upeng.github.io/blog/blog/2016/04/25/laravel-primary/</loc>
+    <loc>https://upeng.github.io/blog/blog/2016/02/25/mysql-think/</loc>
     <lastmod>2017-06-28T16:12:44.000Z</lastmod>
     <data>
         <display>
-        <title>laravel初体验</title>
-        <pubTime>2016-04-25T12:10:00.000Z</pubTime>
+        <title>一个脚本引发的思考</title>
+        <pubTime>2016-02-24T16:19:00.000Z</pubTime>
         
-        <tag>laravel</tag>
+        <tag>mysql</tag>
          
          
            
              
-              <breadCrumb title="PHP编程" url="https://upeng.github.io/blog/blog/categories/PHP%E7%BC%96%E7%A8%8B/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://upeng.github.io/blog/blog/2016/01/31/linux-awk/</loc>
-    <lastmod>2017-06-28T16:12:44.000Z</lastmod>
-    <data>
-        <display>
-        <title>Linux常用命令-awk</title>
-        <pubTime>2016-01-31T14:42:00.000Z</pubTime>
-        
-        <tag>awk</tag>
-         
-         
-           
-             
-              <breadCrumb title="Linux" url="https://upeng.github.io/blog/blog/categories/Linux/"/>
+              <breadCrumb title="MySQL" url="https://upeng.github.io/blog/blog/categories/MySQL/"/>
           
         </display>
     </data>
@@ -230,74 +602,14 @@
 
     
   <url>
-    <loc>https://upeng.github.io/blog/blog/2015/07/15/html-js/</loc>
+    <loc>https://upeng.github.io/blog/blog/2016/05/29/thinking/</loc>
     <lastmod>2017-06-28T16:12:44.000Z</lastmod>
     <data>
         <display>
-        <title>jquery中html()、text()、val()与js中的对应属性</title>
-        <pubTime>2015-07-15T10:03:00.000Z</pubTime>
+        <title>standing on the shoulders of the giants</title>
+        <pubTime>2016-05-29T11:18:09.000Z</pubTime>
         
-        <tag>JQuery</tag>
-         
-         
-           
-             
-              <breadCrumb title="前端" url="https://upeng.github.io/blog/blog/categories/%E5%89%8D%E7%AB%AF/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://upeng.github.io/blog/blog/2016/01/30/linux%E5%91%BD%E4%BB%A4/</loc>
-    <lastmod>2017-06-28T16:12:44.000Z</lastmod>
-    <data>
-        <display>
-        <title>linux常用命令（总是forget）</title>
-        <pubTime>2016-01-30T13:36:00.000Z</pubTime>
-        
-        <tag>linux</tag>
-         
-         
-           
-             
-              <breadCrumb title="Linux" url="https://upeng.github.io/blog/blog/categories/Linux/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://upeng.github.io/blog/blog/2016/05/29/laravel-auth/</loc>
-    <lastmod>2017-06-28T16:12:44.000Z</lastmod>
-    <data>
-        <display>
-        <title>laravel学习笔记-用户认证</title>
-        <pubTime>2016-05-29T00:17:07.000Z</pubTime>
-        
-        <tag>laravel</tag>
-         
-         
-           
-             
-              <breadCrumb title="PHP编程" url="https://upeng.github.io/blog/blog/categories/PHP%E7%BC%96%E7%A8%8B/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://upeng.github.io/blog/blog/2016/08/28/mac-primary/</loc>
-    <lastmod>2017-06-28T16:12:44.000Z</lastmod>
-    <data>
-        <display>
-        <title>首次折腾Mac</title>
-        <pubTime>2016-08-28T02:09:29.000Z</pubTime>
-        
-        <tag>Mac</tag>
+        <tag>thinking</tag>
          
          
            
@@ -330,79 +642,19 @@
 
     
   <url>
-    <loc>https://upeng.github.io/blog/blog/2016/04/20/hexo-guidebook/</loc>
+    <loc>https://upeng.github.io/blog/blog/2016/04/23/tmux%E5%B7%A5%E5%85%B7/</loc>
     <lastmod>2017-06-28T16:12:44.000Z</lastmod>
     <data>
         <display>
-        <title>hexo+github搭建blog</title>
-        <pubTime>2016-04-20T13:31:48.000Z</pubTime>
+        <title>tmux linux下的终端复用工具</title>
+        <pubTime>2016-04-22T17:10:45.000Z</pubTime>
         
-        <tag>hexo</tag>
+        <tag>tmux</tag>
          
          
            
              
-              <breadCrumb title="其他" url="https://upeng.github.io/blog/blog/categories/%E5%85%B6%E4%BB%96/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://upeng.github.io/blog/blog/2016/02/25/mysql-think/</loc>
-    <lastmod>2017-06-28T16:12:44.000Z</lastmod>
-    <data>
-        <display>
-        <title>一个脚本引发的思考</title>
-        <pubTime>2016-02-24T16:19:00.000Z</pubTime>
-        
-        <tag>mysql</tag>
-         
-         
-           
-             
-              <breadCrumb title="MySQL" url="https://upeng.github.io/blog/blog/categories/MySQL/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://upeng.github.io/blog/blog/2016/04/24/mysqlperformance01/</loc>
-    <lastmod>2017-06-28T16:12:44.000Z</lastmod>
-    <data>
-        <display>
-        <title>mysql之sql优化-慢查询日志开启和查看（1）</title>
-        <pubTime>2016-04-23T19:25:05.000Z</pubTime>
-        
-        <tag>mysql</tag>
-         
-         
-           
-             
-              <breadCrumb title="MySQL" url="https://upeng.github.io/blog/blog/categories/MySQL/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://upeng.github.io/blog/blog/2015/08/03/mysql%E5%AF%BC%E5%85%A5%E5%AF%BC%E5%87%BA/</loc>
-    <lastmod>2017-06-28T16:12:44.000Z</lastmod>
-    <data>
-        <display>
-        <title>linux下导入、导出mysql数据库命令</title>
-        <pubTime>2015-08-03T03:09:00.000Z</pubTime>
-        
-        <tag>mysql</tag>
-         
-         
-           
-             
-              <breadCrumb title="MySQL" url="https://upeng.github.io/blog/blog/categories/MySQL/"/>
+              <breadCrumb title="Linux" url="https://upeng.github.io/blog/blog/categories/Linux/"/>
           
         </display>
     </data>
@@ -430,19 +682,59 @@
 
     
   <url>
-    <loc>https://upeng.github.io/blog/blog/2015/08/13/php-ci1/</loc>
+    <loc>https://upeng.github.io/blog/blog/2016/07/13/vagrant/</loc>
     <lastmod>2017-06-28T16:12:44.000Z</lastmod>
     <data>
         <display>
-        <title>CI模型-视图-控制器 命名规范</title>
-        <pubTime>2015-08-13T11:47:00.000Z</pubTime>
+        <title>vagrant-快速搭建linux开发环境</title>
+        <pubTime>2016-07-13T15:32:54.000Z</pubTime>
         
-        <tag>CI</tag>
+        <tag>vagrant</tag>
          
          
            
              
-              <breadCrumb title="PHP编程" url="https://upeng.github.io/blog/blog/categories/PHP%E7%BC%96%E7%A8%8B/"/>
+              <breadCrumb title="其他" url="https://upeng.github.io/blog/blog/categories/%E5%85%B6%E4%BB%96/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://upeng.github.io/blog/blog/2016/08/28/mac-primary/</loc>
+    <lastmod>2017-06-28T16:12:44.000Z</lastmod>
+    <data>
+        <display>
+        <title>首次折腾Mac</title>
+        <pubTime>2016-08-28T02:09:29.000Z</pubTime>
+        
+        <tag>Mac</tag>
+         
+         
+           
+             
+              <breadCrumb title="其他" url="https://upeng.github.io/blog/blog/categories/%E5%85%B6%E4%BB%96/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://upeng.github.io/blog/blog/2016/01/30/linux%E5%91%BD%E4%BB%A4/</loc>
+    <lastmod>2017-06-28T16:12:44.000Z</lastmod>
+    <data>
+        <display>
+        <title>linux常用命令（总是forget）</title>
+        <pubTime>2016-01-30T13:36:00.000Z</pubTime>
+        
+        <tag>linux</tag>
+         
+         
+           
+             
+              <breadCrumb title="Linux" url="https://upeng.github.io/blog/blog/categories/Linux/"/>
           
         </display>
     </data>
@@ -470,19 +762,19 @@
 
     
   <url>
-    <loc>https://upeng.github.io/blog/blog/2015/10/12/php-design-model/</loc>
+    <loc>https://upeng.github.io/blog/blog/2016/01/31/linux-awk/</loc>
     <lastmod>2017-06-28T16:12:44.000Z</lastmod>
     <data>
         <display>
-        <title>PHP设计模式-工厂模式</title>
-        <pubTime>2015-10-12T14:12:00.000Z</pubTime>
+        <title>Linux常用命令-awk</title>
+        <pubTime>2016-01-31T14:42:00.000Z</pubTime>
         
-        <tag>设计模式</tag>
+        <tag>awk</tag>
          
          
            
              
-              <breadCrumb title="PHP编程" url="https://upeng.github.io/blog/blog/categories/PHP%E7%BC%96%E7%A8%8B/"/>
+              <breadCrumb title="Linux" url="https://upeng.github.io/blog/blog/categories/Linux/"/>
           
         </display>
     </data>
@@ -490,114 +782,14 @@
 
     
   <url>
-    <loc>https://upeng.github.io/blog/blog/2016/08/15/laravel-basic/</loc>
+    <loc>https://upeng.github.io/blog/blog/2015/07/15/html-js/</loc>
     <lastmod>2017-06-28T16:12:44.000Z</lastmod>
     <data>
         <display>
-        <title>laravel基础任务学习清单</title>
-        <pubTime>2016-08-15T14:24:32.000Z</pubTime>
+        <title>jquery中html()、text()、val()与js中的对应属性</title>
+        <pubTime>2015-07-15T10:03:00.000Z</pubTime>
         
-        <tag>laravel</tag>
-         
-         
-           
-             
-              <breadCrumb title="PHP编程" url="https://upeng.github.io/blog/blog/categories/PHP%E7%BC%96%E7%A8%8B/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://upeng.github.io/blog/blog/2016/05/28/php-detail/</loc>
-    <lastmod>2017-06-28T16:12:44.000Z</lastmod>
-    <data>
-        <display>
-        <title>几个值得深思的 PHP 面试问题</title>
-        <pubTime>2016-05-27T16:04:26.000Z</pubTime>
-        
-        <tag>php</tag>
-         
-         
-           
-             
-              <breadCrumb title="PHP编程" url="https://upeng.github.io/blog/blog/categories/PHP%E7%BC%96%E7%A8%8B/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://upeng.github.io/blog/blog/2016/05/29/thinking/</loc>
-    <lastmod>2017-06-28T16:12:44.000Z</lastmod>
-    <data>
-        <display>
-        <title>standing on the shoulders of the giants</title>
-        <pubTime>2016-05-29T11:18:09.000Z</pubTime>
-        
-        <tag>thinking</tag>
-         
-         
-           
-             
-              <breadCrumb title="其他" url="https://upeng.github.io/blog/blog/categories/%E5%85%B6%E4%BB%96/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://upeng.github.io/blog/blog/2015/10/14/php-design-single/</loc>
-    <lastmod>2017-06-28T16:12:44.000Z</lastmod>
-    <data>
-        <display>
-        <title>PHP设计模式-单例模式</title>
-        <pubTime>2015-10-14T14:21:00.000Z</pubTime>
-        
-        <tag>设计模式</tag>
-         
-         
-           
-             
-              <breadCrumb title="PHP编程" url="https://upeng.github.io/blog/blog/categories/PHP%E7%BC%96%E7%A8%8B/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://upeng.github.io/blog/blog/2016/06/17/thinking-1/</loc>
-    <lastmod>2017-06-28T16:12:44.000Z</lastmod>
-    <data>
-        <display>
-        <title>In Recent Days</title>
-        <pubTime>2016-06-16T18:07:38.000Z</pubTime>
-        
-        <tag>thinking</tag>
-         
-         
-           
-             
-              <breadCrumb title="其他" url="https://upeng.github.io/blog/blog/categories/%E5%85%B6%E4%BB%96/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://upeng.github.io/blog/blog/2016/07/17/vuejs/</loc>
-    <lastmod>2017-06-28T16:12:44.000Z</lastmod>
-    <data>
-        <display>
-        <title>vuejs与后台数据的交互实践</title>
-        <pubTime>2016-07-17T07:58:17.000Z</pubTime>
-        
-        <tag>vuejs</tag>
+        <tag>JQuery</tag>
          
          
            
@@ -610,34 +802,14 @@
 
     
   <url>
-    <loc>https://upeng.github.io/blog/blog/2016/06/30/zephir/</loc>
+    <loc>https://upeng.github.io/blog/blog/2016/04/20/hexo-guidebook/</loc>
     <lastmod>2017-06-28T16:12:44.000Z</lastmod>
     <data>
         <display>
-        <title>使用zephir快速编写php扩展</title>
-        <pubTime>2016-06-30T15:42:24.000Z</pubTime>
+        <title>hexo+github搭建blog</title>
+        <pubTime>2016-04-20T13:31:48.000Z</pubTime>
         
-        <tag>zephir</tag>
-         
-         
-           
-             
-              <breadCrumb title="PHP编程" url="https://upeng.github.io/blog/blog/categories/PHP%E7%BC%96%E7%A8%8B/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://upeng.github.io/blog/blog/2016/07/13/vagrant/</loc>
-    <lastmod>2017-06-28T16:12:44.000Z</lastmod>
-    <data>
-        <display>
-        <title>vagrant-快速搭建linux开发环境</title>
-        <pubTime>2016-07-13T15:32:54.000Z</pubTime>
-        
-        <tag>vagrant</tag>
+        <tag>hexo</tag>
          
          
            
@@ -650,19 +822,19 @@
 
     
   <url>
-    <loc>https://upeng.github.io/blog/blog/2016/07/11/memcacheq/</loc>
+    <loc>https://upeng.github.io/blog/blog/2016/04/24/mysqlperformance01/</loc>
     <lastmod>2017-06-28T16:12:44.000Z</lastmod>
     <data>
         <display>
-        <title>MCQ学习笔记</title>
-        <pubTime>2016-07-11T15:29:55.000Z</pubTime>
+        <title>mysql之sql优化-慢查询日志开启和查看（1）</title>
+        <pubTime>2016-04-23T19:25:05.000Z</pubTime>
         
-        <tag>memcacheq</tag>
+        <tag>mysql</tag>
          
          
            
              
-              <breadCrumb title="其他" url="https://upeng.github.io/blog/blog/categories/%E5%85%B6%E4%BB%96/"/>
+              <breadCrumb title="MySQL" url="https://upeng.github.io/blog/blog/categories/MySQL/"/>
           
         </display>
     </data>
