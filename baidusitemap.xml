@@ -380,24 +380,6 @@
 
     
   <url>
-    <loc>https://upeng.github.io/blog/blog/2016/12/13/algorithm/</loc>
-    <lastmod>2017-09-28T15:03:52.290Z</lastmod>
-    <data>
-        <display>
-        <title>判断一个整数的二进制中1的个数</title>
-        <pubTime>2016-12-13T15:02:26.000Z</pubTime>
-        
-         
-           
-             
-              <breadCrumb title="算法" url="https://upeng.github.io/blog/blog/categories/%E7%AE%97%E6%B3%95/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://upeng.github.io/blog/blog/2016/12/05/mysql-master-slave/</loc>
     <lastmod>2017-09-28T14:46:04.609Z</lastmod>
     <data>
@@ -502,154 +484,14 @@
 
     
   <url>
-    <loc>https://upeng.github.io/blog/blog/2016/07/11/memcacheq/</loc>
+    <loc>https://upeng.github.io/blog/blog/2016/01/30/linux%E5%91%BD%E4%BB%A4/</loc>
     <lastmod>2017-06-28T16:12:44.000Z</lastmod>
     <data>
         <display>
-        <title>MCQ学习笔记</title>
-        <pubTime>2016-07-11T15:29:55.000Z</pubTime>
+        <title>linux常用命令（总是forget）</title>
+        <pubTime>2016-01-30T13:36:00.000Z</pubTime>
         
-        <tag>memcacheq</tag>
-         
-         
-           
-             
-              <breadCrumb title="其他" url="https://upeng.github.io/blog/blog/categories/%E5%85%B6%E4%BB%96/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://upeng.github.io/blog/blog/2016/06/17/thinking-1/</loc>
-    <lastmod>2017-06-28T16:12:44.000Z</lastmod>
-    <data>
-        <display>
-        <title>In Recent Days</title>
-        <pubTime>2016-06-16T18:07:38.000Z</pubTime>
-        
-        <tag>thinking</tag>
-         
-         
-           
-             
-              <breadCrumb title="其他" url="https://upeng.github.io/blog/blog/categories/%E5%85%B6%E4%BB%96/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://upeng.github.io/blog/blog/2015/08/03/mysql%E5%AF%BC%E5%85%A5%E5%AF%BC%E5%87%BA/</loc>
-    <lastmod>2017-06-28T16:12:44.000Z</lastmod>
-    <data>
-        <display>
-        <title>linux下导入、导出mysql数据库命令</title>
-        <pubTime>2015-08-03T03:09:00.000Z</pubTime>
-        
-        <tag>mysql</tag>
-         
-         
-           
-             
-              <breadCrumb title="MySQL" url="https://upeng.github.io/blog/blog/categories/MySQL/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://upeng.github.io/blog/blog/2016/02/25/mysql-think/</loc>
-    <lastmod>2017-06-28T16:12:44.000Z</lastmod>
-    <data>
-        <display>
-        <title>一个脚本引发的思考</title>
-        <pubTime>2016-02-24T16:19:00.000Z</pubTime>
-        
-        <tag>mysql</tag>
-         
-         
-           
-             
-              <breadCrumb title="MySQL" url="https://upeng.github.io/blog/blog/categories/MySQL/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://upeng.github.io/blog/blog/2015/10/28/linux-bash/</loc>
-    <lastmod>2017-06-28T16:12:44.000Z</lastmod>
-    <data>
-        <display>
-        <title>常用的bash命令快捷建</title>
-        <pubTime>2015-10-28T09:56:00.000Z</pubTime>
-        
-        <tag>bash</tag>
-         
-         
-           
-             
-              <breadCrumb title="Linux" url="https://upeng.github.io/blog/blog/categories/Linux/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://upeng.github.io/blog/blog/2016/05/29/thinking/</loc>
-    <lastmod>2017-06-28T16:12:44.000Z</lastmod>
-    <data>
-        <display>
-        <title>standing on the shoulders of the giants</title>
-        <pubTime>2016-05-29T11:18:09.000Z</pubTime>
-        
-        <tag>thinking</tag>
-         
-         
-           
-             
-              <breadCrumb title="其他" url="https://upeng.github.io/blog/blog/categories/%E5%85%B6%E4%BB%96/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://upeng.github.io/blog/blog/2016/04/10/mysql-grant/</loc>
-    <lastmod>2017-06-28T16:12:44.000Z</lastmod>
-    <data>
-        <display>
-        <title>mysql添加用户管理员及授权</title>
-        <pubTime>2016-04-10T06:26:00.000Z</pubTime>
-        
-        <tag>mysql</tag>
-         
-         
-           
-             
-              <breadCrumb title="MySQL" url="https://upeng.github.io/blog/blog/categories/MySQL/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://upeng.github.io/blog/blog/2016/04/23/tmux%E5%B7%A5%E5%85%B7/</loc>
-    <lastmod>2017-06-28T16:12:44.000Z</lastmod>
-    <data>
-        <display>
-        <title>tmux linux下的终端复用工具</title>
-        <pubTime>2016-04-22T17:10:45.000Z</pubTime>
-        
-        <tag>tmux</tag>
+        <tag>linux</tag>
          
          
            
@@ -682,14 +524,74 @@
 
     
   <url>
-    <loc>https://upeng.github.io/blog/blog/2016/07/13/vagrant/</loc>
+    <loc>https://upeng.github.io/blog/blog/2016/04/24/mysqlperformance01/</loc>
     <lastmod>2017-06-28T16:12:44.000Z</lastmod>
     <data>
         <display>
-        <title>vagrant-快速搭建linux开发环境</title>
-        <pubTime>2016-07-13T15:32:54.000Z</pubTime>
+        <title>mysql之sql优化-慢查询日志开启和查看（1）</title>
+        <pubTime>2016-04-23T19:25:05.000Z</pubTime>
         
-        <tag>vagrant</tag>
+        <tag>mysql</tag>
+         
+         
+           
+             
+              <breadCrumb title="MySQL" url="https://upeng.github.io/blog/blog/categories/MySQL/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://upeng.github.io/blog/blog/2015/07/15/html-js/</loc>
+    <lastmod>2017-06-28T16:12:44.000Z</lastmod>
+    <data>
+        <display>
+        <title>jquery中html()、text()、val()与js中的对应属性</title>
+        <pubTime>2015-07-15T10:03:00.000Z</pubTime>
+        
+        <tag>JQuery</tag>
+         
+         
+           
+             
+              <breadCrumb title="前端" url="https://upeng.github.io/blog/blog/categories/%E5%89%8D%E7%AB%AF/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://upeng.github.io/blog/blog/2016/04/10/mysql-grant/</loc>
+    <lastmod>2017-06-28T16:12:44.000Z</lastmod>
+    <data>
+        <display>
+        <title>mysql添加用户管理员及授权</title>
+        <pubTime>2016-04-10T06:26:00.000Z</pubTime>
+        
+        <tag>mysql</tag>
+         
+         
+           
+             
+              <breadCrumb title="MySQL" url="https://upeng.github.io/blog/blog/categories/MySQL/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://upeng.github.io/blog/blog/2016/07/11/memcacheq/</loc>
+    <lastmod>2017-06-28T16:12:44.000Z</lastmod>
+    <data>
+        <display>
+        <title>MCQ学习笔记</title>
+        <pubTime>2016-07-11T15:29:55.000Z</pubTime>
+        
+        <tag>memcacheq</tag>
          
          
            
@@ -722,26 +624,6 @@
 
     
   <url>
-    <loc>https://upeng.github.io/blog/blog/2016/01/30/linux%E5%91%BD%E4%BB%A4/</loc>
-    <lastmod>2017-06-28T16:12:44.000Z</lastmod>
-    <data>
-        <display>
-        <title>linux常用命令（总是forget）</title>
-        <pubTime>2016-01-30T13:36:00.000Z</pubTime>
-        
-        <tag>linux</tag>
-         
-         
-           
-             
-              <breadCrumb title="Linux" url="https://upeng.github.io/blog/blog/categories/Linux/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://upeng.github.io/blog/blog/2016/04/27/mysqlperformance03/</loc>
     <lastmod>2017-06-28T16:12:44.000Z</lastmod>
     <data>
@@ -755,6 +637,126 @@
            
              
               <breadCrumb title="MySQL" url="https://upeng.github.io/blog/blog/categories/MySQL/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://upeng.github.io/blog/blog/2015/08/03/mysql%E5%AF%BC%E5%85%A5%E5%AF%BC%E5%87%BA/</loc>
+    <lastmod>2017-06-28T16:12:44.000Z</lastmod>
+    <data>
+        <display>
+        <title>linux下导入、导出mysql数据库命令</title>
+        <pubTime>2015-08-03T03:09:00.000Z</pubTime>
+        
+        <tag>mysql</tag>
+         
+         
+           
+             
+              <breadCrumb title="MySQL" url="https://upeng.github.io/blog/blog/categories/MySQL/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://upeng.github.io/blog/blog/2016/05/29/thinking/</loc>
+    <lastmod>2017-06-28T16:12:44.000Z</lastmod>
+    <data>
+        <display>
+        <title>standing on the shoulders of the giants</title>
+        <pubTime>2016-05-29T11:18:09.000Z</pubTime>
+        
+        <tag>thinking</tag>
+         
+         
+           
+             
+              <breadCrumb title="其他" url="https://upeng.github.io/blog/blog/categories/%E5%85%B6%E4%BB%96/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://upeng.github.io/blog/blog/2016/04/23/tmux%E5%B7%A5%E5%85%B7/</loc>
+    <lastmod>2017-06-28T16:12:44.000Z</lastmod>
+    <data>
+        <display>
+        <title>tmux linux下的终端复用工具</title>
+        <pubTime>2016-04-22T17:10:45.000Z</pubTime>
+        
+        <tag>tmux</tag>
+         
+         
+           
+             
+              <breadCrumb title="Linux" url="https://upeng.github.io/blog/blog/categories/Linux/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://upeng.github.io/blog/blog/2016/06/17/thinking-1/</loc>
+    <lastmod>2017-06-28T16:12:44.000Z</lastmod>
+    <data>
+        <display>
+        <title>In Recent Days</title>
+        <pubTime>2016-06-16T18:07:38.000Z</pubTime>
+        
+        <tag>thinking</tag>
+         
+         
+           
+             
+              <breadCrumb title="其他" url="https://upeng.github.io/blog/blog/categories/%E5%85%B6%E4%BB%96/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://upeng.github.io/blog/blog/2016/07/13/vagrant/</loc>
+    <lastmod>2017-06-28T16:12:44.000Z</lastmod>
+    <data>
+        <display>
+        <title>vagrant-快速搭建linux开发环境</title>
+        <pubTime>2016-07-13T15:32:54.000Z</pubTime>
+        
+        <tag>vagrant</tag>
+         
+         
+           
+             
+              <breadCrumb title="其他" url="https://upeng.github.io/blog/blog/categories/%E5%85%B6%E4%BB%96/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://upeng.github.io/blog/blog/2015/10/28/linux-bash/</loc>
+    <lastmod>2017-06-28T16:12:44.000Z</lastmod>
+    <data>
+        <display>
+        <title>常用的bash命令快捷建</title>
+        <pubTime>2015-10-28T09:56:00.000Z</pubTime>
+        
+        <tag>bash</tag>
+         
+         
+           
+             
+              <breadCrumb title="Linux" url="https://upeng.github.io/blog/blog/categories/Linux/"/>
           
         </display>
     </data>
@@ -782,26 +784,6 @@
 
     
   <url>
-    <loc>https://upeng.github.io/blog/blog/2015/07/15/html-js/</loc>
-    <lastmod>2017-06-28T16:12:44.000Z</lastmod>
-    <data>
-        <display>
-        <title>jquery中html()、text()、val()与js中的对应属性</title>
-        <pubTime>2015-07-15T10:03:00.000Z</pubTime>
-        
-        <tag>JQuery</tag>
-         
-         
-           
-             
-              <breadCrumb title="前端" url="https://upeng.github.io/blog/blog/categories/%E5%89%8D%E7%AB%AF/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
     <loc>https://upeng.github.io/blog/blog/2016/04/20/hexo-guidebook/</loc>
     <lastmod>2017-06-28T16:12:44.000Z</lastmod>
     <data>
@@ -822,12 +804,12 @@
 
     
   <url>
-    <loc>https://upeng.github.io/blog/blog/2016/04/24/mysqlperformance01/</loc>
+    <loc>https://upeng.github.io/blog/blog/2016/02/25/mysql-think/</loc>
     <lastmod>2017-06-28T16:12:44.000Z</lastmod>
     <data>
         <display>
-        <title>mysql之sql优化-慢查询日志开启和查看（1）</title>
-        <pubTime>2016-04-23T19:25:05.000Z</pubTime>
+        <title>一个脚本引发的思考</title>
+        <pubTime>2016-02-24T16:19:00.000Z</pubTime>
         
         <tag>mysql</tag>
          

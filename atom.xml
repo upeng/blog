@@ -142,26 +142,6 @@
   </entry>
   
   <entry>
-    <title>判断一个整数的二进制中1的个数</title>
-    <link href="https://upeng.github.io/blog/2016/12/13/algorithm/"/>
-    <id>https://upeng.github.io/blog/2016/12/13/algorithm/</id>
-    <published>2016-12-13T15:02:26.000Z</published>
-    <updated>2017-09-28T15:03:52.290Z</updated>
-    
-    <content type="html"><![CDATA[<p>无意间看到这个题目，最先想到是将整数转换成二进制，然后再统计这个二进制中有多少个1。对于php而言，这很容易实现，转成二进制可用<code>decbin()</code>这个函数，然后将二进制数按1位进行分割用str_split()，最后对分割后的数值进行foreach即可完成数据的统计，实际上这是最low的解决方案，网上大多数使用下面的算法进行求解，觉得很巧妙，于是就mark了！<br><a id="more"></a></p><h3 id="算法说明"><a href="#算法说明" class="headerlink" title="算法说明"></a><a href="#算法说明" title="算法说明"></a>算法说明</h3><p>设x的二进制位表示为<br>x=a<sub>(n-1)</sub> a<sub>(n-2)</sub>…a<sub>0</sub></p><p>按从低位到高位的顺序，不失一般性，假设x的第i位为第一个为1的二进制位，即：a<sub>i</sub> = 1<br>此时有：<br>x = a<sub>(n-1)</sub> a<sub>(n-2)</sub> … a<sub>(i+1)</sub> 1 0 0 … 0 （式1)<br>x-1= a<sub>(n-1)</sub>a<sub>(n-2)</sub> …a<sub>(i+1)</sub> 0 1 1 … 1 （式2)<br>很明显，从式1和式2可以得出，在第一次 <code>x &amp; (x-1)</code> 后：<br>x = a<sub>(n-1)</sub> a<sub>(n-2)</sub> … a<sub>(i+1)</sub> 0 0 0 … 0</p><p>之后重复同样操作，直到x的二进制位中没有1为止，从上面可以看出，每执行过一次 <code>x &amp; (x-1)</code> 后，都会将x的<strong>二进制位中为1的最低位的值变为0，并记数加1</strong>。目前而言，一个整数最大64bit，所有三种方法执行起来都可以认为是O(1)。</p><h3 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a><a href="#代码实现" title="代码实现"></a>代码实现</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="php"><span class="meta">&lt;?php</span></span></div><div class="line"><span class="php">$number = $argv[<span class="number">1</span>];</span></div><div class="line"><span class="php">$counter = <span class="number">0</span>;</span></div><div class="line"><span class="php"><span class="keyword">while</span> ($number)</span></div><div class="line"><span class="php">&#123;</span></div><div class="line"><span class="php">    $counter += <span class="number">1</span>;</span></div><div class="line"><span class="php">    $number = $number &amp; ($number<span class="number">-1</span>);</span></div><div class="line"><span class="php"></span></div><div class="line"><span class="php">&#125;</span></div><div class="line"><span class="php"></span></div><div class="line"><span class="php"><span class="keyword">echo</span> $counter . PHP_EOL;</span></div></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;无意间看到这个题目，最先想到是将整数转换成二进制，然后再统计这个二进制中有多少个1。对于php而言，这很容易实现，转成二进制可用&lt;code&gt;decbin()&lt;/code&gt;这个函数，然后将二进制数按1位进行分割用str_split()，最后对分割后的数值进行foreach即可完成数据的统计，实际上这是最low的解决方案，网上大多数使用下面的算法进行求解，觉得很巧妙，于是就mark了！&lt;br&gt;
-    
-    </summary>
-    
-      <category term="算法" scheme="https://upeng.github.io/blog/categories/%E7%AE%97%E6%B3%95/"/>
-    
-    
-  </entry>
-  
-  <entry>
     <title>在编程中的幂等性idempotence</title>
     <link href="https://upeng.github.io/blog/2016/12/08/idempotence/"/>
     <id>https://upeng.github.io/blog/2016/12/08/idempotence/</id>
@@ -528,6 +508,28 @@
     
     
       <category term="MySQL" scheme="https://upeng.github.io/blog/tags/MySQL/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>In Recent Days</title>
+    <link href="https://upeng.github.io/blog/2016/06/17/thinking-1/"/>
+    <id>https://upeng.github.io/blog/2016/06/17/thinking-1/</id>
+    <published>2016-06-16T18:07:38.000Z</published>
+    <updated>2017-06-28T16:12:44.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>首先我想吐糟一下为知笔记；我写了这么久，保存一下就丢了？丢了？发现最近为知还炒鸡慢，算了还是用Evernote吧，相对而言更靠谱（虽然不支持markdown格式）<br><a id="more"></a><br>最近忙的没有规律，蓝v后台一直在处理零星bug，但是对蓝v心里不是很踏实；目前为知，对做蓝v后台有几点体会</p><ul><li>代码结构混乱，一个函数能有几百行，变量超级多，定位问题很困难；不同的页面使用同一个Controller和view，然后在里面做各种复杂的判断逻辑，代码辣眼睛！</li><li>代码逻辑混乱，队列夹杂着数据库、调前台、平台接口同步数据；接口调的特隐晦，后台自己操作数据库要先入队列，然后通过脚本读队列操作数据库；其实量真没那么大！</li><li>主观方面自己心不静，看到代码复杂心情就不好了，为了能够实现功能就又开始堆代码了，心情很复杂，想重构又无从下手！</li></ul><p>先说下自己这半个月来的学习进度；月初和校长约定要学习这些东西：</p><ul><li>mysql分库分表、主从复制同步；</li><li>laravel和EPF的比较</li><li>swoole的学习</li></ul><p>这个月已经过半，直到今天才写了这个文章，并不是说这半个月没有学，相反，几乎天天都在学，地铁上班和回去的路上，中午有时候午休前也会看；但是没有总结，没有思考，只是机械的装载知识，并没有多少收获；下午和校长谈话，校长给了很中肯的意见，说的很多地方都是我目前遇到的问题；总结这半个月，我也看了很多东西：laravel、vuejs、swoole。但都只是停留在表面，没有深入！我觉得校长说的很对，学习的时候要有个主线，沿着这个主线深入学习，遇到与主线相关的问题，就深入学习搞定它；与主线无关就先getpocket，或者收藏起来；等主线相关的内容都搞明白搞清楚后，再去搞定你pocket里的另一个主线。想想这半个月以来的学习状态，我不禁要批评自己了，偏离主线的方向有点远了！</p><p>今天看到了<a href="http://xiaolai.li" target="_blank" rel="external">xiaolai</a>老师的文章，他说道：真正的工程师，时间分配大抵上是这样的，80% 的时间用来思考，20% 的时间把思考结果用代码表达出来，这个思考的过程包括反复搜索(search 多了，就叫 research)，深入阅读各种文档（因为今天的工程师必定要用到大量别人写好的模块），还要思考自己写出来的代码如何写好文档才能让更多的人使用……而刚入门的时候，可能是反过来的，80%的时间用来写代码，没有思想可以表达，就去模仿表达别人的思想…… 但，一定要有 20% 的时间花在真正的思考上，像工程师一样思考。<strong>很多人进步慢的根本原因在于，每天都在“学”，但从来不花大块的时间深入“想”。而我这半个月就是这种状态：每天都在学，但是没有花时间思考！</strong></p><p>另外我在学习的时候有个问题，比如在学laravel和vuejs的时候，我总想把文档一次性看完，然后再去操作；其实这犯了学习大忌，就像xiaolai老师说的</p><blockquote><p>真实的学习过程是，学会一点最少必要知识（就是那些知道了之后就可以马上开始行动了的最少知识），然后就要马上开始实际操练…… 最终，大量的细节都是在实际操作过程中进一步学会的 —— 甚至，还有大量的细节如果不进行实际操练的话，就根本没机会学得到。</p></blockquote><p>这半个月来：</p><ul><li>思考的少，机械师忘脑袋装知识，只讲数量不讲质量，仅仅停留在表面</li><li>总结的少，有点偏离主线</li></ul><p>后面要做的就是纠正这些学习上的毛病，一专而多精，看一个文章就要认真看，看懂！不能匆匆而过，看完要思考是什么？为什么？怎么做的？再针对这类问题做个总结，如果自己遇到这类问题你该怎么做，ok，fighting!</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;首先我想吐糟一下为知笔记；我写了这么久，保存一下就丢了？丢了？发现最近为知还炒鸡慢，算了还是用Evernote吧，相对而言更靠谱（虽然不支持markdown格式）&lt;br&gt;
+    
+    </summary>
+    
+      <category term="其他" scheme="https://upeng.github.io/blog/categories/%E5%85%B6%E4%BB%96/"/>
+    
+    
+      <category term="thinking" scheme="https://upeng.github.io/blog/tags/thinking/"/>
     
   </entry>
   
