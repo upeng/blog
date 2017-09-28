@@ -6,7 +6,7 @@
   <link href="/blog/atom.xml" rel="self"/>
   
   <link href="https://upeng.github.io/blog/"/>
-  <updated>2017-09-27T15:57:33.414Z</updated>
+  <updated>2017-09-28T14:29:28.532Z</updated>
   <id>https://upeng.github.io/blog/</id>
   
   <author>
@@ -15,6 +15,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>linux常用命令之sed</title>
+    <link href="https://upeng.github.io/blog/2017/09/28/linux-sed/"/>
+    <id>https://upeng.github.io/blog/2017/09/28/linux-sed/</id>
+    <published>2017-09-28T14:23:10.000Z</published>
+    <updated>2017-09-28T14:29:28.532Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="sed工作原理："><a href="#sed工作原理：" class="headerlink" title="sed工作原理："></a>sed工作原理：</h2><p>sed在正常情况下，将处理的行读入模式空间，脚本中的sed命令就一条接着一条进行处理，直到脚本执行完毕。然后该行被输出，模式空间被清空；接着，在重复执行刚才的动作，文件中的新的一行被读入，直到文件处理完毕。【读入的每一行删除行尾的换行符放入模式空间，再执行所有命令，执行完所有的命令之后，再加回删过的换行符并打印到输出】</p><h2 id="sed替换操作（s命令）"><a href="#sed替换操作（s命令）" class="headerlink" title="sed替换操作（s命令）"></a>sed替换操作（s命令）</h2><ul><li>使用后缀 <code>/g</code> 标记会替换每一行中的所有匹配, <code>/n</code>表示替换每一行第n处匹配</li><li><code>sed -i</code> 表示在源文件基础上修改</li></ul><a id="more"></a><p><code>sed &#39;s/^/str&amp;/g&#39; filename</code>              //每行前加上字符串str<br><code>sed &#39;s/$/&amp;str/g&#39; filename</code>               //每行末尾加上字符串str</p><p><code>sed &#39;s/oldstr/newstr/g&#39; filename</code>      //字符串替换</p><p><code>sed &#39;s/str/,str/g&#39; filename</code>           //str前加上逗号，本质上还是字符串替换<br><code>sed &#39;s/str//g&#39; filename</code>               //删除字符串str，本质上还是字符串替换<br><code>sed &#39;s/str.*//g&#39; filename</code>              //删除字符串str之后的所有字符（包括str）</p><p><code>sed &#39;s/\s\+/,/g&#39; filename</code>     //替换一个或多个空格为逗号，其中\s代表空格，+代表出现一次或多次。<br><code>sed &#39;s/\t/,/g&#39;    filename</code>        //替换tab为逗号</p><p><code>s/^/hello\n&amp;/g filename</code>        //每一行前面加上一行hello</p><h2 id="组合多个表达式-多个sed命令"><a href="#组合多个表达式-多个sed命令" class="headerlink" title="组合多个表达式(多个sed命令)"></a>组合多个表达式(多个sed命令)</h2><p>一定要注意顺序，因为多个命令前后是有依赖的，每一个命令都是在前一个命令执行完成的基础上进行的，数据自然也是前一个命令处理后的数据。<br><strong>使用方法：</strong></p><ol><li><code>sed &#39;表达式&#39; | sed &#39;表达式&#39;</code></li><li><code>sed &#39;表达式; 表达式&#39;</code></li></ol><h2 id="sed的其他命令参考"><a href="#sed的其他命令参考" class="headerlink" title="sed的其他命令参考"></a>sed的其他命令参考</h2><p><a href="http://man.linuxde.net/sed" target="_blank" rel="external">http://man.linuxde.net/sed</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;sed工作原理：&quot;&gt;&lt;a href=&quot;#sed工作原理：&quot; class=&quot;headerlink&quot; title=&quot;sed工作原理：&quot;&gt;&lt;/a&gt;sed工作原理：&lt;/h2&gt;&lt;p&gt;sed在正常情况下，将处理的行读入模式空间，脚本中的sed命令就一条接着一条进行处理，直到脚本执行完毕。然后该行被输出，模式空间被清空；接着，在重复执行刚才的动作，文件中的新的一行被读入，直到文件处理完毕。【读入的每一行删除行尾的换行符放入模式空间，再执行所有命令，执行完所有的命令之后，再加回删过的换行符并打印到输出】&lt;/p&gt;
+&lt;h2 id=&quot;sed替换操作（s命令）&quot;&gt;&lt;a href=&quot;#sed替换操作（s命令）&quot; class=&quot;headerlink&quot; title=&quot;sed替换操作（s命令）&quot;&gt;&lt;/a&gt;sed替换操作（s命令）&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;使用后缀 &lt;code&gt;/g&lt;/code&gt; 标记会替换每一行中的所有匹配, &lt;code&gt;/n&lt;/code&gt;表示替换每一行第n处匹配&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;sed -i&lt;/code&gt; 表示在源文件基础上修改&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+      <category term="Linux" scheme="https://upeng.github.io/blog/categories/Linux/"/>
+    
+    
+      <category term="linux" scheme="https://upeng.github.io/blog/tags/linux/"/>
+    
+      <category term="sed" scheme="https://upeng.github.io/blog/tags/sed/"/>
+    
+  </entry>
   
   <entry>
     <title>shell脚本由点到面学习总结</title>
@@ -496,32 +524,6 @@
     
     
       <category term="laravel" scheme="https://upeng.github.io/blog/tags/laravel/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>mysql之sql优化-慢查询日志开启和查看（1）</title>
-    <link href="https://upeng.github.io/blog/2016/04/24/mysqlperformance01/"/>
-    <id>https://upeng.github.io/blog/2016/04/24/mysqlperformance01/</id>
-    <published>2016-04-23T19:25:05.000Z</published>
-    <updated>2017-06-28T16:12:44.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>如何发现有问题的SQL？使用慢查询日志【slow_query_log】对有效率问题的sql进行监控</p><h3 id="查看慢查询日志开启状态"><a href="#查看慢查询日志开启状态" class="headerlink" title="查看慢查询日志开启状态"></a>查看慢查询日志开启状态</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">show</span> <span class="keyword">variable</span>  s <span class="keyword">like</span> <span class="string">'slow_query_log'</span></div></pre></td></tr></table></figure><p><img src="https://raw.githubusercontent.com/upeng/upeng.github.io/master/image/6a0acb38-fbe0-42e6-b9ca-f05955ca73e8.png" alt=""></p><h3 id="记录未使用索引的查询"><a href="#记录未使用索引的查询" class="headerlink" title="记录未使用索引的查询"></a>记录未使用索引的查询</h3><p>未使用索引的查询默认是关闭的，如下<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">show</span> <span class="keyword">variables</span> <span class="keyword">like</span> <span class="string">'log_queries_not_using_indexes'</span>;</div></pre></td></tr></table></figure></p><p><img src="https://raw.githubusercontent.com/upeng/upeng.github.io/master/image/2655ccd1-69ab-4c54-b7bf-50b01b2b45e5.png" alt=""><br>需要打开未使用索引的查询，即未使用索引的查询会记录在案<br><figure class="highlight applescript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">set</span> <span class="keyword">global</span> log_queries_not_using_indexes=<span class="keyword">on</span></div></pre></td></tr></table></figure></p><a id="more"></a><h3 id="慢查询时间设置"><a href="#慢查询时间设置" class="headerlink" title="慢查询时间设置"></a>慢查询时间设置</h3><p> 查询时间超过多长时间的查询记录会记录到日志中； 默认为慢查询的时间10秒，即 超过10s的查询会记录到慢查询日志中<br><img src="https://raw.githubusercontent.com/upeng/upeng.github.io/master/image/d99d63ee-d0e2-4bfb-8230-984d884b1528.png" alt=""><br><figure class="highlight routeros"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="builtin-name">set</span> global <span class="attribute">long_query_time</span>=0;</div></pre></td></tr></table></figure></p><p>a litter bug i think：在本窗口查询时发现慢查询时间还是10；但是重新打开一个窗口查询结果才是0<br>这样设置的目的是：不管什么查询，都会记录到慢查询日志中</p><h3 id="打开慢查询日志"><a href="#打开慢查询日志" class="headerlink" title="打开慢查询日志"></a>打开慢查询日志</h3><p>设置完上述两项后，我们再打开慢查询日志<br><figure class="highlight applescript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">set</span> <span class="keyword">global</span> slow_query_log=<span class="keyword">on</span>;</div></pre></td></tr></table></figure></p><p>输入两个查询语句<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">select</span> * <span class="keyword">from</span> actor <span class="keyword">limit</span> <span class="number">10</span>;</div><div class="line"><span class="keyword">select</span> * <span class="keyword">from</span> actor <span class="keyword">where</span> first_name <span class="keyword">like</span> <span class="string">'%A%'</span>;</div></pre></td></tr></table></figure></p><h3 id="打开日志文件"><a href="#打开日志文件" class="headerlink" title="打开日志文件"></a>打开日志文件</h3><p>日志文件位置，查看变量slow_query_log_file的值<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">show</span> <span class="keyword">variables</span> <span class="keyword">like</span> <span class="string">'slow_query_log_file'</span>;</div></pre></td></tr></table></figure></p><p>当然，我们也可以手动设置慢查询日志的存放路径及文件名<br><figure class="highlight applescript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">set</span> <span class="keyword">global</span> slow_query_log_file = ****</div></pre></td></tr></table></figure></p><h3 id="慢查询日志所包含的内容"><a href="#慢查询日志所包含的内容" class="headerlink" title="慢查询日志所包含的内容"></a>慢查询日志所包含的内容</h3><p><img src="https://raw.githubusercontent.com/upeng/upeng.github.io/master/image/e3f793a8-8b50-464c-b52b-5ffbc78ab187.png" alt=""> </p><ol><li>执行sql的主机信息<br><code># User@Host: root[root] @ localhost [127.0.0.1]</code></li><li>sql的执行信息<br><code># Query_time: 0.001008  Lock_time: 0.000000 Rows_sent: 104  Rows_examined: 200</code></li><li>sql执行时刻<br><code>SET timestamp=1461435221;</code></li><li>sql内容<br><code>select * from actor where first_name like &#39;%A%&#39;;</code></li></ol><h3 id="慢查询日志的分析工具"><a href="#慢查询日志的分析工具" class="headerlink" title="慢查询日志的分析工具"></a>慢查询日志的分析工具</h3><p>mysqldumpslow输出</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;如何发现有问题的SQL？使用慢查询日志【slow_query_log】对有效率问题的sql进行监控&lt;/p&gt;
-&lt;h3 id=&quot;查看慢查询日志开启状态&quot;&gt;&lt;a href=&quot;#查看慢查询日志开启状态&quot; class=&quot;headerlink&quot; title=&quot;查看慢查询日志开启状态&quot;&gt;&lt;/a&gt;查看慢查询日志开启状态&lt;/h3&gt;&lt;figure class=&quot;highlight sql&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;show&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;variable&lt;/span&gt;  s &lt;span class=&quot;keyword&quot;&gt;like&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&#39;slow_query_log&#39;&lt;/span&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;&lt;img src=&quot;https://raw.githubusercontent.com/upeng/upeng.github.io/master/image/6a0acb38-fbe0-42e6-b9ca-f05955ca73e8.png&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
-&lt;h3 id=&quot;记录未使用索引的查询&quot;&gt;&lt;a href=&quot;#记录未使用索引的查询&quot; class=&quot;headerlink&quot; title=&quot;记录未使用索引的查询&quot;&gt;&lt;/a&gt;记录未使用索引的查询&lt;/h3&gt;&lt;p&gt;未使用索引的查询默认是关闭的，如下&lt;br&gt;&lt;figure class=&quot;highlight sql&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;show&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;variables&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;like&lt;/span&gt; &lt;span class=&quot;string&quot;&gt;&#39;log_queries_not_using_indexes&#39;&lt;/span&gt;;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;https://raw.githubusercontent.com/upeng/upeng.github.io/master/image/2655ccd1-69ab-4c54-b7bf-50b01b2b45e5.png&quot; alt=&quot;&quot;&gt;&lt;br&gt;需要打开未使用索引的查询，即未使用索引的查询会记录在案&lt;br&gt;&lt;figure class=&quot;highlight applescript&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;set&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;global&lt;/span&gt; log_queries_not_using_indexes=&lt;span class=&quot;keyword&quot;&gt;on&lt;/span&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="MySQL" scheme="https://upeng.github.io/blog/categories/MySQL/"/>
-    
-    
-      <category term="mysql" scheme="https://upeng.github.io/blog/tags/mysql/"/>
     
   </entry>
   

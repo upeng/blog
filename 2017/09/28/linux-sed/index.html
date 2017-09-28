@@ -4,18 +4,20 @@
   <meta charset="utf-8">
   
   <meta name="google-site-verification" content="k9iQUbEI9rWq3xYeh63ATztKdkthC4dNRHV_25maJ3Q" />
-  <title>Tag: zephir | Taylor&#39;s Learning Diary</title>
+  <title>linux常用命令之sed | Taylor&#39;s Learning Diary</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="LNMP">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Taylor&#39;s Learning Diary">
-<meta property="og:url" content="https://upeng.github.io/blog/tags/zephir/index.html">
+  <meta name="description" content="sed工作原理：sed在正常情况下，将处理的行读入模式空间，脚本中的sed命令就一条接着一条进行处理，直到脚本执行完毕。然后该行被输出，模式空间被清空；接着，在重复执行刚才的动作，文件中的新的一行被读入，直到文件处理完毕。【读入的每一行删除行尾的换行符放入模式空间，再执行所有命令，执行完所有的命令之后，再加回删过的换行符并打印到输出】 sed替换操作（s命令） 使用后缀 /g 标记会替换每一行中的">
+<meta name="keywords" content="linux,sed">
+<meta property="og:type" content="article">
+<meta property="og:title" content="linux常用命令之sed">
+<meta property="og:url" content="https://upeng.github.io/blog/2017/09/28/linux-sed/index.html">
 <meta property="og:site_name" content="Taylor&#39;s Learning Diary">
-<meta property="og:description" content="LNMP">
+<meta property="og:description" content="sed工作原理：sed在正常情况下，将处理的行读入模式空间，脚本中的sed命令就一条接着一条进行处理，直到脚本执行完毕。然后该行被输出，模式空间被清空；接着，在重复执行刚才的动作，文件中的新的一行被读入，直到文件处理完毕。【读入的每一行删除行尾的换行符放入模式空间，再执行所有命令，执行完所有的命令之后，再加回删过的换行符并打印到输出】 sed替换操作（s命令） 使用后缀 /g 标记会替换每一行中的">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2017-09-28T14:29:28.532Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Taylor&#39;s Learning Diary">
-<meta name="twitter:description" content="LNMP">
+<meta name="twitter:title" content="linux常用命令之sed">
+<meta name="twitter:description" content="sed工作原理：sed在正常情况下，将处理的行读入模式空间，脚本中的sed命令就一条接着一条进行处理，直到脚本执行完毕。然后该行被输出，模式空间被清空；接着，在重复执行刚才的动作，文件中的新的一行被读入，直到文件处理完毕。【读入的每一行删除行尾的换行符放入模式空间，再执行所有命令，执行完所有的命令之后，再加回删过的换行符并打印到输出】 sed替换操作（s命令） 使用后缀 /g 标记会替换每一行中的">
   
     <link rel="alternate" href="/atom.xml" title="Taylor&#39;s Learning Diary" type="application/atom+xml">
   
@@ -64,40 +66,83 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/blog/archives/2016" class="archive-year">2016</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/blog/2016/06/30/zephir/" class="archive-article-date">
-  <time datetime="2016-06-30T15:42:24.000Z" itemprop="datePublished">6月 30</time>
+        <section id="main"><article id="post-linux-sed" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2017/09/28/linux-sed/" class="article-date">
+  <time datetime="2017-09-28T14:23:10.000Z" itemprop="datePublished">2017-09-28</time>
 </a>
-      
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/blog/categories/Linux/">Linux</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/blog/2016/06/30/zephir/">使用zephir快速编写php扩展</a>
+    <h1 class="article-title" itemprop="name">
+      linux常用命令之sed
     </h1>
   
 
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="sed工作原理："><a href="#sed工作原理：" class="headerlink" title="sed工作原理："></a>sed工作原理：</h2><p>sed在正常情况下，将处理的行读入模式空间，脚本中的sed命令就一条接着一条进行处理，直到脚本执行完毕。然后该行被输出，模式空间被清空；接着，在重复执行刚才的动作，文件中的新的一行被读入，直到文件处理完毕。【读入的每一行删除行尾的换行符放入模式空间，再执行所有命令，执行完所有的命令之后，再加回删过的换行符并打印到输出】</p>
+<h2 id="sed替换操作（s命令）"><a href="#sed替换操作（s命令）" class="headerlink" title="sed替换操作（s命令）"></a>sed替换操作（s命令）</h2><ul>
+<li>使用后缀 <code>/g</code> 标记会替换每一行中的所有匹配, <code>/n</code>表示替换每一行第n处匹配</li>
+<li><code>sed -i</code> 表示在源文件基础上修改</li>
+</ul>
+<a id="more"></a>
+<p><code>sed &#39;s/^/str&amp;/g&#39; filename</code>              //每行前加上字符串str<br><code>sed &#39;s/$/&amp;str/g&#39; filename</code>               //每行末尾加上字符串str</p>
+<p><code>sed &#39;s/oldstr/newstr/g&#39; filename</code>      //字符串替换</p>
+<p><code>sed &#39;s/str/,str/g&#39; filename</code>           //str前加上逗号，本质上还是字符串替换<br><code>sed &#39;s/str//g&#39; filename</code>               //删除字符串str，本质上还是字符串替换<br><code>sed &#39;s/str.*//g&#39; filename</code>              //删除字符串str之后的所有字符（包括str）</p>
+<p><code>sed &#39;s/\s\+/,/g&#39; filename</code>     //替换一个或多个空格为逗号，其中\s代表空格，+代表出现一次或多次。<br><code>sed &#39;s/\t/,/g&#39;    filename</code>        //替换tab为逗号</p>
+<p><code>s/^/hello\n&amp;/g filename</code>        //每一行前面加上一行hello</p>
+<h2 id="组合多个表达式-多个sed命令"><a href="#组合多个表达式-多个sed命令" class="headerlink" title="组合多个表达式(多个sed命令)"></a>组合多个表达式(多个sed命令)</h2><p>一定要注意顺序，因为多个命令前后是有依赖的，每一个命令都是在前一个命令执行完成的基础上进行的，数据自然也是前一个命令处理后的数据。<br><strong>使用方法：</strong></p>
+<ol>
+<li><code>sed &#39;表达式&#39; | sed &#39;表达式&#39;</code></li>
+<li><code>sed &#39;表达式; 表达式&#39;</code></li>
+</ol>
+<h2 id="sed的其他命令参考"><a href="#sed的其他命令参考" class="headerlink" title="sed的其他命令参考"></a>sed的其他命令参考</h2><p><a href="http://man.linuxde.net/sed" target="_blank" rel="external">http://man.linuxde.net/sed</a></p>
 
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://upeng.github.io/blog/2017/09/28/linux-sed/" data-id="cj84jxxfj000r3cp4e4o8etj6" class="article-share-link">Share</a>
+      
+        <a href="https://upeng.github.io/blog/2017/09/28/linux-sed/#disqus_thread" class="article-comment-link">留言</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/linux/">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/blog/tags/sed/">sed</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/blog/2017/09/27/shell-script-learning/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">shell脚本由点到面学习总结</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
 </section>
         
           <aside id="sidebar">
@@ -186,11 +231,13 @@
 <script>
   var disqus_shortname = 'tayloryu';
   
+  var disqus_url = 'https://upeng.github.io/blog/2017/09/28/linux-sed/';
+  
   (function(){
     var dsq = document.createElement('script');
     dsq.type = 'text/javascript';
     dsq.async = true;
-    dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
   })();
 </script>
