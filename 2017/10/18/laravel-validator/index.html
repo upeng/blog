@@ -6,18 +6,18 @@
   <meta name="google-site-verification" content="k9iQUbEI9rWq3xYeh63ATztKdkthC4dNRHV_25maJ3Q" />
   <title>Laravel Validator自定义参数验证规则 | Taylor&#39;s Learning Diary</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="自定义参数验证规则public Validator make(array $data, array $rules, array $messages = [], array $attributes = [])参数说明  $data是要验证的数据,即 $request-&amp;gt;all()  | $request-&amp;gt;input() | Request::all() $rules是验证的规则 $me">
+  <meta name="description" content="自定义参数验证规则public Validator make(array $data, array $rules, array $messages = [], array $attributes = []) 参数说明  $data是要验证的数据,即 $request-&amp;gt;all()  | $request-&amp;gt;input() | Request::all() $rules是验证的规则 $m">
 <meta name="keywords" content="laravel,validator">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Laravel Validator自定义参数验证规则">
 <meta property="og:url" content="https://upeng.github.io/blog/2017/10/18/laravel-validator/index.html">
 <meta property="og:site_name" content="Taylor&#39;s Learning Diary">
-<meta property="og:description" content="自定义参数验证规则public Validator make(array $data, array $rules, array $messages = [], array $attributes = [])参数说明  $data是要验证的数据,即 $request-&amp;gt;all()  | $request-&amp;gt;input() | Request::all() $rules是验证的规则 $me">
+<meta property="og:description" content="自定义参数验证规则public Validator make(array $data, array $rules, array $messages = [], array $attributes = []) 参数说明  $data是要验证的数据,即 $request-&amp;gt;all()  | $request-&amp;gt;input() | Request::all() $rules是验证的规则 $m">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2017-10-18T15:31:54.398Z">
+<meta property="og:updated_time" content="2017-10-18T15:34:41.127Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Laravel Validator自定义参数验证规则">
-<meta name="twitter:description" content="自定义参数验证规则public Validator make(array $data, array $rules, array $messages = [], array $attributes = [])参数说明  $data是要验证的数据,即 $request-&amp;gt;all()  | $request-&amp;gt;input() | Request::all() $rules是验证的规则 $me">
+<meta name="twitter:description" content="自定义参数验证规则public Validator make(array $data, array $rules, array $messages = [], array $attributes = []) 参数说明  $data是要验证的数据,即 $request-&amp;gt;all()  | $request-&amp;gt;input() | Request::all() $rules是验证的规则 $m">
   
     <link rel="alternate" href="/atom.xml" title="Taylor&#39;s Learning Diary" type="application/atom+xml">
   
@@ -92,7 +92,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="自定义参数验证规则"><a href="#自定义参数验证规则" class="headerlink" title="自定义参数验证规则"></a>自定义参数验证规则</h2><p><code>public Validator make(array $data, array $rules, array $messages = [], array $attributes = [])</code><br><strong>参数说明</strong></p>
+        <h2 id="自定义参数验证规则"><a href="#自定义参数验证规则" class="headerlink" title="自定义参数验证规则"></a>自定义参数验证规则</h2><p><code>public Validator make(array $data, array $rules, array $messages = [], array $attributes = [])</code></p>
+<p><strong>参数说明</strong></p>
 <ul>
 <li><code>$data</code>是要验证的数据,即 <code>$request-&gt;all()  | $request-&gt;input() | Request::all()</code></li>
 <li><code>$rules</code>是验证的规则</li>
@@ -100,12 +101,12 @@
 <li><code>$attributes</code>是设置属性别名</li>
 </ul>
 <blockquote>
-<p>使用方法和流程见下面示例</p>
+<p>使用方法和流程见示例</p>
 </blockquote>
 <a id="more"></a>
 <figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">use</span> <span class="title">Illuminate</span>\<span class="title">Http</span>\<span class="title">Request</span>;</div><div class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">index</span><span class="params">(Request $request)</span></span></div><div class="line"><span class="function"></span>&#123;</div><div class="line">    $data = $request-&gt;input();</div><div class="line">    $rules = [</div><div class="line">        <span class="string">'id'</span>    =&gt; <span class="string">'required|numeric'</span>,</div><div class="line">        <span class="string">'age'</span>   =&gt; <span class="string">'required|numeric|max:150'</span>,</div><div class="line">        <span class="string">'name'</span>  =&gt; <span class="string">'sometimes|max:20'</span>,  <span class="comment">//sometimes的用意（不传则已，传则必须遵守规则）</span></div><div class="line">    ];</div><div class="line">    $messages = [</div><div class="line">        <span class="string">'required'</span>  =&gt; <span class="string">':attribute不能为空'</span>,</div><div class="line">        <span class="string">'numeric'</span>   =&gt; <span class="string">':attribute必须是数字'</span>,</div><div class="line">        <span class="string">'max'</span>       =&gt; <span class="string">':attribute长度（数值）不应该大于 :max'</span>,</div><div class="line">    ];</div><div class="line">    $attributes = [</div><div class="line">        <span class="string">'id'</span>    =&gt; <span class="string">'ID'</span>,</div><div class="line">        <span class="string">'age'</span>   =&gt; <span class="string">'年龄'</span>,</div><div class="line">        <span class="string">'name'</span>  =&gt; <span class="string">'名称'</span>,</div><div class="line">    ];</div><div class="line">    $validator = \Validator::make($data, $rules, $messages, $attributes);</div><div class="line">    <span class="keyword">if</span> ($validator-&gt;fails()) &#123;</div><div class="line">        <span class="keyword">return</span> $validator-&gt;errors()-&gt;all();         <span class="comment">//显示所有错误组成的数组</span></div><div class="line">        <span class="comment">//return $validator-&gt;errors()-&gt;first();     //显示第一条错误</span></div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">        <span class="keyword">return</span> <span class="string">'validate passed'</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <blockquote>
-<p>上面的messages和attributes都是必须自定义设置，有种方法是按照语言在配置文件中定义</p>
+<p>上面的messages和attributes都是在使用处自定义设置，有种方法是按照语言在配置文件中定义</p>
 </blockquote>
 <ol>
 <li>修改config/app.php里面的locale为ch</li>
@@ -117,7 +118,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://upeng.github.io/blog/2017/10/18/laravel-validator/" data-id="cj8x74cwl000wagp4xj7mjynt" class="article-share-link">Share</a>
+      <a data-url="https://upeng.github.io/blog/2017/10/18/laravel-validator/" data-id="cj8x7816x000rgwp4iwgfax9i" class="article-share-link">Share</a>
       
         <a href="https://upeng.github.io/blog/2017/10/18/laravel-validator/#disqus_thread" class="article-comment-link">留言</a>
       
